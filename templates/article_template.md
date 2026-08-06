@@ -4,6 +4,7 @@ title_en: （论文英文原题）
 digest: （≤120字摘要，显示在会话卡片上）
 author: 供应链安全前沿
 venue: （会议/期刊 + 年份，如 ICSE 2026；未知则 arXiv + 年份）
+collection: （发布时手动勾选的合集，见 PAPER_WORKFLOW.md 合集清单）
 highlights:
   - （看点一，≤14字）
   - （看点二，≤14字）

@@ -4,6 +4,7 @@ title_en: MalSkillBench: A Runtime-Verified Benchmark of Malicious Agent Skills
 digest: 3944 个恶意 Agent Skill 组成的首个运行时验证基准：最强检测器召回率 98.4% 却在指令层攻击上全面失守，只看野外数据会把检测工具的排名彻底排反。
 author: 供应链安全前沿
 venue: arXiv 2026
+collection: AI Agent 安全
 highlights:
   - 3944个恶意Skill运行时验证
   - 野外攻击86%集中于单一模式

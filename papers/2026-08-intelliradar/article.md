@@ -4,6 +4,7 @@ title_en: IntelliRadar: A Comprehensive Platform to Pinpoint Malicious Packages 
 digest: 恶意包被曝光后平均还要一个月才进安全数据库，期间照样被下载。IntelliRadar 用 LLM 持续读全网 24 个情报源，建成 34313 个恶意包的最大公开数据库，76.6% 的情报比 Snyk 更早，每条成本 0.003 美元。
 author: 供应链安全前沿
 venue: ICSE 2026
+collection: 恶意包与威胁情报
 highlights:
   - 34313个恶意包最大公开库
   - 76.6%情报早于Snyk收录
