@@ -1,0 +1,22 @@
+# 密钥与本地配置
+.env
+.env.*
+!.env.example
+
+# Claude Code 本地目录（工作流定义在 pipeline/ 下，受 git 追踪）
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# macOS
+.DS_Store
+
+# 编辑器本地历史
+.history/
+
+# Playwright
+.playwright/
