@@ -1,0 +1,57 @@
+[
+  {
+    "page": 4,
+    "bbox": [
+      50,
+      78,
+      562,
+      190
+    ],
+    "out": "assets/fig/fig2-framework.png",
+    "dpi": 220
+  },
+  {
+    "page": 3,
+    "bbox": [
+      312,
+      75,
+      563,
+      199
+    ],
+    "out": "assets/fig/fig1-migration.png",
+    "dpi": 220
+  },
+  {
+    "page": 9,
+    "bbox": [
+      52,
+      246,
+      302,
+      424
+    ],
+    "out": "assets/result/fig5-wild.png",
+    "dpi": 220
+  },
+  {
+    "page": 10,
+    "bbox": [
+      50,
+      94,
+      292,
+      227
+    ],
+    "out": "assets/result/table5-detection.png",
+    "dpi": 220
+  },
+  {
+    "page": 11,
+    "bbox": [
+      54,
+      78,
+      296,
+      232
+    ],
+    "out": "assets/result/fig7-shift.png",
+    "dpi": 220
+  }
+]
