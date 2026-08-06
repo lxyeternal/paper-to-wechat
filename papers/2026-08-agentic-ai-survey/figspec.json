@@ -1,0 +1,68 @@
+[
+  {
+    "page": 1,
+    "bbox": [
+      40,
+      82,
+      560,
+      216
+    ],
+    "out": "assets/header.png",
+    "dpi": 220
+  },
+  {
+    "page": 4,
+    "bbox": [
+      50,
+      84,
+      542,
+      258
+    ],
+    "out": "assets/fig/fig1-structure.png",
+    "dpi": 220
+  },
+  {
+    "page": 6,
+    "bbox": [
+      60,
+      84,
+      542,
+      252
+    ],
+    "out": "assets/fig/fig2-attacks.png",
+    "dpi": 220
+  },
+  {
+    "page": 10,
+    "bbox": [
+      40,
+      86,
+      558,
+      236
+    ],
+    "out": "assets/fig/fig4-defense.png",
+    "dpi": 220
+  },
+  {
+    "page": 20,
+    "bbox": [
+      50,
+      150,
+      558,
+      232
+    ],
+    "out": "assets/result/table3-agents.png",
+    "dpi": 220
+  },
+  {
+    "page": 25,
+    "bbox": [
+      50,
+      130,
+      560,
+      265
+    ],
+    "out": "assets/result/table4-autogpt.png",
+    "dpi": 220
+  }
+]
