@@ -1,0 +1,57 @@
+[
+  {
+    "page": 1,
+    "bbox": [
+      40,
+      78,
+      572,
+      205
+    ],
+    "out": "assets/header.png",
+    "dpi": 220
+  },
+  {
+    "page": 2,
+    "bbox": [
+      312,
+      452,
+      562,
+      668
+    ],
+    "out": "assets/fig/fig1-threat.png",
+    "dpi": 220
+  },
+  {
+    "page": 5,
+    "bbox": [
+      312,
+      348,
+      560,
+      610
+    ],
+    "out": "assets/result/fig3-source.png",
+    "dpi": 220
+  },
+  {
+    "page": 6,
+    "bbox": [
+      312,
+      262,
+      562,
+      470
+    ],
+    "out": "assets/result/fig5-repeat.png",
+    "dpi": 220
+  },
+  {
+    "page": 8,
+    "bbox": [
+      312,
+      284,
+      562,
+      528
+    ],
+    "out": "assets/result/fig9-editdist.png",
+    "dpi": 220
+  }
+]
