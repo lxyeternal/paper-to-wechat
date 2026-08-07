@@ -1,0 +1,57 @@
+[
+  {
+    "page": 1,
+    "bbox": [
+      45,
+      108,
+      567,
+      218
+    ],
+    "out": "assets/header.png",
+    "dpi": 220
+  },
+  {
+    "page": 5,
+    "bbox": [
+      50,
+      62,
+      574,
+      680
+    ],
+    "out": "assets/fig/table1-taxonomy.png",
+    "dpi": 220
+  },
+  {
+    "page": 8,
+    "bbox": [
+      50,
+      66,
+      560,
+      252
+    ],
+    "out": "assets/fig/fig1-claude-ui.png",
+    "dpi": 220
+  },
+  {
+    "page": 8,
+    "bbox": [
+      50,
+      268,
+      560,
+      404
+    ],
+    "out": "assets/result/fig2-mcp-log.png",
+    "dpi": 220
+  },
+  {
+    "page": 8,
+    "bbox": [
+      52,
+      452,
+      300,
+      560
+    ],
+    "out": "assets/result/fig3-cowork.png",
+    "dpi": 220
+  }
+]
