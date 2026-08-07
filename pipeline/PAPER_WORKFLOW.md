@@ -23,7 +23,21 @@
 - 写 `papers/<slug>/figspec.json`（bbox 单位为 PDF point；从 150dpi 页面图的像素坐标换算：`pt = px ÷ 150 × 72`），架构图 out 到 `assets/fig/`，结果图到 `assets/result/`。
 - `.venv/bin/python scripts/extract_figures.py crop papers/<slug>/paper.pdf papers/<slug> papers/<slug>/figspec.json`
 - `.venv/bin/python scripts/extract_figures.py header papers/<slug>/paper.pdf papers/<slug>/assets/header.png`
-- 用 Read 逐一目视裁剪结果：图必须完整、无截断、无邻栏文字混入；不合格就调 bbox 重裁。
+
+**图表完整性检查（强制，不可跳过）**：用 Read 工具**逐一**打开每一张裁剪产物（含 header），
+按下面的清单逐张核对，任何一条不满足就调整 bbox 重裁并重新 Read，直到全部通过：
+
+- **无截断**：图/表的四条边都在画面内，没有半个字、半行、半列、半个坐标轴被切掉。
+  特别检查顶边和底边——多栏论文的图常常上边贴着正文，容易切掉标题行或第一行元素。
+- **题头完整**：`header.png` 必须包含论文标题的**全部行**和**全部作者行**。
+  很多论文作者排成两行或多行（如 3+2），只截到第一行是最常见的错误；
+  用 `get_text("blocks")` 查出作者区块最大的 y1，bbox 底边取"该 y1 + 4pt"再到 Abstract 上沿之间。
+- **纯图无杂质**：不含原文的图注/表注文字（图注由我们用中文另写）、不含相邻栏的正文、不含正文段落。
+- **表格完整**：表头行、所有数据行、最右一列都在内，没有被切掉的单元格。
+- **定位辅助**：拿不准边界时，用 `page.get_text("blocks")` 或 `page.get_drawings()` 打印
+  目标区域的文本块与图形 bbox，据此定 bbox，不要凭页面缩略图估。
+
+只有当每一张图都通过上述清单，才能进入下一步。
 
 ### 4. 写文稿
 

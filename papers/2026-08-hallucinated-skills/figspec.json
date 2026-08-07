@@ -5,7 +5,7 @@
       40,
       78,
       572,
-      205
+      270
     ],
     "out": "assets/header.png",
     "dpi": 220
@@ -14,9 +14,9 @@
     "page": 2,
     "bbox": [
       312,
-      452,
+      434,
       562,
-      668
+      575
     ],
     "out": "assets/fig/fig1-threat.png",
     "dpi": 220
