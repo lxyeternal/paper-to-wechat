@@ -1,0 +1,57 @@
+[
+  {
+    "page": 1,
+    "bbox": [
+      55,
+      86,
+      545,
+      243
+    ],
+    "out": "assets/header.png",
+    "dpi": 220
+  },
+  {
+    "page": 6,
+    "bbox": [
+      94,
+      357,
+      520,
+      566
+    ],
+    "out": "assets/fig/fig1-lifecycle.png",
+    "dpi": 220
+  },
+  {
+    "page": 9,
+    "bbox": [
+      86,
+      118,
+      534,
+      590
+    ],
+    "out": "assets/fig/table1-taxonomy.png",
+    "dpi": 220
+  },
+  {
+    "page": 15,
+    "bbox": [
+      118,
+      124,
+      492,
+      240
+    ],
+    "out": "assets/result/table3-retrieval.png",
+    "dpi": 220
+  },
+  {
+    "page": 17,
+    "bbox": [
+      86,
+      114,
+      526,
+      182
+    ],
+    "out": "assets/result/table5-runtime.png",
+    "dpi": 220
+  }
+]
