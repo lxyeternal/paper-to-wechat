@@ -46,10 +46,10 @@
   {
     "page": 8,
     "bbox": [
-      312,
-      284,
-      562,
-      528
+      315,
+      258,
+      560,
+      384
     ],
     "out": "assets/result/fig9-editdist.png",
     "dpi": 220
