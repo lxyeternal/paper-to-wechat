@@ -1,0 +1,57 @@
+[
+  {
+    "page": 1,
+    "bbox": [
+      55,
+      104,
+      540,
+      214
+    ],
+    "out": "assets/header.png",
+    "dpi": 220
+  },
+  {
+    "page": 1,
+    "bbox": [
+      318,
+      248,
+      540,
+      492
+    ],
+    "out": "assets/fig/fig1-scenarios.png",
+    "dpi": 220
+  },
+  {
+    "page": 3,
+    "bbox": [
+      320,
+      68,
+      543,
+      279
+    ],
+    "out": "assets/fig/fig4-threatmodel.png",
+    "dpi": 220
+  },
+  {
+    "page": 2,
+    "bbox": [
+      88,
+      68,
+      507,
+      266
+    ],
+    "out": "assets/fig/fig2-method.png",
+    "dpi": 220
+  },
+  {
+    "page": 5,
+    "bbox": [
+      312,
+      300,
+      553,
+      470
+    ],
+    "out": "assets/result/fig6-distribution.png",
+    "dpi": 220
+  }
+]
