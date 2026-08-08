@@ -1,0 +1,68 @@
+[
+  {
+    "page": 1,
+    "bbox": [
+      30,
+      98,
+      582,
+      293
+    ],
+    "out": "assets/header.png",
+    "dpi": 220
+  },
+  {
+    "page": 4,
+    "bbox": [
+      62,
+      100,
+      534,
+      323
+    ],
+    "out": "assets/fig/fig1-evolution.png",
+    "dpi": 200
+  },
+  {
+    "page": 6,
+    "bbox": [
+      78,
+      100,
+      534,
+      444
+    ],
+    "out": "assets/fig/fig2-overview.png",
+    "dpi": 200
+  },
+  {
+    "page": 7,
+    "bbox": [
+      95,
+      100,
+      518,
+      497
+    ],
+    "out": "assets/fig/fig3-taxonomy.png",
+    "dpi": 200
+  },
+  {
+    "page": 12,
+    "bbox": [
+      78,
+      100,
+      534,
+      363
+    ],
+    "out": "assets/fig/fig5-intrinsic.png",
+    "dpi": 200
+  },
+  {
+    "page": 24,
+    "bbox": [
+      78,
+      100,
+      534,
+      360
+    ],
+    "out": "assets/fig/fig6-extrinsic.png",
+    "dpi": 200
+  }
+]
