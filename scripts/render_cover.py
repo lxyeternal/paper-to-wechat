@@ -25,7 +25,8 @@ def render_cover(title_zh: str, title_en: str, venue: str, out_path: str,
     accent, kind_label = KIND_STYLE.get(kind, _DEFAULT)
     page_html = TEMPLATE.read_text(encoding="utf-8")
     fields = {"title_zh": title_zh, "title_en": title_en, "venue": venue,
-              "accent": accent, "kind_label": kind_label}
+              "accent": accent, "kind_label": kind_label,
+              "kind_word": kind_label[:2]}  # 背景水印大字，取标签前两字（综述/基准/方法…）
     for key, val in fields.items():
         page_html = page_html.replace("{{" + key + "}}", html.escape(val or ""))
     out = Path(out_path)

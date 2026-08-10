@@ -15,8 +15,13 @@
                       linear-gradient(90deg, rgba(94, 176, 239, .06) 1px, transparent 1px);
     background-size: 44px 44px; }
   /* 右侧链环装饰 */
-  .chain { position: absolute; right: -60px; top: -40px; width: 340px; height: 340px;
-           opacity: .14; }
+  .chain { position: absolute; right: -60px; top: -40px; width: 300px; height: 300px;
+           opacity: .10; }
+  /* 背景水印大字：类型词，浅色嵌在背景（通版居中，标题压在其上，绝不裁边） */
+  .kind-word { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -46%);
+               z-index: 0; font-size: 150px; font-weight: 800; line-height: 1;
+               letter-spacing: 16px; color: {{accent}}; opacity: .07;
+               white-space: nowrap; pointer-events: none; }
   .brand { display: flex; align-items: center; gap: 12px; z-index: 1; }
   .brand .logo { width: 30px; height: 30px; border-radius: 8px;
                  background: linear-gradient(135deg, #36d399, #0ea5e9);
@@ -41,6 +46,7 @@
 </head>
 <body>
 <div class="cover">
+  <div class="kind-word">{{kind_word}}</div>
   <svg class="chain" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" stroke="{{accent}}" stroke-width="6">
       <rect x="8"  y="30" width="34" height="20" rx="10"/>
