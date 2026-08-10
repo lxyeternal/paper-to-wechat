@@ -1,0 +1,68 @@
+[
+  {
+    "page": 1,
+    "bbox": [
+      60,
+      105,
+      545,
+      235
+    ],
+    "out": "assets/header.png",
+    "dpi": 220
+  },
+  {
+    "page": 8,
+    "bbox": [
+      100,
+      64,
+      505,
+      216
+    ],
+    "out": "assets/fig/fig3-architecture.png",
+    "dpi": 220
+  },
+  {
+    "page": 14,
+    "bbox": [
+      70,
+      96,
+      545,
+      590
+    ],
+    "out": "assets/fig/table4-lasm.png",
+    "dpi": 200
+  },
+  {
+    "page": 13,
+    "bbox": [
+      68,
+      78,
+      578,
+      162
+    ],
+    "out": "assets/fig/fig6-killchains.png",
+    "dpi": 220
+  },
+  {
+    "page": 15,
+    "bbox": [
+      103,
+      78,
+      580,
+      262
+    ],
+    "out": "assets/result/fig7-coverage.png",
+    "dpi": 220
+  },
+  {
+    "page": 36,
+    "bbox": [
+      103,
+      78,
+      580,
+      262
+    ],
+    "out": "assets/result/fig8-defense.png",
+    "dpi": 220
+  }
+]
