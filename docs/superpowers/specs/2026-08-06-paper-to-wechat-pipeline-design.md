@@ -117,3 +117,14 @@ paper-to-wechat/
 - `.gitignore`：忽略 `.env`、`.claude/`（工作流定义在 `pipeline/` 下受追踪）、`__pycache__/`、`.DS_Store` 等。
 - `papers/` 目录入库（内容与素材是公众号资产的一部分）；若日后体积过大再议 LFS 或忽略策略。
 - 因 `.claude/` 不入库，README 提供一条初始化命令（或脚本）在新机器上重建 `.claude/commands/paper.md` 薄壳（内容仅为"按 pipeline/PAPER_WORKFLOW.md 执行"的引用）。
+
+## 11. 演进记录
+
+初始设计（§1–§10）跑通后，根据实际使用迭代增补，均已固化进 `pipeline/PAPER_WORKFLOW.md` 与 `templates/`：
+
+- **写作规范（去 AI 味）**：正文/图注禁破折号「——」；安全术语按业界惯例（`1day`/`0day` 不意译，CVE/RCE/MCP 等保留英文）。
+- **图表完整性检查**：提图后逐张 Read 目视核对，重点防"多栏论文顶边切标题行""多行作者只截第一行"；拿不准用 `get_text("blocks")`/`get_drawings()` 坐标定位。
+- **合集体系**：公众号预设 4 个合集，front matter 标 `collection:` 提示归属（草稿 API 不支持设合集，发布时手动勾选）。
+- **按论文类型分模板（§2.5）**：判定 kind ∈ {survey, benchmark, method, empirical, system}，一次决定四件事——分析侧重、文章结构骨架、图片选择清单、封面点缀色/标签/背景水印。排版骨架统一，只强调色按类型走同色系（`render_cover --kind` 与 `theme.set_kind` 联动）。
+- **正文强调分级**：`**xx**` 类型色粗体（一般重点）、`==xx==` 红色加粗（金句，全篇 1-3 处）、`> ` 引用块（核心洞察/定理/关键定义）。
+- **封面精修**：标题 50px、右上角类型标签 24px 加粗、类型词做浅色大字水印居中嵌入背景，与右上角标签双重体现类型。
