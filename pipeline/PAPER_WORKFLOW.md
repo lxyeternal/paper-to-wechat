@@ -48,6 +48,9 @@
 - title 中文 ≤64 字；digest ≤120 字；highlights 恰好 3 条、每条 ≤14 字。
 - **去 AI 味（用户明确要求）**：正文和图注禁用破折号"——"（改用冒号、逗号或拆成两句；
   排版自动加的图注前缀"— "不算）。写完后 `grep -c "——" article.md` 自查，必须为 0。
+- **安全术语按业界惯例（用户明确要求）**：one-day/N-day 写 `1day`（或 1-day），zero-day 写 `0day`，
+  不要意译成"一日/零日"；CVE、RCE、POC、MCP 等固定术语保留英文/数字写法，不硬翻中文。
+  写完 `grep -n "一日\|零日" article.md` 自查应为空。
 - front matter 加 `collection:` 字段（不参与排版，纯提示）：从公众号已预设的合集中选一个，
   用户发布时照此手动勾选（草稿 API 不支持设置合集）。合集清单：
   「AI Agent 安全」（恶意 Skill、提示注入、MCP、Agent 控制面）；
