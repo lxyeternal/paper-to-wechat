@@ -46,6 +46,12 @@ def test_render_body_sections_and_images():
     assert "class=" not in html  # 全内联，禁 class
 
 
+def test_red_emphasis():
+    html = render_body("这是**普通重点**和 ==最重要发现== 的对比。")
+    assert 'color:#dc2626' in html  # 红色重点
+    assert html.count("<strong") == 2  # 两级强调各一处
+
+
 def test_render_document_has_highlights_cards():
     html = render_document(SAMPLE)
     assert html.count("要点") >= 3

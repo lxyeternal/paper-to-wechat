@@ -37,6 +37,10 @@ def parse_front_matter(text: str):
 
 def _inline(text: str) -> str:
     out = html_mod.escape(text, quote=False)
+    # 红色重点（最高级强调，标最重要的发现/金句，全篇节制 1-3 处）：==xxx==
+    out = re.sub(r"==(.+?)==",
+                 r'<strong style="color:#dc2626;">\1</strong>', out)
+    # 类型强调色粗体（一般重点）：**xxx**
     out = re.sub(r"\*\*(.+?)\*\*",
                  rf'<strong style="color:{theme.ACCENT};">\1</strong>', out)
     return out
