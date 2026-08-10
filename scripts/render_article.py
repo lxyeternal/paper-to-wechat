@@ -57,6 +57,10 @@ def render_body(body: str) -> str:
                 section_num, m_h.group(1).strip(), m_h.group(2).strip()))
         elif m_img:
             parts.append(theme.image_block(m_img.group(2), _inline(m_img.group(1))))
+        elif block.startswith(">"):
+            # 核心洞察 / 定理 / 关键定义高亮块：去掉每行的 "> " 前缀
+            quote = "\n".join(re.sub(r"^>\s?", "", ln) for ln in block.splitlines())
+            parts.append(theme.quote_block(_inline(quote).replace("\n", "<br/>")))
         else:
             parts.append(theme.paragraph(_inline(block).replace("\n", "<br/>")))
     return "".join(parts)
@@ -64,6 +68,7 @@ def render_body(body: str) -> str:
 
 def render_document(md_text: str) -> str:
     meta, body = parse_front_matter(md_text)
+    theme.set_kind(meta.get("kind", "survey"))
     inner = ""
     if meta.get("highlights"):
         inner += theme.highlights_cards(meta["highlights"])

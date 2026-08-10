@@ -23,7 +23,7 @@
                  display: flex; align-items: center; justify-content: center;
                  color: #fff; font-size: 16px; font-weight: 700; }
   .brand .name { color: #9fc3e8; font-size: 17px; letter-spacing: 2px; }
-  .brand .tag { margin-left: auto; color: #67e8b9; border: 1.5px solid rgba(103,232,185,.65);
+  .brand .tag { margin-left: auto; color: {{accent}}; border: 1.5px solid {{accent}};
                 border-radius: 999px; padding: 6px 18px; font-size: 19px; font-weight: 600;
                 letter-spacing: 4px; }
   .title-zh { z-index: 1; color: #ffffff; font-size: 44px; font-weight: 700;
@@ -34,7 +34,7 @@
   .title-en { color: #b0c9e4; font-size: 18px; line-height: 1.45; max-width: 620px;
               display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
               overflow: hidden; }
-  .venue { flex-shrink: 0; color: #0a1628; background: #67e8b9; font-weight: 700;
+  .venue { flex-shrink: 0; color: #0a1628; background: {{accent}}; font-weight: 700;
            font-size: 20px; padding: 8px 20px; border-radius: 6px; letter-spacing: 1px; }
   .venue:empty { display: none; }
 </style>
@@ -42,7 +42,7 @@
 <body>
 <div class="cover">
   <svg class="chain" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-    <g fill="none" stroke="#67e8b9" stroke-width="6">
+    <g fill="none" stroke="{{accent}}" stroke-width="6">
       <rect x="8"  y="30" width="34" height="20" rx="10"/>
       <rect x="34" y="30" width="34" height="20" rx="10"/>
       <rect x="60" y="30" width="34" height="20" rx="10"/>
@@ -53,7 +53,7 @@
   <div class="brand">
     <div class="logo">链</div>
     <div class="name">供应链安全前沿</div>
-    <div class="tag">论文解读</div>
+    <div class="tag">{{kind_label}}</div>
   </div>
   <div class="title-zh">{{title_zh}}</div>
   <div class="bottom">
