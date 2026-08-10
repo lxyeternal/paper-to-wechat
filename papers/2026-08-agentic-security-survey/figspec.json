@@ -1,0 +1,68 @@
+[
+  {
+    "page": 1,
+    "bbox": [
+      50,
+      74,
+      545,
+      176
+    ],
+    "out": "assets/header.png",
+    "dpi": 220
+  },
+  {
+    "page": 4,
+    "bbox": [
+      70,
+      78,
+      542,
+      652
+    ],
+    "out": "assets/fig/fig1-taxonomy.png",
+    "dpi": 200
+  },
+  {
+    "page": 11,
+    "bbox": [
+      90,
+      80,
+      525,
+      218
+    ],
+    "out": "assets/fig/fig4-lifecycle.png",
+    "dpi": 220
+  },
+  {
+    "page": 15,
+    "bbox": [
+      70,
+      92,
+      542,
+      250
+    ],
+    "out": "assets/result/fig6-dualuse.png",
+    "dpi": 220
+  },
+  {
+    "page": 20,
+    "bbox": [
+      90,
+      92,
+      522,
+      268
+    ],
+    "out": "assets/result/fig7-entrypoint.png",
+    "dpi": 220
+  },
+  {
+    "page": 29,
+    "bbox": [
+      70,
+      148,
+      542,
+      310
+    ],
+    "out": "assets/result/fig9-defense.png",
+    "dpi": 220
+  }
+]
