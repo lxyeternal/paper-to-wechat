@@ -1,0 +1,57 @@
+[
+  {
+    "page": 1,
+    "bbox": [
+      50,
+      90,
+      545,
+      205
+    ],
+    "out": "assets/header.png",
+    "dpi": 220
+  },
+  {
+    "page": 3,
+    "bbox": [
+      64,
+      52,
+      545,
+      272
+    ],
+    "out": "assets/fig/fig1-overview.png",
+    "dpi": 200
+  },
+  {
+    "page": 6,
+    "bbox": [
+      52,
+      54,
+      560,
+      218
+    ],
+    "out": "assets/result/table1-main.png",
+    "dpi": 220
+  },
+  {
+    "page": 7,
+    "bbox": [
+      64,
+      66,
+      300,
+      203
+    ],
+    "out": "assets/result/fig2-frontier.png",
+    "dpi": 220
+  },
+  {
+    "page": 7,
+    "bbox": [
+      318,
+      57,
+      562,
+      220
+    ],
+    "out": "assets/result/table3-ablation.png",
+    "dpi": 220
+  }
+]
