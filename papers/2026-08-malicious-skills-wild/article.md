@@ -1,10 +1,10 @@
 ---
-title: "别在对话里提这事"：从 9.8 万个真实 Agent 技能里，挖出了 157 个真恶意的
+title: USENIX Security 26：从 9.8 万个真实 Agent Skill 里，挖出了 157 个真恶意的
 title_en: "Do Not Mention This to the User": Detecting and Understanding Malicious Agent Skills in the Wild
 kind: empirical
 digest: 恶意 Agent 技能不再是纸上威胁。这项研究爬了两大平台 9.8 万个真实技能，用静态加沙箱验证挖出 157 个确认恶意的，含 632 个漏洞。触目惊心的是：84.2% 的恶意藏在自然语言文档里而非代码，一个工业化攻击者独占 54.1%，越高级的技能越把恶意藏进文档而非代码，负责任披露后 157 个全部被下架。
 author: 供应链安全前沿
-venue: arXiv 2026
+venue: USENIX Security 2026
 collection: AI Agent 安全
 highlights:
   - 9.8万技能挖出157个真恶意
