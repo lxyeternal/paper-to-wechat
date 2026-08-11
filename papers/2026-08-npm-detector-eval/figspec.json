@@ -1,0 +1,68 @@
+[
+  {
+    "page": 1,
+    "bbox": [
+      40,
+      78,
+      572,
+      358
+    ],
+    "out": "assets/header.png",
+    "dpi": 220
+  },
+  {
+    "page": 3,
+    "bbox": [
+      312,
+      96,
+      562,
+      243
+    ],
+    "out": "assets/result/table1-tools.png",
+    "dpi": 200
+  },
+  {
+    "page": 6,
+    "bbox": [
+      48,
+      205,
+      305,
+      336
+    ],
+    "out": "assets/result/table4-main.png",
+    "dpi": 220
+  },
+  {
+    "page": 8,
+    "bbox": [
+      305,
+      85,
+      560,
+      218
+    ],
+    "out": "assets/result/fig3-behavior.png",
+    "dpi": 220
+  },
+  {
+    "page": 9,
+    "bbox": [
+      305,
+      83,
+      562,
+      166
+    ],
+    "out": "assets/result/fig6-temporal.png",
+    "dpi": 220
+  },
+  {
+    "page": 10,
+    "bbox": [
+      312,
+      200,
+      562,
+      262
+    ],
+    "out": "assets/result/table7-combination.png",
+    "dpi": 220
+  }
+]
