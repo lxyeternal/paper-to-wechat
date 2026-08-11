@@ -1,0 +1,68 @@
+[
+  {
+    "page": 1,
+    "bbox": [
+      40,
+      78,
+      572,
+      348
+    ],
+    "out": "assets/header.png",
+    "dpi": 220
+  },
+  {
+    "page": 2,
+    "bbox": [
+      315,
+      80,
+      562,
+      232
+    ],
+    "out": "assets/fig/fig1-case.png",
+    "dpi": 220
+  },
+  {
+    "page": 4,
+    "bbox": [
+      50,
+      78,
+      560,
+      254
+    ],
+    "out": "assets/fig/fig2-method.png",
+    "dpi": 200
+  },
+  {
+    "page": 8,
+    "bbox": [
+      48,
+      96,
+      562,
+      234
+    ],
+    "out": "assets/result/table3-patterns.png",
+    "dpi": 200
+  },
+  {
+    "page": 6,
+    "bbox": [
+      312,
+      92,
+      560,
+      296
+    ],
+    "out": "assets/result/table2-landscape.png",
+    "dpi": 220
+  },
+  {
+    "page": 9,
+    "bbox": [
+      312,
+      92,
+      562,
+      210
+    ],
+    "out": "assets/result/fig4-channels.png",
+    "dpi": 220
+  }
+]
