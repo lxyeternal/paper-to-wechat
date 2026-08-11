@@ -1,0 +1,68 @@
+[
+  {
+    "page": 1,
+    "bbox": [
+      40,
+      78,
+      572,
+      310
+    ],
+    "out": "assets/header.png",
+    "dpi": 220
+  },
+  {
+    "page": 4,
+    "bbox": [
+      55,
+      84,
+      555,
+      197
+    ],
+    "out": "assets/fig/fig2-threatmodel.png",
+    "dpi": 220
+  },
+  {
+    "page": 4,
+    "bbox": [
+      50,
+      220,
+      562,
+      295
+    ],
+    "out": "assets/fig/fig3-pipeline.png",
+    "dpi": 220
+  },
+  {
+    "page": 10,
+    "bbox": [
+      45,
+      104,
+      300,
+      190
+    ],
+    "out": "assets/result/table8-prevalence.png",
+    "dpi": 220
+  },
+  {
+    "page": 11,
+    "bbox": [
+      52,
+      84,
+      320,
+      192
+    ],
+    "out": "assets/result/fig6-category.png",
+    "dpi": 220
+  },
+  {
+    "page": 11,
+    "bbox": [
+      322,
+      116,
+      562,
+      178
+    ],
+    "out": "assets/result/table10-structural.png",
+    "dpi": 220
+  }
+]
