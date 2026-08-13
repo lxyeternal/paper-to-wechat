@@ -1,0 +1,7 @@
+[
+  {"page": 1, "bbox": [60, 54, 550, 136], "out": "assets/header.png", "dpi": 240},
+  {"page": 3, "bbox": [46, 52, 304, 328], "out": "assets/fig/fig1-prisma.png", "dpi": 240},
+  {"page": 4, "bbox": [48, 52, 302, 135], "out": "assets/fig/fig2-taxonomy.png", "dpi": 300},
+  {"page": 5, "bbox": [72, 80, 540, 212], "out": "assets/result/table2-tools.png", "dpi": 240},
+  {"page": 12, "bbox": [326, 82, 548, 207], "out": "assets/result/table7-coverage.png", "dpi": 260}
+]
