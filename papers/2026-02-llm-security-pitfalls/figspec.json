@@ -1,0 +1,6 @@
+[
+  {"page": 1, "bbox": [86, 44, 526, 213], "out": "assets/header.png", "dpi": 240},
+  {"page": 2, "bbox": [50, 60, 562, 244], "out": "assets/fig/fig1-pipeline.png", "dpi": 230},
+  {"page": 7, "bbox": [312, 52, 562, 245], "out": "assets/result/fig3-topic.png", "dpi": 240},
+  {"page": 8, "bbox": [332, 432, 542, 482], "out": "assets/result/table1-modelambiguity.png", "dpi": 260}
+]
