@@ -1,0 +1,6 @@
+[
+  {"page": 2, "bbox": [50, 108, 562, 218], "out": "assets/header.png", "dpi": 240},
+  {"page": 2, "bbox": [316, 248, 560, 360], "out": "assets/fig/fig1-mechanism.png", "dpi": 300},
+  {"page": 6, "bbox": [50, 66, 562, 288], "out": "assets/fig/fig2-framework.png", "dpi": 230},
+  {"page": 3, "bbox": [318, 118, 556, 226], "out": "assets/result/table1-services.png", "dpi": 260}
+]
