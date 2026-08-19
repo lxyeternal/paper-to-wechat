@@ -1,0 +1,6 @@
+[
+  {"page": 1, "bbox": [50, 102, 562, 226], "out": "assets/header.png", "dpi": 240},
+  {"page": 2, "bbox": [50, 66, 562, 224], "out": "assets/fig/fig1-motivating.png", "dpi": 240},
+  {"page": 4, "bbox": [50, 66, 562, 336], "out": "assets/fig/fig2-framework.png", "dpi": 220},
+  {"page": 10, "bbox": [50, 240, 302, 347], "out": "assets/result/table5-main.png", "dpi": 320}
+]
