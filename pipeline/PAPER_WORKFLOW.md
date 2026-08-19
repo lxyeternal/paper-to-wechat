@@ -124,4 +124,9 @@
 
 - 每步产物都在 `papers/<slug>/` 内，从失败步骤继续，不从头跑。
 - 40164 = IP 白名单失效，提示用户更新（脚本报错信息里有指引）。
+- **`JSONDecodeError` / 返回 501 HTML（waf.tencent.com）= 微信 WAF 拦了正文**：文章里含攻击特征字符串
+  （如 `/etc/passwd`、`webhook.site`、`../`、`/bin/sh`、`~/.aws/credentials`、SQL/脚本注入样式）。恶意代码类论文的图注/正文最常踩。
+  处理：把这些字面量软化成描述（"系统密码文件""某外部收集地址"），保留 API 名等无害词，重渲染重发。
+  发前可自查：`grep -noE "/etc/[a-z]+|webhook\.site|\.\./|/bin/sh|/aws/credentials|<script" papers/<slug>/article.md`。
+- 换封面：清掉 `publish.json` 的 `thumb_media_id`（保留 `draft_media_id`）再重跑发布，会重传封面并原地更新草稿。
 - 换新机器：`bash scripts/setup.sh` 重装依赖并重建 `.claude/commands/paper.md` 薄壳。
