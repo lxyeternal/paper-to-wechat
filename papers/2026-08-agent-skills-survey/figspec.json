@@ -1,0 +1,6 @@
+[
+  {"page": 1, "bbox": [50, 53, 562, 132], "out": "assets/header.png", "dpi": 240},
+  {"page": 2, "bbox": [48, 50, 562, 276], "out": "assets/fig/fig1-human-to-agent.png", "dpi": 200},
+  {"page": 4, "bbox": [50, 48, 560, 500], "out": "assets/fig/fig3-taxonomy.png", "dpi": 240},
+  {"page": 7, "bbox": [88, 50, 524, 258], "out": "assets/result/fig6-ecosystem.png", "dpi": 220}
+]
