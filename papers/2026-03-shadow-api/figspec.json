@@ -1,0 +1,8 @@
+[
+  {"page": 1, "bbox": [50, 104, 545, 192], "out": "assets/header.png", "dpi": 220},
+  {"page": 1, "bbox": [310, 223, 555, 343], "out": "assets/fig/fig1-comic.png", "dpi": 240},
+  {"page": 4, "bbox": [44, 80, 554, 188], "out": "assets/result/fig2-landscape.png", "dpi": 300},
+  {"page": 5, "bbox": [42, 424, 285, 508], "out": "assets/result/fig4a-medqa.png", "dpi": 380},
+  {"page": 6, "bbox": [64, 256, 534, 476], "out": "assets/result/table2-fingerprint.png", "dpi": 300},
+  {"page": 9, "bbox": [58, 89, 537, 147], "out": "assets/result/table4-economics.png", "dpi": 360}
+]

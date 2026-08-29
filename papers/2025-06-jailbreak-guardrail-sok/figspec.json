@@ -1,0 +1,68 @@
+[
+  {
+    "page": 1,
+    "bbox": [
+      55,
+      90,
+      557,
+      180
+    ],
+    "out": "assets/header.png",
+    "dpi": 220
+  },
+  {
+    "page": 3,
+    "bbox": [
+      316,
+      68,
+      552,
+      193
+    ],
+    "out": "assets/fig/fig1-pipeline.png",
+    "dpi": 380
+  },
+  {
+    "page": 6,
+    "bbox": [
+      50,
+      91,
+      560,
+      521
+    ],
+    "out": "assets/fig/table1-taxonomy.png",
+    "dpi": 320
+  },
+  {
+    "page": 11,
+    "bbox": [
+      52,
+      109,
+      559,
+      277
+    ],
+    "out": "assets/result/table3-asr.png",
+    "dpi": 340
+  },
+  {
+    "page": 13,
+    "bbox": [
+      58,
+      66,
+      292,
+      216
+    ],
+    "out": "assets/result/fig3-seu-heatmap.png",
+    "dpi": 400
+  },
+  {
+    "page": 14,
+    "bbox": [
+      325,
+      63,
+      548,
+      198
+    ],
+    "out": "assets/result/fig5-injection.png",
+    "dpi": 400
+  }
+]

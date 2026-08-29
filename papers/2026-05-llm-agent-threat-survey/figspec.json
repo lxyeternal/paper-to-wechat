@@ -1,0 +1,8 @@
+[
+  {"page": 1,  "bbox": [76, 96, 536, 233],   "out": "assets/header.png", "dpi": 220},
+  {"page": 3,  "bbox": [112, 102, 500, 255], "out": "assets/fig/fig1-taxonomy.png", "dpi": 300},
+  {"page": 5,  "bbox": [134, 102, 478, 236], "out": "assets/fig/fig3-features.png", "dpi": 320},
+  {"page": 6,  "bbox": [89, 102, 523, 337],  "out": "assets/result/fig4-mapping.png", "dpi": 300},
+  {"page": 27, "bbox": [77, 146, 535, 284],  "out": "assets/result/table6-chatdev.png", "dpi": 320},
+  {"page": 31, "bbox": [100, 157, 512, 287], "out": "assets/result/table7-threatlevel.png", "dpi": 340}
+]

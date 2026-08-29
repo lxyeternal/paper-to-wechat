@@ -1,0 +1,6 @@
+[
+  {"page": 1, "bbox": [48, 78, 564, 388], "out": "assets/header.png", "dpi": 220},
+  {"page": 3, "bbox": [312, 80, 566, 202], "out": "assets/fig/fig1-workflow.png", "dpi": 240},
+  {"page": 7, "bbox": [314, 116, 562, 225.5], "out": "assets/result/table4-portingtype.png", "dpi": 320},
+  {"page": 11, "bbox": [50, 84, 562, 210], "out": "assets/result/fig3-static-exec.png", "dpi": 260}
+]
