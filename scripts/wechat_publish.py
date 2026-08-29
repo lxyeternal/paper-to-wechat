@@ -46,12 +46,20 @@ def get_token() -> str:
     return data["access_token"]
 
 
+_MIME = {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg",
+         ".gif": "image/gif", ".bmp": "image/bmp"}
+
+
+def _mime(path: Path) -> str:
+    return _MIME.get(path.suffix.lower(), "image/png")
+
+
 def upload_content_image(token: str, path: Path) -> str:
     """正文图 → media/uploadimg，返回 mmbiz URL（不占素材库额度）。"""
     with open(path, "rb") as f:
         data = _check(requests.post(
             f"{API}/media/uploadimg?access_token={token}",
-            files={"media": (path.name, f, "image/png")}, timeout=60).json())
+            files={"media": (path.name, f, _mime(path))}, timeout=60).json())
     return data["url"]
 
 
@@ -60,7 +68,7 @@ def upload_thumb(token: str, path: Path) -> str:
     with open(path, "rb") as f:
         data = _check(requests.post(
             f"{API}/material/add_material?access_token={token}&type=image",
-            files={"media": (path.name, f, "image/png")}, timeout=60).json())
+            files={"media": (path.name, f, _mime(path))}, timeout=60).json())
     return data["media_id"]
 
 
@@ -101,9 +109,19 @@ def publish(paper_dir: str) -> None:
     }
     if state.get("draft_media_id"):
         payload = {"media_id": state["draft_media_id"], "index": 0, "articles": article}
-        _check(requests.post(f"{API}/draft/update?access_token={token}",
-                             data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
-                             timeout=60).json())
+        try:
+            _check(requests.post(f"{API}/draft/update?access_token={token}",
+                                 data=json.dumps(payload, ensure_ascii=False).encode("utf-8"),
+                                 timeout=60).json())
+        except WeChatError as e:
+            if "40007" not in str(e):
+                raise
+            # 草稿被"发表"后就从草稿箱消费掉了，media_id 随之失效。
+            # 已发表文章不能改封面/正文，这里明确提示而不是抛 traceback。
+            raise SystemExit(
+                "这篇的草稿已不存在（多半已经发表过了）。已发表文章无法通过接口改封面或正文。\n"
+                "如果确实要重新发一篇新草稿，先删掉 publish.json 里的 draft_media_id 再跑，"
+                "注意这会在草稿箱里多出一条。")
         print("草稿已更新:", state["draft_media_id"])
     else:
         payload = {"articles": [article]}

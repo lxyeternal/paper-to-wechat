@@ -26,6 +26,8 @@ def parse_front_matter(text: str):
         elif ":" in line:
             key, _, val = line.partition(":")
             key, val = key.strip(), val.strip()
+            if len(val) >= 2 and val[0] == val[-1] and val[0] in "\"'":
+                val = val[1:-1]          # 去掉 YAML 里的包裹引号
             if val == "":
                 meta[key] = []
                 current_list = key
