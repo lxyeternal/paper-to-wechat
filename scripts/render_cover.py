@@ -1,34 +1,83 @@
 #!/usr/bin/env python3
-"""品牌封面渲染：templates/cover.html + 论文标题 → 1800x766 PNG。"""
+"""品牌封面渲染：templates/cover_*.html + front matter → 1800x766 PNG。
+
+论文解读有两套版式，A「看点分栏」和 B「焦点词」，共用同一套设计语言，
+按文章目录名做确定性哈希二选一（同一篇每次渲染结果稳定，整个列表看起来是混排的）。
+会议报告固定走浅色底的 cover_talk.html。
+"""
 import argparse
 import html
+import sys
 import tempfile
+import zlib
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
 
-TEMPLATE = Path(__file__).resolve().parent.parent / "templates" / "cover.html"
+TEMPLATES = Path(__file__).resolve().parent.parent / "templates"
+LAYOUTS = {"a": TEMPLATES / "cover_a.html", "b": TEMPLATES / "cover_b.html"}
+# 会议报告走浅色底模板，和论文解读的深色底一眼区分开
+TEMPLATE_BY_KIND = {"talk": TEMPLATES / "cover_talk.html"}
 
-# 每类论文的封面点缀色（深蓝底上用浅亮色）+ 右上角标签，与 theme.py 强调色同色系
+# 每类论文的封面点缀色（深色底上用浅亮色）+ 右上角标签，与 theme.py 强调色同色系
 KIND_STYLE = {
     "survey":    ("#67e8b9", "综述解读"),
     "benchmark": ("#7dd3fc", "基准解读"),
     "method":    ("#c4b5fd", "方法解读"),
     "empirical": ("#fcd34d", "实测解读"),
     "system":    ("#fda4af", "系统解读"),
+    "talk":      ("#4f46e5", "现场报告"),  # 浅底模板，用深色强调色
 }
 _DEFAULT = ("#67e8b9", "论文解读")
 
 
+def _em(text: str) -> float:
+    """文本的视觉宽度，按 em 估算：中日韩字符算 1，其余算 0.55。"""
+    return sum(1.0 if ord(c) > 0x2E80 else 0.55 for c in text) or 0.1
+
+
+def _fit(text: str, box_px: int, lines: int, lo: int, hi: int) -> int:
+    """挑一个能在 box_px 宽、lines 行内放下这段文字的字号。"""
+    return max(lo, min(hi, int(box_px * lines / _em(text) * 0.92)))
+
+
+def pick_layout(meta: dict, seed: str) -> str:
+    """A / B 版式二选一：显式指定 > 没有焦点词只能走 A > 按 seed 做确定性哈希。"""
+    explicit = (meta.get("cover_layout") or "").strip().lower()
+    if explicit in LAYOUTS:
+        return explicit
+    if not (meta.get("cover_stat") or "").strip():
+        return "a"
+    return "b" if zlib.crc32(seed.encode("utf-8")) & 1 else "a"
+
+
 def render_cover(title_zh: str, title_en: str, venue: str, out_path: str,
-                 kind: str = "") -> str:
+                 kind: str = "", template: str = "", highlights=None,
+                 stat: str = "", layout: str = "a") -> str:
     accent, kind_label = KIND_STYLE.get(kind, _DEFAULT)
-    page_html = TEMPLATE.read_text(encoding="utf-8")
-    fields = {"title_zh": title_zh, "title_en": title_en, "venue": venue,
-              "accent": accent, "kind_label": kind_label,
-              "kind_word": kind_label[:2]}  # 背景水印大字，取标签前两字（综述/基准/方法…）
+    if template:
+        tpl = Path(template)
+    elif kind in TEMPLATE_BY_KIND:
+        tpl = TEMPLATE_BY_KIND[kind]
+    else:
+        tpl = LAYOUTS.get(layout, LAYOUTS["a"])
+    page_html = tpl.read_text(encoding="utf-8")
+
+    hl = list(highlights or []) + ["", "", ""]
+    # A 版标题在 424px 宽的左栏里排 3 行，B 版说明句在 610px 宽里排 3 行
+    title_box = 610 if layout == "b" and not template else 424
+    fields = {
+        "title_zh": title_zh, "title_en": title_en, "venue": venue,
+        "accent": accent, "kind_label": kind_label,
+        "kind_word": kind_label[:2],          # 老模板的背景水印大字
+        "h1": hl[0], "h2": hl[1], "h3": hl[2],
+        "stat": stat,
+        "stat_size": str(_fit(stat, 300, 1, 44, 104)) if stat else "84",
+        "title_size": str(_fit(title_zh, title_box, 3, 24, 42 if title_box < 500 else 32)),
+    }
     for key, val in fields.items():
         page_html = page_html.replace("{{" + key + "}}", html.escape(val or ""))
+
     out = Path(out_path)
     out.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile("w", suffix=".html", delete=False,
@@ -49,13 +98,46 @@ def render_cover(title_zh: str, title_en: str, venue: str, out_path: str,
     return str(out)
 
 
+def render_from_dir(paper_dir: str, out_path: str = "") -> str:
+    """从 <dir>/article.md 的 front matter 取参数渲染封面。
+
+    用到的字段：cover_title（封面那句结论，缺省退回 title）、cover_stat（焦点词，
+    数字或短语，填了才有资格走 B 版）、cover_layout（可选，强制 a/b）、
+    highlights（三条看点，直接上封面）、title_en、venue、kind。
+    """
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from render_article import parse_front_matter
+
+    d = Path(paper_dir)
+    meta, _ = parse_front_matter((d / "article.md").read_text(encoding="utf-8"))
+    layout = pick_layout(meta, d.resolve().name)
+    out = out_path or str(d / "assets" / "cover.png")
+    print(f"版式 {layout.upper()}", end=" ")
+    return render_cover(meta.get("cover_title") or meta.get("title", ""),
+                        meta.get("title_en", ""), meta.get("venue", ""), out,
+                        meta.get("kind", ""), "", meta.get("highlights", []),
+                        (meta.get("cover_stat") or "").strip(), layout)
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--title-zh", required=True)
+    ap.add_argument("--from", dest="from_dir", default="",
+                    help="从某篇文章目录的 article.md 取全部字段渲染（推荐用法）")
+    ap.add_argument("--title-zh", default="")
     ap.add_argument("--title-en", default="")
     ap.add_argument("--venue", default="")
     ap.add_argument("--kind", default="",
                     help="论文类型 survey/benchmark/method/empirical/system，决定点缀色与标签")
-    ap.add_argument("--out", required=True)
+    ap.add_argument("--stat", default="", help="B 版的焦点词（数字或短语）")
+    ap.add_argument("--hl", action="append", default=[], help="看点，可重复，最多 3 条")
+    ap.add_argument("--layout", default="a", choices=["a", "b"], help="版式，默认 a")
+    ap.add_argument("--template", default="", help="覆盖模板路径，试新版式时用")
+    ap.add_argument("--out", default="")
     a = ap.parse_args()
-    print("cover ->", render_cover(a.title_zh, a.title_en, a.venue, a.out, a.kind))
+    if a.from_dir:
+        print("cover ->", render_from_dir(a.from_dir, a.out))
+        raise SystemExit
+    if not a.title_zh or not a.out:
+        ap.error("需要 --title-zh 与 --out（或改用 --from <文章目录>）")
+    print("cover ->", render_cover(a.title_zh, a.title_en, a.venue, a.out, a.kind,
+                                   a.template, a.hl, a.stat, a.layout))

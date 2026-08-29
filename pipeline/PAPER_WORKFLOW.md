@@ -117,9 +117,35 @@
 
 ### 5. 封面
 
-- `.venv/bin/python scripts/render_cover.py --title-zh "<中文短题>" --title-en "<英文原题>" --venue "<venue>" --kind <类型> --out papers/<slug>/assets/cover.png`
-- `--kind` 用 §2.5 判定的类型（survey/benchmark/method/empirical/system），封面点缀色与标签随之切换。
-- 用 Read 目视封面，文字溢出则缩短标题重渲。
+**先想清楚封面该说什么。** 微信在封面正下方会自己渲染完整标题，所以封面再写一遍标题等于重复，
+而且列表里封面只有约 395px 宽，小字根本读不到。封面的任务是**说一句标题没说的话**：结论、数字、看点。
+
+front matter 里和封面相关的字段：
+
+- `cover_title:` **写结论，不写主题**。反例"越狱护栏到底挡得住什么"（提问式主题），
+  正例"13 个越狱护栏，挡不住一次多轮攻击"（结论）。20 到 36 字之间最稳，两套版式都排得下。
+- `cover_stat:` 焦点词，数字或 ≤6 字短语（"90%+"、"24%"、"Level 0"）。**填了才有资格走 B 版**，
+  不填就固定走 A 版。字号会按长度自动缩放，不用自己调。
+- `cover_layout:` 可选，填 `a` 或 `b` 强制版式；不填就按目录名做确定性哈希二选一
+  （同一篇每次渲染结果稳定，整个列表看起来是混排的）。
+- `highlights:` 三条看点现在会直接上封面，不用另外写。注意 **B 版只显示前两条**，
+  所以把和 `cover_stat` 意思重复的那条排到第三位。
+
+渲染：`.venv/bin/python scripts/render_cover.py --from papers/<slug>`
+（输出会打印实际用了哪个版式）。它从 article.md 取上面这些字段加 `venue`、`kind`，写到 `assets/cover.png`。
+
+两套版式，共用同一套设计语言（品牌色带、26px 圆角卡、类型色、胶囊徽章）：
+
+| 版式 | 结构 | 适用 |
+|---|---|---|
+| **A 看点分栏** | 左边结论大标题 + 会议徽章，右边竖线分出三条看点 | 通用，每篇都有三条看点 |
+| **B 焦点词** | 一个巨大的焦点词 + 一句结论，底部两条看点 + 会议徽章 | 有一个扛得住的数字或短语时 |
+
+- 会议报告不走这两套，`kind: talk` 自动套 `templates/cover_talk.html`（浅色底 + 左侧竖排色条），
+  见 TALK_WORKFLOW.md。
+- 改了 `highlights` 的顺序要重跑 `render_article.py`，因为正文顶部的看点卡也用这三条。
+- 仍可用 `--title-zh/--stat/--hl/--layout/--out` 手动指定，试新版式时配 `--template`。
+- 用 Read 目视封面，文字溢出或折行难看就缩短 `cover_title` 重渲。
 
 ### 6. 排版 + 发布
 

@@ -5,6 +5,8 @@ digest: （≤120字摘要，显示在会话卡片上）
 author: 供应链安全前沿
 venue: （会议/期刊 + 年份，如 ICSE 2026；未知则 arXiv + 年份）
 kind: （survey/benchmark/method/empirical/system，见 PAPER_WORKFLOW.md §2.5，决定排版强调色）
+cover_title: （封面那句**结论**，20-36 字；不是主题也不是标题的缩写，见 PAPER_WORKFLOW §5）
+cover_stat: （封面焦点词，数字或 ≤6 字短语，如 90%+ / 24% / Level 0；不填则封面固定走 A 版）
 collection: （发布时手动勾选的合集，见 PAPER_WORKFLOW.md 合集清单）
 highlights:
   - （看点一，≤14字）

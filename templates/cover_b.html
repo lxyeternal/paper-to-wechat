@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 900px; height: 383px; overflow: hidden;
+         font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", sans-serif;
+         -webkit-font-smoothing: antialiased; }
+
+  /* 论文解读封面 B「焦点词」：一个焦点（数字或短语）+ 一句结论 + 两条看点。
+     封面说结论，微信在封面下面自己渲染的标题说全貌，两层信息互补而不重复。 */
+  .stage { position: relative; width: 900px; height: 383px;
+           background: linear-gradient(150deg, #070d19 0%, #0a1526 48%, #0b1b2f 100%); }
+  .stage::before { content: ""; position: absolute; right: -120px; top: -180px;
+                   width: 520px; height: 520px; border-radius: 50%;
+                   background: radial-gradient(circle, {{accent}} 0%, transparent 66%);
+                   opacity: .20; }
+
+  .card { position: absolute; inset: 16px; border-radius: 26px; overflow: hidden;
+          background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+          border: 1px solid rgba(255,255,255,.11);
+          box-shadow: inset 0 1px 0 rgba(255,255,255,.15),
+                      0 18px 44px rgba(0,0,0,.42), 0 40px 90px rgba(0,0,0,.30);
+          display: flex; flex-direction: column; }
+
+  .band { position: relative; flex-shrink: 0; height: 62px;
+          background: linear-gradient(100deg, {{accent}} 0%, {{accent}} 66%, #ffffff 240%);
+          display: flex; align-items: center; gap: 12px; padding: 0 34px 0 30px; }
+  .band .logo { width: 30px; height: 30px; border-radius: 9px; background: rgba(8,17,31,.88);
+                display: flex; align-items: center; justify-content: center;
+                color: #fff; font-size: 16px; font-weight: 700; }
+  .band .name { color: #0a1220; font-size: 17px; letter-spacing: 2.5px; font-weight: 700; }
+  .band .kind { margin-left: auto; color: #0a1220; font-size: 21px; font-weight: 800;
+                letter-spacing: 6px; }
+  .band .kind::before { content: ""; display: inline-block; width: 8px; height: 8px;
+                        border-radius: 50%; background: #0a1220; opacity: .5;
+                        margin-right: 12px; vertical-align: 3px; }
+
+  .body { position: relative; flex: 1; padding: 24px 40px 22px;
+          display: flex; flex-direction: column; }
+  .body::before { content: ""; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 42px 42px;
+    -webkit-mask-image: radial-gradient(120% 120% at 100% 0%, #000 0%, transparent 60%); }
+
+  .hero { position: relative; z-index: 1; display: flex; align-items: center; gap: 26px; flex: 1; }
+  .stat { flex-shrink: 0; color: {{accent}}; font-size: {{stat_size}}px; font-weight: 800;
+          line-height: 1.05; letter-spacing: -1px; white-space: nowrap;
+          text-shadow: 0 6px 24px rgba(0,0,0,.35); }
+  .say { color: #ffffff; font-size: {{title_size}}px; font-weight: 700; line-height: 1.35;
+         letter-spacing: .5px;
+         display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+         overflow: hidden; }
+
+  .foot { position: relative; z-index: 1; display: flex; align-items: center; gap: 12px; }
+  .chip { display: flex; align-items: center; gap: 9px; color: #dfe8f4; font-size: 24px;
+          font-weight: 600; background: rgba(255,255,255,.07);
+          border: 1px solid rgba(255,255,255,.14); border-radius: 999px;
+          padding: 8px 17px; white-space: nowrap; }
+  .chip:empty { display: none; }
+  .chip i { width: 8px; height: 8px; border-radius: 50%; background: {{accent}};
+            flex-shrink: 0; display: block; }
+  .venue { margin-left: auto; flex-shrink: 0; color: #0a1220; font-weight: 700; font-size: 20px;
+           background: {{accent}}; padding: 9px 20px; border-radius: 999px;
+           letter-spacing: 1.2px; white-space: nowrap; }
+  .venue:empty { display: none; }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="card">
+    <div class="band">
+      <div class="logo">链</div>
+      <div class="name">供应链安全前沿</div>
+      <div class="kind">{{kind_label}}</div>
+    </div>
+    <div class="body">
+      <div class="hero">
+        <div class="stat">{{stat}}</div>
+        <div class="say">{{title_zh}}</div>
+      </div>
+      <div class="foot">
+        <div class="chip"><i></i>{{h1}}</div>
+        <div class="chip"><i></i>{{h2}}</div>
+        <div class="venue">{{venue}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
