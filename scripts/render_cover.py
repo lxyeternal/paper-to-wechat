@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """品牌封面渲染：templates/cover_*.html + front matter → 1800x766 PNG。
 
-论文解读有两套版式，A「看点分栏」和 B「焦点词」，共用同一套设计语言，
+论文解读有两套版式，A「看点分栏」和 B「数据对比」，共用同一套设计语言，
 按文章目录名做确定性哈希二选一（同一篇每次渲染结果稳定，整个列表看起来是混排的）。
 会议报告固定走浅色底的 cover_talk.html。
 """
 import argparse
 import html
 import sys
+import re
 import tempfile
 import zlib
 from pathlib import Path
@@ -41,19 +42,30 @@ def _fit(text: str, box_px: int, lines: int, lo: int, hi: int) -> int:
     return max(lo, min(hi, int(box_px * lines / _em(text) * 0.92)))
 
 
+def split_stat(stat: str):
+    """把 "13.9% → 62.5%" 拆成 (前, 后)；没有箭头就只有后一个值。"""
+    parts = re.split(r"\s*(?:→|->|=>)\s*", (stat or "").strip(), maxsplit=1)
+    return (parts[0], parts[1]) if len(parts) == 2 else ("", parts[0])
+
+
 def pick_layout(meta: dict, seed: str) -> str:
-    """A / B 版式二选一：显式指定 > 没有焦点词只能走 A > 按 seed 做确定性哈希。"""
+    """A / B 版式二选一：显式指定 > 数据块不完整只能走 A > 按 seed 做确定性哈希。
+
+    B 版要求 cover_stat 和 cover_stat_label 同时存在：一个没有标签的数字
+    既没有语境、又容易和旁边那句结论重复，所以宁可退回 A 版。
+    """
     explicit = (meta.get("cover_layout") or "").strip().lower()
     if explicit in LAYOUTS:
         return explicit
-    if not (meta.get("cover_stat") or "").strip():
+    if not ((meta.get("cover_stat") or "").strip()
+            and (meta.get("cover_stat_label") or "").strip()):
         return "a"
     return "b" if zlib.crc32(seed.encode("utf-8")) & 1 else "a"
 
 
 def render_cover(title_zh: str, title_en: str, venue: str, out_path: str,
                  kind: str = "", template: str = "", highlights=None,
-                 stat: str = "", layout: str = "a") -> str:
+                 stat: str = "", layout: str = "a", stat_label: str = "") -> str:
     accent, kind_label = KIND_STYLE.get(kind, _DEFAULT)
     if template:
         tpl = Path(template)
@@ -64,16 +76,19 @@ def render_cover(title_zh: str, title_en: str, venue: str, out_path: str,
     page_html = tpl.read_text(encoding="utf-8")
 
     hl = list(highlights or []) + ["", "", ""]
-    # A 版标题在 424px 宽的左栏里排 3 行，B 版说明句在 610px 宽里排 3 行
-    title_box = 610 if layout == "b" and not template else 424
+    stat_from, stat_to = split_stat(stat)
+    is_b = layout == "b" and not template
+    # A 版标题占 424px 宽的左栏，B 版结论句在数据块右边只剩约 450px
+    title_box, title_cap = (450, 30) if is_b else (424, 42)
     fields = {
         "title_zh": title_zh, "title_en": title_en, "venue": venue,
         "accent": accent, "kind_label": kind_label,
         "kind_word": kind_label[:2],          # 老模板的背景水印大字
         "h1": hl[0], "h2": hl[1], "h3": hl[2],
-        "stat": stat,
-        "stat_size": str(_fit(stat, 300, 1, 44, 104)) if stat else "84",
-        "title_size": str(_fit(title_zh, title_box, 3, 24, 42 if title_box < 500 else 32)),
+        "stat": stat, "stat_label": stat_label,
+        "stat_from": stat_from, "stat_to": stat_to,
+        "stat_size": str(_fit(stat_to, 300, 1, 30, 50)) if stat_to else "46",
+        "title_size": str(_fit(title_zh, title_box, 3, 22, title_cap)),
     }
     for key, val in fields.items():
         page_html = page_html.replace("{{" + key + "}}", html.escape(val or ""))
@@ -101,9 +116,10 @@ def render_cover(title_zh: str, title_en: str, venue: str, out_path: str,
 def render_from_dir(paper_dir: str, out_path: str = "") -> str:
     """从 <dir>/article.md 的 front matter 取参数渲染封面。
 
-    用到的字段：cover_title（封面那句结论，缺省退回 title）、cover_stat（焦点词，
-    数字或短语，填了才有资格走 B 版）、cover_layout（可选，强制 a/b）、
-    highlights（三条看点，直接上封面）、title_en、venue、kind。
+    用到的字段：cover_title（封面那句结论，缺省退回 title）、cover_stat（数据，
+    可写成 "13.9% → 62.5%" 的对比，也可只写一个值）、cover_stat_label（这组数
+    是什么，B 版必需）、cover_layout（可选，强制 a/b）、highlights（三条看点，
+    直接上封面）、title_en、venue、kind。
     """
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     from render_article import parse_front_matter
@@ -116,7 +132,8 @@ def render_from_dir(paper_dir: str, out_path: str = "") -> str:
     return render_cover(meta.get("cover_title") or meta.get("title", ""),
                         meta.get("title_en", ""), meta.get("venue", ""), out,
                         meta.get("kind", ""), "", meta.get("highlights", []),
-                        (meta.get("cover_stat") or "").strip(), layout)
+                        (meta.get("cover_stat") or "").strip(), layout,
+                        (meta.get("cover_stat_label") or "").strip())
 
 
 if __name__ == "__main__":
@@ -128,7 +145,8 @@ if __name__ == "__main__":
     ap.add_argument("--venue", default="")
     ap.add_argument("--kind", default="",
                     help="论文类型 survey/benchmark/method/empirical/system，决定点缀色与标签")
-    ap.add_argument("--stat", default="", help="B 版的焦点词（数字或短语）")
+    ap.add_argument("--stat", default="", help='B 版的数据，如 "13.9% → 62.5%" 或单个值')
+    ap.add_argument("--stat-label", default="", help="B 版数据块的标签，说明这是什么的数字")
     ap.add_argument("--hl", action="append", default=[], help="看点，可重复，最多 3 条")
     ap.add_argument("--layout", default="a", choices=["a", "b"], help="版式，默认 a")
     ap.add_argument("--template", default="", help="覆盖模板路径，试新版式时用")
@@ -140,4 +158,4 @@ if __name__ == "__main__":
     if not a.title_zh or not a.out:
         ap.error("需要 --title-zh 与 --out（或改用 --from <文章目录>）")
     print("cover ->", render_cover(a.title_zh, a.title_en, a.venue, a.out, a.kind,
-                                   a.template, a.hl, a.stat, a.layout))
+                                   a.template, a.hl, a.stat, a.layout, a.stat_label))

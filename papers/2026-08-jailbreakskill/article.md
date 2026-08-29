@@ -2,8 +2,9 @@
 title: 把越狱手法打包成 Agent Skill，失败经验自己长出新攻击：GPT-5.4 成功率从 13.9% 涨到 62.5%
 title_en: "JailbreakSkill: Scaling Automated Red-Teaming with Reusable and Ever-Evolving Skills"
 kind: method
-cover_title: 对 GPT-5.4 的攻击成功率从 13.9% 涨到 62.5%
-cover_stat: "+48.6"
+cover_title: 失败的攻击经验被沉淀成新技能，回填进库反复复用
+cover_stat: "13.9% → 62.5%"
+cover_stat_label: GPT-5.4 攻击成功率
 digest: 上海 AI Lab 等把越狱手法按 Agent Skill 的格式打包成 16 个可复用技能，再让失败经验反过来精炼、组合、发现新技能。技能化的价值不在找到最强的那一个，而在保留互补机制：并集覆盖比最强单技能高 18.6 个百分点。
 author: 供应链安全前沿
 venue: arXiv 2026

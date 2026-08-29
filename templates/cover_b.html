@@ -8,8 +8,9 @@
          font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", sans-serif;
          -webkit-font-smoothing: antialiased; }
 
-  /* 论文解读封面 B「焦点词」：一个焦点（数字或短语）+ 一句结论 + 两条看点。
-     封面说结论，微信在封面下面自己渲染的标题说全貌，两层信息互补而不重复。 */
+  /* 论文解读封面 B「数据对比」：带标签的一组数字 + 一句互补的结论 + 两条看点。
+     数字必须先有标签说清楚"这是什么的数字"，再给"从 X 到 Y"，
+     否则一个孤零零的大数字既没有语境、又和旁边那句话重复。 */
   .stage { position: relative; width: 900px; height: 383px;
            background: linear-gradient(150deg, #070d19 0%, #0a1526 48%, #0b1b2f 100%); }
   .stage::before { content: ""; position: absolute; right: -120px; top: -180px;
@@ -45,11 +46,18 @@
     background-size: 42px 42px;
     -webkit-mask-image: radial-gradient(120% 120% at 100% 0%, #000 0%, transparent 60%); }
 
-  .hero { position: relative; z-index: 1; display: flex; align-items: center; gap: 26px; flex: 1; }
-  .stat { flex-shrink: 0; color: {{accent}}; font-size: {{stat_size}}px; font-weight: 800;
-          line-height: 1.05; letter-spacing: -1px; white-space: nowrap;
-          text-shadow: 0 6px 24px rgba(0,0,0,.35); }
-  .say { color: #ffffff; font-size: {{title_size}}px; font-weight: 700; line-height: 1.35;
+  .hero { position: relative; z-index: 1; display: flex; align-items: center; gap: 28px; flex: 1; }
+
+  .stat { flex-shrink: 0; border-left: 4px solid {{accent}}; padding-left: 20px; }
+  .stat .lab { color: #93a7c0; font-size: 21px; font-weight: 600; letter-spacing: 1.5px;
+               margin-bottom: 8px; white-space: nowrap; }
+  .stat .pair { display: flex; align-items: baseline; gap: 12px; white-space: nowrap; }
+  .stat .from { color: #8fa3bb; font-size: 34px; font-weight: 700; }
+  .stat .arw { color: {{accent}}; font-size: 26px; font-weight: 700; }
+  .stat .from:empty, .stat .from:empty + .arw { display: none; }  /* 只有一个数时不画箭头 */
+  .stat .to { color: {{accent}}; font-size: {{stat_size}}px; font-weight: 800; letter-spacing: -.5px; }
+
+  .say { color: #ffffff; font-size: {{title_size}}px; font-weight: 700; line-height: 1.4;
          letter-spacing: .5px;
          display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
          overflow: hidden; }
@@ -59,7 +67,6 @@
           font-weight: 600; background: rgba(255,255,255,.07);
           border: 1px solid rgba(255,255,255,.14); border-radius: 999px;
           padding: 8px 17px; white-space: nowrap; }
-  .chip:empty { display: none; }
   .chip i { width: 8px; height: 8px; border-radius: 50%; background: {{accent}};
             flex-shrink: 0; display: block; }
   .venue { margin-left: auto; flex-shrink: 0; color: #0a1220; font-weight: 700; font-size: 20px;
@@ -78,7 +85,12 @@
     </div>
     <div class="body">
       <div class="hero">
-        <div class="stat">{{stat}}</div>
+        <div class="stat">
+          <div class="lab">{{stat_label}}</div>
+          <div class="pair">
+            <span class="from">{{stat_from}}</span><span class="arw">→</span><span class="to">{{stat_to}}</span>
+          </div>
+        </div>
         <div class="say">{{title_zh}}</div>
       </div>
       <div class="foot">

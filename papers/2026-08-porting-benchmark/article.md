@@ -2,8 +2,9 @@
 title: 自动补丁回移工具号称八九成成功率，统一基准一考：结构复杂的补丁只剩 24%
 title_en: "Benchmarking Automated Security Patch Backporting: How Far Are We?"
 kind: benchmark
-cover_title: 结构复杂的补丁，自动回移只剩 24% 成功率
-cover_stat: 24%
+cover_title: 补丁越需要跨函数调用链铺开，自动回移越接不住
+cover_stat: "85.2% → 24.0%"
+cover_stat_label: 结构复杂补丁的回移成功率
 digest: 一个漏洞在主线修好后，要回移到各个 LTS 分支、下游分叉，这就是补丁回移，Nday 防护的关键一环。现有自动化工具各家号称 80% 到 95% 成功率，但都在自己的数据集上自测、没法比。西电、南开、NTU 团队建了 1234 例的统一基准，把 5 个工具拉到同一张考卷：对齐评测后成功率集体跳水，结构复杂的补丁从 85% 掉到 24%，根因是补丁改动要跨函数调用链铺开、工具只能补一半。
 author: 供应链安全前沿
 venue: ASE 2026
