@@ -2,7 +2,7 @@
 title: NDSS 2026 里的供应链安全：8 篇论文，npm 仍在被硬啃，工具池污染是新出现的一类
 title_en: "NDSS 2026 Accepted Papers on Software Supply Chain Security"
 kind: roundup
-cover_title: npm 这条老线还在被硬啃，而智能体的工具池成了新的污染入口
+cover_title: npm 老线还在被硬啃，工具池成了新的污染入口
 cover_stat: "8 篇"
 cover_stat_label: NDSS 2026 供应链相关论文
 digest: 把 NDSS 2026 接收名单里和供应链安全相关的论文挑出来做了一期盘点：8 篇，分包生态与依赖、CI 与开发流程、LLM 应用与工具生态、分发与应用生态、研究方法论五组。抓取受限，本期确定覆盖到字母 L。

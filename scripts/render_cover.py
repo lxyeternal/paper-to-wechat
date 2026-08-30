@@ -89,6 +89,8 @@ def render_cover(title_zh: str, title_en: str, venue: str, out_path: str,
         "stat": stat, "stat_label": stat_label,
         "stat_from": stat_from, "stat_to": stat_to,
         "stat_size": str(_fit(stat_to, 300, 1, 30, 50)) if stat_to else "46",
+        # A 版右栏每条看点必须单行放下，否则会折出孤字
+        "hl_size": str(_fit(max(hl[:3], key=_em) if any(hl[:3]) else "", 260, 1, 19, 26)),
         "title_size": str(_fit(title_zh, title_box, 3, 22, title_cap)),
     }
     for key, val in fields.items():
