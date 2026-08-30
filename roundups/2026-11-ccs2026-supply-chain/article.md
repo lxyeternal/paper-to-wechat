@@ -1,16 +1,16 @@
 ---
-title: ACM CCS 2026 里的供应链安全：11 篇论文，被投毒的东西从软件包换成了模型本身
+title: ACM CCS 2026 里的供应链安全：15 篇论文，被投毒的东西从软件包换成了模型和知识库
 title_en: "ACM CCS 2026 Accepted Papers on Software Supply Chain Security"
 kind: roundup
-cover_title: 在 CCS 这边，被投毒的制品从软件包换成了模型、任务向量和插件
-cover_stat: "11 篇"
+cover_title: 在 CCS 这边，被投毒的制品是模型、任务向量和检索库
+cover_stat: "15 篇"
 cover_stat_label: CCS 2026 供应链相关论文
-digest: 把 ACM CCS 2026 接收名单里和供应链安全相关的论文挑出来做了一期盘点：11 篇，分模型与 AI 组件供应链、插件与第三方生态、溯源与构建、补丁与漏洞情报四组。CCS 这批的重心非常统一，被投毒的对象基本都是模型侧的制品。
+digest: 把 ACM CCS 2026 接收名单里和供应链安全相关的论文挑出来做了一期盘点：15 篇，分模型与 AI 组件、知识与检索、插件与第三方生态、恶意代码与溯源、补丁与漏洞情报五组。被投毒的对象基本都在模型这一侧。
 author: 供应链安全前沿
 venue: ACM CCS 2026
 collection: 供应链攻击与防御
 highlights:
-  - 11篇供应链相关论文
+  - 15篇供应链相关论文
   - 模型制品成投毒主目标
   - 预训练模型Hub被系统查
 ---
@@ -25,7 +25,7 @@ highlights:
 
 两点说明。其一，**CCS 分两个投稿周期，官方页目前公布的是第一周期**，第二周期的论文还没上去，所以这一期后续可能要补。其二，多数论文全文还没读，介绍严格限制在标题和作者团队能支撑的范围内。单位取自官方接收页原文。
 
-这一期的重心非常统一，统一到几乎不用我总结：==CCS 这批供应链论文里，被投毒、被污染、被后门的对象基本都不是软件包，而是模型侧的制品：预训练模型、任务向量、开源组件、插件、微调过程==。ASE 那期的主角是包和依赖，S&P 那期是 MCP 和浏览器扩展，到了 CCS 就成了模型本身。
+这一期的重心非常统一，统一到几乎不用我总结：==CCS 这批供应链论文里，被投毒、被污染、被后门的对象基本都不是软件包，而是模型侧的制品：预训练模型、任务向量、检索知识库、开源组件、插件、微调过程==。ASE 那期的主角是包和依赖，S&P 那期是 MCP 和浏览器扩展，到了 CCS 就成了模型本身。
 
 ## MODELS|模型与 AI 组件供应链
 
@@ -49,6 +49,16 @@ Jin-Seong Kim, Han Ju Lee, Seok-Won Hong, Takeshi Takahashi, Chansu Han, Tomohir
 Weitao Feng, Lixu Wang, Peizhuo Lv, Tianyi Wei, Jie Zhang, Chongyang Gao, Sinong Simon Zhan, Wei Dong | Nanyang Technological University, A*STAR, Northwestern University
 防护**有害的强化学习微调**。微调是模型供应链上一个特别的环节：模型交付出去之后，下游还能继续改它。别人拿走你的模型做有害微调，从供应链视角看就是制品在下游被改坏了，而原厂既看不见也管不着。
 
+## RAG|知识与检索供应链
+
+### MIRAGE: Misleading Retrieval-Augmented Generation via Black-box and Query-agnostic Poisoning Attacks
+Tailun Chen, Yu He, Yan Wang, Shuo Shao, Haolun Zheng, Zhihao Liu, Jinfeng Li, Zhizhen Qin, Yuefeng Chen, Zhixuan Chu, Zhan Qin, Kui Ren | Zhejiang University, Alibaba Group, Amazon
+黑盒且与查询无关的 **RAG 投毒攻击**。检索库是模型运行时拉进来的外部依赖，投毒一次就能持续影响所有相关查询。"与查询无关"这一点尤其麻烦：攻击者不需要预知用户会问什么，等于往依赖里埋了一颗通用的雷。
+
+### DisarmRAG: Stealthy Retriever Poisoning to Disable Self-Correction in Retrieval-Augmented Generation
+Yanbo Dai, Zhenlan Ji, Zongjie Li, Kuan Li, Shuai Wang | The Hong Kong University of Science and Technology
+投毒**检索器本身**，而且目标是先把系统的自我纠错能力关掉。这个思路很像供应链攻击里先干掉杀毒再投毒：不直接改内容，而是让防线失效，后续投毒就畅通无阻。
+
 ## PLUGINS|插件与第三方生态
 
 ### Customization under Fire: Plugin Poisoning in Text-to-Image Ecosystem
@@ -63,7 +73,16 @@ Fares F. Alharbi, Ece Gumusel, Luyi Xing, Xiaojing Liao | Indiana University Blo
 Zidong Zhang, Zhentao Xie, Lingyun Ying, Qinsheng Hou, Yacong Gu, Wenrui Diao, Jianliang Wu | Simon Fraser University, Shandong University, QI-ANXIN Technology Research Institute, Shanghai Jiao Tong University, Tsinghua University
 用动态分析挖**小程序里的 OAuth 认证误用**。小程序是一个封闭平台上的第三方应用生态，宿主应用、小程序开发者、后端服务三方之间的信任关系很容易搭错，而用户看到的只是宿主的品牌。
 
-## PROV|溯源与构建
+### Exploring Privacy Leakage and Data Disclosure Violations in the MacOS Application Ecosystem
+Jyotirmay Chauhan, Kostas Solomos, Mir Masood Ali, Jason Polakis | University of Illinois Chicago, Brandeis University
+测 **macOS 应用生态**的隐私泄露与数据披露违规。桌面端的应用分发长期比移动端松散，签名和沙箱都有，但对"应用实际做了什么、声明了什么"的核查远不如手机商店严格，这一层的实证数据一直很少。
+
+## PROV|恶意代码与溯源
+
+### PyFEX: Uncovering Evasive Python-based Threats via Resilient and Exhaustive Path Exploration
+Meng Wang, Yue Ma, Majid Garoosi, Wenting Fan, Liwei Guo, Jiangqiang Wang, Ali Abbasi | CISPA Helmholtz Center for Information Security, University of Electronic Science and Technology, Shanghai Jiao Tong University, Max Planck Institute for Security and Privacy
+用穷尽式路径探索挖**规避型 Python 威胁**。恶意 PyPI 包最常见的伎俩就是把恶意分支藏在条件后面，只在特定环境、特定时间才触发，静态扫描和普通动态执行都碰不到那条路径。把路径走全，正是对付这类规避的正面手段。本账号解读过 PyGuard 那篇 PyPI 恶意包检测，这篇是同一战场的另一条技术路线。
+
 
 ### Compiler Provenance as a Service: Decoupled Identification for Composite Provenance and Operational Resilience
 Han Gao, Antonio Bianchi, Z. Berkay Celik, Dave (Jing) Tian | Purdue University
@@ -81,7 +100,7 @@ Saad Ullah, Praneeth Balasubramanian, Wenbo Guo, Amanda Burnett, Hammond Pearce,
 
 ## TAKEAWAYS|一点观察
 
-**被投毒的制品变了。** 这一期最清楚的信号是攻击对象的迁移：模型权重、任务向量、文生图插件、开源组件、微调过程，五篇都在讲同一类事，只是位置不同。==软件供应链安全研究了十几年的那套问题，正在模型这条链上被完整地重放一遍==，而且每一环都比包生态年轻得多、治理设施也少得多。
+**被投毒的制品变了。** 这一期最清楚的信号是攻击对象的迁移：模型权重、任务向量、检索知识库、文生图插件、开源组件、微调过程，七篇都在讲同一类事，只是位置不同。==软件供应链安全研究了十几年的那套问题，正在模型这条链上被完整地重放一遍==，而且每一环都比包生态年轻得多、治理设施也少得多。
 
 **三个会议三种重心，只看一个会严重失真。** ASE 的主角是包、依赖和 SBOM，S&P 是 MCP、浏览器扩展和插件生态，CCS 是模型制品。它们讲的是同一个大问题在不同层的表现：软工会议关注工程治理，安全会议关注攻击面，而 CCS 这边最贴近"模型即制品"这个新形态。把三份名单叠在一起，才是这个方向今年的真实全貌。
 

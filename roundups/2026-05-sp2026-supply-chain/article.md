@@ -1,16 +1,16 @@
 ---
-title: IEEE S&P 2026 里的供应链安全：12 篇论文，攻击面已经从包生态挪到了 MCP 和浏览器扩展
+title: IEEE S&P 2026 里的供应链安全：16 篇论文，攻击面已经从包生态挪到了 MCP 和浏览器扩展
 title_en: "IEEE S&P 2026 Accepted Papers on Software Supply Chain Security"
 kind: roundup
 cover_title: 供应链攻击面已从包生态挪到 MCP、插件和扩展
-cover_stat: "12 篇"
+cover_stat: "16 篇"
 cover_stat_label: S&P 2026 供应链相关论文
-digest: 把 IEEE S&P 2026 接收名单里和软件供应链安全相关的论文挑出来做了一期盘点：12 篇，分五组。最明显的变化是传统包生态几乎空场，攻击面整体挪到了 MCP、浏览器扩展、聊天插件这些新组件生态上。
+digest: 把 IEEE S&P 2026 接收名单里和软件供应链安全相关的论文挑出来做了一期盘点：16 篇，分六组。最明显的变化是传统包生态几乎空场，攻击面整体挪到了 MCP、浏览器扩展、聊天插件这些新组件生态上。
 author: 供应链安全前沿
 venue: IEEE S&P 2026
 collection: 供应链攻击与防御
 highlights:
-  - 12篇供应链相关论文
+  - 16篇供应链相关论文
   - 攻击面挪到MCP和扩展
   - 传统包生态几乎空场
 ---
@@ -25,7 +25,7 @@ highlights:
 
 和 ASE 那期一样，先说清楚边界：**多数论文全文还没读**，下面的介绍严格限制在标题和作者团队能支撑的范围内，不替作者把结论说满；本账号已经读过全文的会特别标出来。单位取自官方接收页的原文。
 
-这一期最值得先说的不是某一篇，而是**名单的形状**。ASE 那边包生态、依赖、SBOM 是主力，而在 S&P 这边，==传统包生态几乎空场，供应链相关的论文集中砸在了 MCP、浏览器扩展、聊天插件、LLM 应用商店这些新的组件生态上==。同一年、同一个大主题，两个会议的重心完全不同。
+这一期把接收名单按字母整个扫了一遍，最值得先说的不是某一篇，而是**名单的形状**。ASE 那边包生态、依赖、SBOM 是主力，而在 S&P 这边，==传统包生态几乎空场，供应链相关的论文集中砸在了 MCP、浏览器扩展、聊天插件、LLM 应用商店这些新的组件生态上==。同一年、同一个大主题，两个会议的重心完全不同。
 
 ## AGENTS|智能体与插件生态
 
@@ -48,6 +48,16 @@ Shijin Chen, Willy Susilo, Yudi Zhang, Fuchun Guo | University of Wollongong
 ### LLMThief: Evaluating Configuration Leaking Risks in Commercial LLM App Stores
 Pinji Chen, Jinlong Jiang, Jianjun Chen, Feiran Qin, Minghao Zhang, Jiahe Zhang, Haixin Duan, Kaiwen Shen, Hui Jiang | Tsinghua University, Wuhan University, Clouditera, Baidu
 商业 **LLM 应用商店**里的配置泄露风险。应用商店是分发环节，上架的每个应用都带着自己的系统提示词和配置，这些东西既是开发者的资产，也是攻击者摸清应用行为的入口。本账号解读过 LLM App Store 的安全实测，这篇是配置泄露这一面的延伸。
+
+### Navigating Developers' Quagmire: LLM-Enabled Privacy Compliance Analysis for SDK Integrations
+Zhaojie Hu, Xueqiang Wang | University of Central Florida
+用大模型分析**第三方 SDK 集成的隐私合规**。SDK 是移动端最典型的供应链组件：应用开发者集成它、承担它的合规责任，却基本看不到它到底收了什么数据。把合规分析自动化，等于给这条链补上一个开发者能自己跑的检查点。
+
+## PKG|包与语言生态
+
+### The First Large-Scale Systematic Study of Python Class Pollution Vulnerability
+Zhengyu Liu, Jiacheng Zhong, Jianjia Yu, Muxi Lyu, Zifeng Kang, Yinzhi Cao | Johns Hopkins University
+第一次大规模系统研究 **Python 类污染漏洞**。它和 JavaScript 的原型污染是同构的：污染一个被共享的类属性，影响会顺着依赖树扩散到整个应用。NDSS 那期有一篇做 npm 原型污染，两篇对着读能看清这类"语言机制级"漏洞在不同生态的表现。
 
 ## BUILD|构建与分发链
 
@@ -73,13 +83,21 @@ Giada Stivala, Rafael Mrowczynski, Maria Hellenthal, Giancarlo Pellegrino | CISP
 Hui Jun Tay, Souradip Nath, Arvind S Raj, Abhay Bhat, Ishan Bansal, Audrey Dutcher, Moritz Schloegel, Adam Doupé, Tiffany Bao, Yan Shoshitaishvili, Ruoyu Wang | Arizona State University
 实证测量**固件生态里的负责任披露**。标题说披露是"双向的"，意思很直白：研究者遵守了披露约定，厂商未必履行自己那一半。固件生态的下游极长且更新极慢，这条链上的约定是否被兑现，直接决定了漏洞的实际寿命。
 
-## TRUST|信任根
+## TRUST|信任根与溯源
 
 ### SoK: All You Ever Wanted to Know About Bootloader Security But Were Afraid to Ask
 Connor Glosner, Aravind Machiry | Purdue University
 **引导加载器安全**的系统化梳理。引导链是整台设备信任的起点，上面所有的签名校验、度量启动、可信执行都建立在它之上。这一层被攻破，上面所有的供应链防护都是空的。
 
-## GUARD|防护组件本身
+### Sealing the Window: Efficient Tamper Protection for Provenance Logs
+Sagar Mishra, R Sekar | Stony Brook University
+给**溯源日志**做高效的防篡改保护。溯源日志是事后追责的唯一依据，而攻击者拿到权限后第一件事往往就是改日志。日志本身不可信，上面建的所有溯源结论都不成立，这一层和引导加载器一样属于"必须先守住"的地基。
+
+## GUARD|知识与防护组件
+
+### Who Taught the Lie? Responsibility Attribution for Poisoned Knowledge in Retrieval-Augmented Generation
+Baolei Zhang, Haoran Xin, Yuxi Chen, Zhuqing Liu, Biao Yi, Tong Li, Lihai Nie, Zheli Liu, Minghong Fang | Nankai University, Guilin Institute of Information Technology, University of North Texas, University of Louisville
+RAG 知识库被投毒之后，**追责到底该落到哪一条知识上**。这篇的切入角度和大多数投毒研究不同：不是检测有没有被投毒，而是投毒发生后定位是哪条来源导致了错误输出。检索库就是模型的外部依赖，出了事要能溯源到具体那条，这和包生态里定位是哪个依赖引入了漏洞是同一件事。
 
 ### SoK: Evaluating Jailbreak Guardrails for Large Language Models
 Xunguang Wang, Zhenlan Ji, Wenxuan Wang, Zongjie Li, Daoyuan Wu, Shuai Wang | The Hong Kong University of Science and Technology, Renmin University of China, Lingnan University
@@ -89,7 +107,7 @@ Xunguang Wang, Zhenlan Ji, Wenxuan Wang, Zongjie Li, Daoyuan Wu, Shuai Wang | Th
 
 **传统包生态在 S&P 这边几乎空场。** npm、PyPI、Maven 这些词在整份名单里基本找不到，而在 ASE 那边它们是主力。这不代表问题解决了，更可能是分工：软工会议把包生态当作工程治理问题继续深耕，安全会议则整体转向了**新出现、边界还没定型的组件生态**。想跟踪供应链安全的全貌，只盯一个会议会严重失真。
 
-**新的组件生态一次性冒出来五篇。** MCP server、浏览器扩展、聊天插件、LLM 应用商店，这四类东西的共同点是：都在最近两三年成为可分发、可安装、可组合的第三方组件，==而它们全都没有包生态那套已经磨了十几年的治理设施：没有统一的注册表审核、没有成熟的签名与来源验证、没有依赖关系的可见性==。攻击者迁移的速度，比治理设施建设的速度快得多。
+**新的组件生态一次性冒出来六篇。** MCP server、浏览器扩展、聊天插件、LLM 应用商店、第三方 SDK，这几类东西的共同点是：都在最近两三年成为可分发、可安装、可组合的第三方组件，==而它们全都没有包生态那套已经磨了十几年的治理设施：没有统一的注册表审核、没有成熟的签名与来源验证、没有依赖关系的可见性==。攻击者迁移的速度，比治理设施建设的速度快得多。
 
 **信任根在往更下层沉。** 引导加载器、深度学习编译器，这两篇分别落在设备启动链和模型构建链的最底部。当上层的防护逐渐补齐，攻击自然往下找那些"默认可信、无人审计"的环节，而这些环节的共同特点是一旦失守，上面的所有校验都会变成走过场。
 
