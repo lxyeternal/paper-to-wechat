@@ -28,6 +28,7 @@ KIND_STYLE = {
     "empirical": ("#fcd34d", "实测解读"),
     "system":    ("#fda4af", "系统解读"),
     "talk":      ("#4f46e5", "现场报告"),  # 浅底模板，用深色强调色
+    "roundup":   ("#fdba74", "会议盘点"),
 }
 _DEFAULT = ("#67e8b9", "论文解读")
 

@@ -2,7 +2,7 @@
 
 排版骨架对所有类型统一（保持视觉一致）；只有强调色（section 下划线、
 看点卡片顶条、粗体、引用块边框）按论文类型走同色系深色，与封面点缀色呼应。
-调用 set_kind(kind) 在渲染前设置；kind ∈ {survey,benchmark,method,empirical,system,talk}。
+调用 set_kind(kind) 在渲染前设置；kind ∈ {survey,benchmark,method,empirical,system,talk,roundup}。
 """
 
 # 每类的排版强调色（白底上用深色版），与 render_cover 的浅色点缀色同色系
@@ -13,6 +13,7 @@ KIND_ACCENT = {
     "empirical": ("#d97706", "#fcd34d"),  # 琥珀：实证/测量
     "system":    ("#e11d48", "#fda4af"),  # 玫红：系统/工具
     "talk":      ("#4f46e5", "#a5b4fc"),  # 靛蓝：会议报告/主题演讲
+    "roundup":   ("#ea580c", "#fdba74"),  # 橙：会议论文盘点
 }
 
 ACCENT = "#0d9488"        # 品牌主色（默认青绿，set_kind 会改写）
