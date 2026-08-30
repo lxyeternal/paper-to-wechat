@@ -69,6 +69,27 @@ def quote_block(inner_html: str) -> str:
             f'font-weight:500;">{inner_html}</p></section>')
 
 
+def paper_card(idx: int, title_html: str, meta_html: str, body_html: str) -> str:
+    """论文清单里的一张卡片：序号 + 标题 + 作者单位（带下划线分隔）+ 导读。
+
+    盘点类文章一屏里挤十几条，不分块就会糊成一片，读者认不出"哪一条是哪一条"。
+    卡片和 quote_block 共用一套视觉语言（浅底 + 左侧强调色），只是多了序号和单位行。
+    """
+    meta = (f'<p style="margin:10px 0 0;padding-bottom:9px;'
+            f'border-bottom:1px solid #e3e8ee;font-size:13px;color:{ACCENT};'
+            f'font-weight:600;line-height:1.6;">{meta_html}</p>') if meta_html else ""
+    body = (f'<p style="margin:11px 0 0;font-size:14px;line-height:1.85;color:{TEXT};'
+            f'letter-spacing:.3px;text-align:justify;">{body_html}</p>') if body_html else ""
+    return (
+        f'<section style="margin:18px 0;background:#f7f9fb;border-left:4px solid {ACCENT};'
+        'border-radius:0 6px 6px 0;padding:14px 18px;">'
+        f'<p style="margin:0;font-size:11px;letter-spacing:2px;color:{LABEL_COLOR};">'
+        f'{idx:02d}</p>'
+        f'<p style="margin:4px 0 0;font-size:15px;font-weight:700;color:#1f2937;'
+        f'line-height:1.55;">{title_html}</p>{meta}{body}</section>'
+    )
+
+
 def highlights_cards(items: list[str]) -> str:
     cards = ""
     for i, text in enumerate(items, 1):

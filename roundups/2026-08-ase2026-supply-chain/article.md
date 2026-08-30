@@ -31,74 +31,62 @@ highlights:
 
 ## PACKAGES|包与生态治理
 
-**How Effective Are NPM Malicious Package Detectors? A Large-Scale Empirical Study**
+### How Effective Are NPM Malicious Package Detectors? A Large-Scale Empirical Study
 南洋理工大学、四川大学、南开大学、新加坡管理大学、Imperial Global Singapore
-
 NPM 恶意包检测工具这几年出了一堆，但各自在不同数据集、不同口径上自评，横向没法比。这篇把它们拉到统一数据集和统一设置下做大规模实测。**本账号已解读过**，结论对做检测的人挺不客气。
 
-**GANADI: Uncovering C/C++ OSS Reuse Genealogies via Pivotal Function-Based Clustering to Enhance Supply Chain Security**
+### GANADI: Uncovering C/C++ OSS Reuse Genealogies via Pivotal Function-Based Clustering to Enhance Supply Chain Security
 高丽大学
-
 C/C++ 世界没有统一的包管理器，代码复用大量靠复制粘贴和 vendoring，所以"这段代码到底源自哪个上游项目"是个真问题，也是漏洞传播分析的前提。这篇用关键函数聚类去还原开源代码的**复用谱系**。高丽大学这个组在 C/C++ 复用与漏洞传播方向做了很多年。
 
-**ATLAS: Agentic Taxonomy of LArge-Scale Software Ecosystems**
+### ATLAS: Agentic Taxonomy of LArge-Scale Software Ecosystems
 南开大学、南洋理工大学
-
 用智能体给大规模软件生态自动建**分类体系**。生态治理的第一步是知道生态里有什么、怎么分类，这类基础设施性质的工作往往被低估，但下游的风险度量、依赖分析都依赖它。
 
 ## AGENTS|智能体供应链
 
 这是这批里最新的一支，三篇全是围绕 Agent Skill 生态的。
 
-**MalSkills: Detecting Malicious Skills in the Agentic Supply Chain via Neuro-symbolic Reasoning**
+### MalSkills: Detecting Malicious Skills in the Agentic Supply Chain via Neuro-symbolic Reasoning
 华中科技大学、蚂蚁集团
+用神经符号推理检测恶意技能：先从异构制品里抽出安全敏感操作，再做符号推理判定。**本账号已解读过**，不过要注意，==它的预印本标题和 ASE 正式版完全不同==（预印本叫《"Elementary, My Dear Watson."…》），同一批作者、同一个系统。这正是查论文时最容易踩的坑：只匹配标题会把同一篇当成两篇。
 
-用神经符号推理检测恶意技能：先从异构制品里抽出安全敏感操作，再做符号推理判定。**本账号已解读过**，不过要注意，==它的预印本标题是《"Elementary, My Dear Watson." Detecting Malicious Skills via Neuro-Symbolic Reasoning across Heterogeneous Artifacts》，和 ASE 正式版标题完全不同==，同一批作者、同一个系统。这正是查论文时最容易重复踩的坑：只匹配标题会把同一篇当成两篇。
-
-**Latent Reuse in Agent Skills: Multi-modal Clone Detection at Ecosystem Scale**
+### Latent Reuse in Agent Skills: Multi-modal Clone Detection at Ecosystem Scale
 南洋理工大学
-
 在整个技能生态尺度上做**多模态克隆检测**。技能不是纯代码，是提示词、脚本、配置和资源的混合体，传统代码克隆检测的那套在这里不够用。找出"哪些技能其实是同一份东西的变体"，对追踪恶意技能的扩散和评估生态真实多样性都是前置能力。
 
-**How Your Credentials Are Leaked by LLM Agent Skills: An Empirical Study**
+### How Your Credentials Are Leaked by LLM Agent Skills: An Empirical Study
 格里菲斯大学、维克森林大学、南洋理工大学、新南威尔士大学等
-
 第一个针对智能体技能**凭据泄露**的大规模实证研究。技能运行在特权环境里、日常要处理敏感凭据，这条路径此前基本没人系统查过。**本账号已解读过**。
 
 ## DEPS|依赖与构建
 
-**Implicit, Yet Impactful: Understanding Hidden Dependencies in Java Projects**
+### Implicit, Yet Impactful: Understanding Hidden Dependencies in Java Projects
 南洋理工大学、南开大学
-
 讲 Java 项目里的**隐式依赖**：没有写在依赖声明里、但实际被用到的那些。这类依赖是依赖分析和 SBOM 的系统性盲区，声明文件里看不见，可它出问题一样会炸。
 
-**DepUpgrade: Automating Dependency Upgrade through State-Path Exploration**
+### DepUpgrade: Automating Dependency Upgrade through State-Path Exploration
 北京航空航天大学
-
 用状态路径探索来自动化**依赖升级**。升级依赖是所有供应链安全建议的最后一公里，也是最容易卡住的一环：修复存在、但升不上去。这个方向和补丁回移是同一个问题的两种形态。
 
 ## PATCH|漏洞与补丁的传播
 
-**Benchmarking Automated Security Patch Backporting: How Far Are We?**
+### Benchmarking Automated Security Patch Backporting: How Far Are We?
 西安电子科技大学、南开大学、南洋理工大学
-
 1234 例真实回移案例的统一基准，把五个自动回移工具拉到同一张考卷上。**本账号已解读过**，核心结论是对齐评测后成功率集体跳水，结构复杂的补丁只剩 24%。
 
-**One Is Not Enough: The Untold Story of Multiple Security Patches for One Vulnerability**
+### One Is Not Enough: The Untold Story of Multiple Security Patches for One Vulnerability
 南开大学、南洋理工大学
-
 一个漏洞**不止一个补丁**。这件事对下游影响很直接：如果你的扫描器认定"打了某个补丁就算修复"，而上游实际上分了多次提交才补完，那你的合规状态就是假的。这类"看起来已修复"的情形，比未修复更危险。
 
-**Post-quantum Cryptography in the Wild: Assessing the Readiness of Open-Source Ecosystems**
+### Post-quantum Cryptography in the Wild: Assessing the Readiness of Open-Source Ecosystems
 上海交通大学
-
 评估开源生态迁移到**后量子密码**的就绪度。这是一次超大规模的强制依赖升级预演，牵涉到密码库、协议实现和它们所有的下游，跟前面那两篇讲的是同一类问题：**修复能不能真的传到底**。
 
 ## COMMIT|提交与发布防线
 
-**Not In My Git Yard: Catching Backdoors at Commit and Release Time**
+### Not In My Git Yard: Catching Backdoors at Commit and Release Time
 巴黎萨克雷大学、法国原子能委员会 CEA List
-
 在**提交和发布这两个时间点**上抓后门。这个选点很务实：包一旦发布出去，检测就变成了跟分发速度赛跑；而 commit 和 release 是攻击者必须经过的两道闸门，卡在这里成本最低。
 
 ## MORE|同样相关，但单位没核实到

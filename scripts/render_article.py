@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """article.md（受控 Markdown 子集）→ 微信兼容 HTML（全内联样式）。
 
-支持的语法：front matter、`## LABEL|中文标题`、`![图注](路径)`、`**粗体**`、空行分段。
+支持的语法：front matter、`## LABEL|中文标题`、`### 论文卡片`（首行标题/次行单位/其余导读）、
+`![图注](路径)`、`> 引用块`、`**粗体**`、`==红色重点==`、空行分段。
 不支持链接语法：URL 直接写在文本里（微信会剥外链，纯文本最稳）。
 """
 import argparse
@@ -50,7 +51,7 @@ def _inline(text: str) -> str:
 
 def render_body(body: str) -> str:
     blocks = re.split(r"\n\s*\n", body.strip())
-    parts, section_num = [], 0
+    parts, section_num, card_num = [], 0, 0
     for block in blocks:
         block = block.strip()
         if not block:
@@ -63,6 +64,15 @@ def render_body(body: str) -> str:
                 section_num, m_h.group(1).strip(), m_h.group(2).strip()))
         elif m_img:
             parts.append(theme.image_block(m_img.group(2), _inline(m_img.group(1))))
+        elif block.startswith("### "):
+            # 论文卡片：首行标题，次行作者单位，其余为导读正文
+            lines = block.splitlines()
+            card_num += 1
+            parts.append(theme.paper_card(
+                card_num,
+                _inline(lines[0][4:].strip()),
+                _inline(lines[1].strip()) if len(lines) > 1 else "",
+                _inline(" ".join(l.strip() for l in lines[2:])) if len(lines) > 2 else ""))
         elif block.startswith(">"):
             # 核心洞察 / 定理 / 关键定义高亮块：去掉每行的 "> " 前缀
             quote = "\n".join(re.sub(r"^>\s?", "", ln) for ln in block.splitlines())
