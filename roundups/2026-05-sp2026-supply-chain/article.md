@@ -30,59 +30,59 @@ highlights:
 ## AGENTS|智能体与插件生态
 
 ### Parasites in the Toolchain: A Large-Scale Analysis of Attacks on the MCP Ecosystem
-上海交通大学、长亭科技、香港科技大学
+Shuli Zhao, Qinsheng Hou, Zihan Zhan, Yanhao Wang, Yuchong Xie, Yu Guo, Libo Chen, Shenghong Li, Zhi Xue | Shanghai Jiao Tong University, CHAITIN TECHNOLOGY, Hong Kong University of Science and Technology
 对 **MCP 生态**攻击面的大规模分析。MCP 现在是智能体接工具的事实标准，一个 MCP server 就是一个第三方组件，装进来就获得了工具调用权限。标题里的"寄生虫"点得很准：这条工具链上的组件既能被投毒，也能反过来吃掉调用方。这大概是这批里最正面命中供应链定义的一篇。
 
 ### Site Isolation is Dead: How Site Isolation is Broken in Agentic Browsers and Extensions
-KAIST、俄勒冈州立大学、首尔大学
+Suyoung Lee, Seongho Keum, Changoo Lee, Dongwon Shin, Sanghyun Hong, Byoungyoung Lee, Sooel Son | KAIST, Oregon State University, Seoul National University
 站点隔离是浏览器安全的基石假设，而这篇说它在**智能体浏览器和扩展**里被打破了。原因不难想象：智能体天然要跨站点读取和操作，扩展又长期拥有跨站权限，两者叠在一起，浏览器几十年建起来的边界就被从内部绕过了。
 
 ### When AI Meets the Web: Prompt Injection Risks in Third-Party AI Chatbot Plugins
-加州大学圣塔芭芭拉分校
+Yigitcan Kaya, Anton Landerer, Stijn Pletinckx, Michelle Zimmermann, Christopher Kruegel, Giovanni Vigna | University of California, Santa Barbara
 **第三方聊天机器人插件**里的提示注入风险。插件是典型的供应链结构：用户信任的是聊天机器人，实际执行的是第三方代码，而注入内容可以从插件拉取的网页里进来。信任传递了，但审计没有跟着传递。
 
 ### KeyChaser: Unveiling API Keys in Browser Extensions
-卧龙岗大学
+Shijin Chen, Willy Susilo, Yudi Zhang, Fuchun Guo | University of Wollongong
 挖**浏览器扩展里硬编码的 API 密钥**。扩展是打包分发的制品，密钥一旦随包发出去就等于公开，而且撤销和轮换的成本极高。这和本账号解读过的智能体技能凭据泄露是同一类问题，只是载体从 Skill 换成了扩展。
 
 ### LLMThief: Evaluating Configuration Leaking Risks in Commercial LLM App Stores
-清华大学、武汉大学、云起无垠、百度
+Pinji Chen, Jinlong Jiang, Jianjun Chen, Feiran Qin, Minghao Zhang, Jiahe Zhang, Haixin Duan, Kaiwen Shen, Hui Jiang | Tsinghua University, Wuhan University, Clouditera, Baidu
 商业 **LLM 应用商店**里的配置泄露风险。应用商店是分发环节，上架的每个应用都带着自己的系统提示词和配置，这些东西既是开发者的资产，也是攻击者摸清应用行为的入口。本账号解读过 LLM App Store 的安全实测，这篇是配置泄露这一面的延伸。
 
 ## BUILD|构建与分发链
 
 ### Your Compiler is Backdooring Your Model: Understanding and Exploiting Compilation Inconsistency Vulnerabilities in Deep Learning Compilers
-哥伦比亚大学、南加州大学
+Simin Chen, Jinjun Peng, Yixin He, Junfeng Yang, Baishakhi Ray | Columbia University, University of Southern California
 **深度学习编译器**的编译不一致性可以被用来给模型下后门。这个位置很要命：模型权重没被动，训练数据没被动，问题出在把模型编译成可执行形态的那一步。传统供应链防护盯的是源码和依赖，编译器这一环长期被当成可信基础设施，**而这篇说明编译器本身就能成为投毒点**。
 
 ### Death Is Not the End: A Longitudinal Study on the Impact of Automatic Updates on Container Vulnerability Lifespans
-马里兰大学帕克分校、Google
+Simge Tekin, Octavian Suciu, Sungsu Kwag, Yonghwi Kwon, Tudor Dumitras | University of Maryland, College Park, Google
 纵向研究**自动更新对容器镜像漏洞存活期**的影响。容器镜像是今天最主要的分发单元之一，标题里"死亡不是终点"指的应该是漏洞并不会因为上游发布修复就消失，它在镜像里的实际存活取决于更新有没有真的滚下去。这和 ASE 那批的"修复传不到底"是同一个母题，只是换到了镜像层。
 
 ## PATCH|补丁与漏洞传播
 
 ### PORTGPT: Towards Automated Backporting Using Large Language Models
-华中科技大学、西北大学、滑铁卢大学、Canonical
+Zhaoyang Li, Zheng Yu, Jingyi Song, Meng Xu, Yuxuan Luo, Dongliang Mu | Huazhong University of Science and Technology, Northwestern University, University of Waterloo, Canonical Ltd.
 用大模型做**自动补丁回移**。这篇值得单独说一句：本账号解读过 ASE 2026 那篇回移基准，==它评测的五个工具里就有 PortGPT，而且在复现集上是表现最好的两个之一（80.5%）==。一个会议提出工具、另一个会议建基准把它拉去考，两篇放在一起看，比单读任何一篇都清楚。
 
 ### Behind the Curtain: How Shared Hosting Providers Respond to Vulnerability Notifications
-CISPA 亥姆霍兹信息安全中心
+Giada Stivala, Rafael Mrowczynski, Maria Hellenthal, Giancarlo Pellegrino | CISPA Helmholtz Center for Information Security
 测**共享主机服务商收到漏洞通告后到底怎么响应**。漏洞通告是修复传播链上极关键又极少被量化的一环：研究者发了通告，中间商收不收、转不转、修不修，决定了这个洞最终会不会落地修复。
 
 ### Responsible Disclosure is a Two-Way Street: Empirically Measuring the Responsible Disclosure Contract in the Firmware Ecosystem
-亚利桑那州立大学
+Hui Jun Tay, Souradip Nath, Arvind S Raj, Abhay Bhat, Ishan Bansal, Audrey Dutcher, Moritz Schloegel, Adam Doupé, Tiffany Bao, Yan Shoshitaishvili, Ruoyu Wang | Arizona State University
 实证测量**固件生态里的负责任披露**。标题说披露是"双向的"，意思很直白：研究者遵守了披露约定，厂商未必履行自己那一半。固件生态的下游极长且更新极慢，这条链上的约定是否被兑现，直接决定了漏洞的实际寿命。
 
 ## TRUST|信任根
 
 ### SoK: All You Ever Wanted to Know About Bootloader Security But Were Afraid to Ask
-普渡大学
+Connor Glosner, Aravind Machiry | Purdue University
 **引导加载器安全**的系统化梳理。引导链是整台设备信任的起点，上面所有的签名校验、度量启动、可信执行都建立在它之上。这一层被攻破，上面所有的供应链防护都是空的。
 
 ## GUARD|防护组件本身
 
 ### SoK: Evaluating Jailbreak Guardrails for Large Language Models
-香港科技大学、中国人民大学、岭南大学
+Xunguang Wang, Zhenlan Ji, Wenxuan Wang, Zongjie Li, Daoyuan Wu, Shuai Wang | The Hong Kong University of Science and Technology, Renmin University of China, Lingnan University
 45 项越狱护栏工作按六个维度归类，再把其中 13 个拉到同一张考卷上做安全、效率、可用性三目标评测。**本账号已解读过**，结论是面对自适应多轮攻击，绝大多数护栏的成功率仍在九成以上。放进这一期是因为护栏本身也已经变成一类可下载、可组合的组件：选一个护栏和选一个依赖包在操作上没有区别，但它对哪类攻击失效这件事并不随组件附带。
 
 ## TAKEAWAYS|一点观察

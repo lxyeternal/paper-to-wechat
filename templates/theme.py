@@ -70,14 +70,24 @@ def quote_block(inner_html: str) -> str:
 
 
 def paper_card(idx: int, title_html: str, meta_html: str, body_html: str) -> str:
-    """论文清单里的一张卡片：序号 + 标题 + 作者单位（带下划线分隔）+ 导读。
+    """论文清单里的一张卡片：序号 + 标题 + 作者与单位 + 中文导读。
 
     盘点类文章一屏里挤十几条，不分块就会糊成一片，读者认不出"哪一条是哪一条"。
-    卡片和 quote_block 共用一套视觉语言（浅底 + 左侧强调色），只是多了序号和单位行。
+    卡片和 quote_block 共用一套视觉语言（浅底 + 左侧强调色），只是多了序号和作者行。
+
+    meta 行用 `|` 分成两段：前半是作者名，后半是单位，都保持英文原文。
+    作者用浅灰、单位用强调色，两行下面压一条分隔线，把元信息和导读切开。
     """
-    meta = (f'<p style="margin:10px 0 0;padding-bottom:9px;'
-            f'border-bottom:1px solid #e3e8ee;font-size:13px;color:{ACCENT};'
-            f'font-weight:600;line-height:1.6;">{meta_html}</p>') if meta_html else ""
+    meta = ""
+    if meta_html:
+        authors, _, affils = meta_html.partition("|")
+        rows = (f'<p style="margin:9px 0 0;font-size:13px;color:#6b7785;'
+                f'line-height:1.65;">{authors.strip()}</p>') if authors.strip() else ""
+        if affils.strip():
+            rows += (f'<p style="margin:3px 0 0;font-size:13px;color:{ACCENT};'
+                     f'font-weight:600;line-height:1.65;">{affils.strip()}</p>')
+        meta = (f'<section style="padding-bottom:9px;border-bottom:1px solid #e3e8ee;">'
+                f'{rows}</section>')
     body = (f'<p style="margin:11px 0 0;font-size:14px;line-height:1.85;color:{TEXT};'
             f'letter-spacing:.3px;text-align:justify;">{body_html}</p>') if body_html else ""
     return (

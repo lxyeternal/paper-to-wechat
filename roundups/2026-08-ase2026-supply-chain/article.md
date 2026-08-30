@@ -32,102 +32,102 @@ highlights:
 ## PACKAGES|包与生态治理
 
 ### How Effective Are NPM Malicious Package Detectors? A Large-Scale Empirical Study
-南洋理工大学、四川大学、南开大学、新加坡管理大学、Imperial Global Singapore
+Wenbo Guo, Zhongwen Chen, Zhengzi Xu, Chengwei Liu, Ming Kang, Shiwen Song, Chengyue Liu, Yijia Xu, Weisong Sun, Yang Liu | Nanyang Technological University, Sichuan University, Imperial Global Singapore, Nankai University, Singapore Management University
 NPM 恶意包检测工具这几年出了一堆，但各自在不同数据集、不同口径上自评，横向没法比。这篇把它们拉到统一数据集和统一设置下做大规模实测。**本账号已解读过**，结论对做检测的人挺不客气。
 
 ### GANADI: Uncovering C/C++ OSS Reuse Genealogies via Pivotal Function-Based Clustering to Enhance Supply Chain Security
-高丽大学
+Dongyeon Kim, Seunghoon Woo, Heejo Lee | Korea University
 C/C++ 世界没有统一的包管理器，代码复用大量靠复制粘贴和 vendoring，所以"这段代码到底源自哪个上游项目"是个真问题，也是漏洞传播分析的前提。这篇用关键函数聚类去还原开源代码的**复用谱系**。
 
 ### ATLAS: Agentic Taxonomy of LArge-Scale Software Ecosystems
-南开大学、南洋理工大学
+Junyi Lu, Mengyao Lyu, Wu Jiahui, Lei Yu, Chengwei Liu, Fengjun Zhang, Li Yang, Chun Zuo, Yang Liu | Nankai University, Nanyang Technological University
 用智能体给大规模软件生态自动建**分类体系**。生态治理的第一步是知道生态里有什么、怎么分类，这类基础设施性质的工作往往被低估，但下游的风险度量、依赖分析都依赖它。
 
 ### Guided Decoding as a Defense against Package Hallucination in LLM-Generated Code
-大模型写代码时会凭空编出根本不存在的依赖包，攻击者只要抢注这些名字就能坐等开发者装上门。这篇不是事后检测，而是在**解码阶段**就约束模型只生成真实存在的包名，把幻觉堵在生成环节。本账号解读过包幻觉的大规模实证，这篇正好是防御侧的对应工作。
+Alberick Euraste Djire, Iyiola E. Olatunji, Melissa Tessa, Earl T. Barr, Jacques Klein, Tegawendé F. Bissyandé
 
 ### Defensive Capability Analysis for JavaScript Libraries
-分析 JavaScript 库自身的**防御能力**。同样是被依赖的库，有的对恶意输入和滥用有防护，有的完全不设防，而下游在选型时几乎看不到这个维度。把库的防御能力量化出来，本质上是给依赖选型补一个此前缺失的指标。
+Wenyuan Xu, Anders Møller
 
 ## AGENTS|智能体与模型供应链
 
 这是这批里最新的一支，围绕 Agent Skill 生态和模型制品展开。
 
 ### MalSkills: Detecting Malicious Skills in the Agentic Supply Chain via Neuro-symbolic Reasoning
-华中科技大学、蚂蚁集团
+Shenao Wang, Junjie He, Yanjie Zhao, Yayi Wang, Kan Yu, Haoyu Wang | Huazhong University of Science and Technology, Ant Group
 用神经符号推理检测恶意技能：先从异构制品里抽出安全敏感操作，再做符号推理判定。**本账号已解读过**，不过要注意，==它的预印本标题和 ASE 正式版完全不同==（预印本叫《"Elementary, My Dear Watson."…》），同一批作者、同一个系统。这正是查论文最容易踩的坑：只匹配标题会把同一篇当成两篇。
 
 ### Latent Reuse in Agent Skills: Multi-modal Clone Detection at Ecosystem Scale
-南洋理工大学
+Jiaying Zhu, Lyuye Zhang, Wenbo Guo, Yang Liu | Nanyang Technological University
 在整个技能生态尺度上做**多模态克隆检测**。技能不是纯代码，是提示词、脚本、配置和资源的混合体，传统代码克隆检测的那套在这里不够用。找出"哪些技能其实是同一份东西的变体"，对追踪恶意技能的扩散和评估生态真实多样性都是前置能力。
 
 ### How Your Credentials Are Leaked by LLM Agent Skills: An Empirical Study
-格里菲斯大学、维克森林大学、南洋理工大学、新南威尔士大学等
+Zhihao Chen, Ying Zhang, Yi Liu, Gelei Deng, Yuekang Li, Yanjun Zhang, Jianting Ning, Leo Zhang, Lei Ma, Zhiqiang Li | Griffith University, Wake Forest University, Nanyang Technological University, University of New South Wales, Zhejiang Sci-Tech University, The University of Tokyo
 第一个针对智能体技能**凭据泄露**的大规模实证研究。技能运行在特权环境里、日常要处理敏感凭据，这条路径此前基本没人系统查过。**本账号已解读过**。
 
 ### Execution-as-Configuration: Security Smells in Model Configuration Artifacts
-模型的配置文件正在变成一种可执行制品：它决定加载什么权重、拉取什么远程资源、以什么权限跑起来。这篇把配置制品里的**安全坏味**系统梳理了一遍。配置往往不在任何审计范围内，却握着实际的执行权，这个错位正是它值得单独研究的原因。
+Mohammed Latif Siddiq, Prince Noah Johnson, Joanna C. S. Santos
 
 ### "Impossible to Hide Secret ...": Uncovering Security and Privacy Issues in LLM-Native IDEs
-AI 原生 IDE 把模型、插件、远程服务和你的整个代码库接在了一起，开发环境本身成了新的攻击面。这篇系统梳理这类 IDE 的**安全与隐私问题**。对供应链来说这一环很关键：开发环境是所有代码的上游，它一旦被污染，后面每一次提交都带着问题。
+Mostafijur Rahman Akhond, Md Afif Al Mamun, Gias Uddin, Song Wang
 
 ## DEPS|依赖与构建
 
 ### Implicit, Yet Impactful: Understanding Hidden Dependencies in Java Projects
-南洋理工大学、南开大学
+Lyuye Zhang, Chengwei Liu, Fangyuan Zhang, Yiran Zhang, Yuan Zhou, Yang Liu | Nanyang Technological University, Nankai University
 讲 Java 项目里的**隐式依赖**：没有写在依赖声明里、但实际被用到的那些。这类依赖是依赖分析和 SBOM 的系统性盲区，声明文件里看不见，可它出问题一样会炸。
 
 ### DepUpgrade: Automating Dependency Upgrade through State-Path Exploration
-北京航空航天大学
+Yifan An, Xiangxi Ma, Wentong Tian, Xuanqi Wang, Qingao Dong, Xiang Gao, Hailong Sun | Beihang University
 用状态路径探索来自动化**依赖升级**。升级依赖是所有供应链安全建议的最后一公里，也是最容易卡住的一环：修复存在、但升不上去。这个方向和补丁回移是同一个问题的两种形态。
 
 ## PATCH|漏洞与补丁的传播
 
 ### Benchmarking Automated Security Patch Backporting: How Far Are We?
-西安电子科技大学、南开大学、南洋理工大学
+Jincheng Yang, Yulong Fu, Chengwei Liu, Lyuye Zhang, Fangyuan Zhang, Bingyang Ren, Yang Liu, Hui Li | Xidian University, Nankai University, Nanyang Technological University
 1234 例真实回移案例的统一基准，把五个自动回移工具拉到同一张考卷上。**本账号已解读过**，核心结论是对齐评测后成功率集体跳水，结构复杂的补丁只剩 24%。
 
 ### One Is Not Enough: The Untold Story of Multiple Security Patches for One Vulnerability
-南开大学、南洋理工大学
+Fangyuan Zhang, Lyuye Zhang, Lingling Fan, Chengwei Liu, Yinan Li, Liang Huang, Yang Liu, Zheli Liu, Sen Chen | Nankai University, Nanyang Technological University
 一个漏洞**不止一个补丁**。这件事对下游影响很直接：如果你的扫描器认定"打了某个补丁就算修复"，而上游实际上分了多次提交才补完，那你的合规状态就是假的。这类"看起来已修复"的情形，比未修复更危险。
 
 ### Assessing the Cross-Version Applicability of Java Library Vulnerability Exploits
-一个漏洞利用在这个版本能打通，换个版本还能不能打？这决定了漏洞情报里的"受影响版本范围"到底准不准。这篇评估 Java 库漏洞利用的**跨版本适用性**，直指版本范围虚标这个老问题：范围报宽了制造无效告警，报窄了漏掉真实风险。
+Zirui Chen, Qi Zhan, Jiayuan Zhou, Xing Hu, Xin Xia, Xiaohu Yang
 
 ### Post-quantum Cryptography in the Wild: Assessing the Readiness of Open-Source Ecosystems
-上海交通大学
+Tongxin Yuan, Zhanpeng Liu, Jiashuo Liang, Zhuosheng Zhang, Gongshen Liu, Yang Yu, Guancheng Li | Shanghai Jiao Tong University
 评估开源生态迁移到**后量子密码**的就绪度。这是一次超大规模的强制依赖升级预演，牵涉到密码库、协议实现和它们所有的下游，跟前面几篇讲的是同一类问题：**修复能不能真的传到底**。
 
 ### Learning to Triage Vulnerability Reports from Program Analysis: An Empirical Study in Node.js
-静态分析在 Node.js 生态里一跑就是成千上万条告警，人工根本看不过来，最后往往是整套工具被弃用。这篇研究怎么给这些**漏洞报告做分诊**。分诊做不好，检测能力再强也落不了地，这是生态级安全治理的现实瓶颈。
+Ronghao Ni, Aidan Z.H. Yang, Min-Chien Hsu, Nuno Sabino, Limin Jia, Ruben Martins, Darion Cassel, Kevin Cheang
 
 ## TRUST|签名与发布防线
 
 ### Not In My Git Yard: Catching Backdoors at Commit and Release Time
-巴黎萨克雷大学、法国原子能委员会 CEA List
+Dimitri Kokkonis, Michaël Marcozzi, Stefano Zacchiroli | Université Paris-Saclay, CEA List
 在**提交和发布这两个时间点**上抓后门。这个选点很务实：包一旦发布出去，检测就变成了跟分发速度赛跑；而 commit 和 release 是攻击者必须经过的两道闸门，卡在这里成本最低。
 
 ### Context-Aware Trust Verification for Identity-Based Software Signing
-签名能证明"这个包是某个身份发布的"，但证明不了"这个身份值得信任"。这篇做**上下文感知的信任验证**，把签名从一次身份核对推进到结合上下文判断这次发布该不该信。签名基础设施铺开之后，信任判定就是下一个瓶颈。
+Chinenye Okafor, James C. Davis, Santiago Torres-Arias
 
 ### A Longitudinal Study of Android Apps Signing Key Protection
-安卓应用的**签名密钥保护**做得怎么样，而且是纵向研究，看多年演变。签名密钥是整条分发链的信任根，密钥一旦泄露，签名体系就从防线变成了帮凶，攻击者可以给恶意版本签上完全合法的名字。
+Mark Meng, Qing Zhang, Weirao Lu, Chunyang Chen
 
 ## INDUSTRY|Industry Track
 
 Industry Showcase 这条轨道更贴近真实生产环境的约束，下面几篇值得单独看。
 
 ### DepWareTrans: Dependency-Aware Incremental Repository Migration across Co-executable Languages
-做**依赖感知的仓库迁移**，而且是跨可共同执行的语言、增量地迁。大规模迁移最难的从来不是翻译代码本身，是依赖关系跟不跟得过去，这也是迁移过程最容易引入供应链问题的环节。
+Sivajeet Chand, Alexander Pretschner, Steve Haupt, Derui Zhu, Sushant Kumar Pandey
 
 ### AgenticSCR: An Autonomous Agentic Secure Code Review for Immature Vulnerabilities Detection
-用自主智能体做**安全代码审查**，目标定在"尚未成型的漏洞"。这个提法有意思：它不等漏洞长成可利用的形态再抓，而是在代码评审阶段就识别出苗头，属于把防线往上游挪。
+Wachiraphan (Ping) Charoenwet, Kla Tantithamthavorn, Patanamon Thongtanunam, Hong Yi Lin, Minwoo Jeong, Ming Wu
 
 ### Vulnerability Tracking using Normalized Scope+Offset
-用归一化的作用域加偏移来**追踪漏洞**。代码一改动漏洞的位置就漂了，然后同一个问题会被重复报、或者被误判成已修复。这类定位问题看着琐碎，却是漏洞管理系统能不能长期跑准的地基。
+Julian Thome, Hua Yan, Lucas Charles, Craig Smith, Jason Leasure
 
 ### An Empirical Study of Security Risks in the Android Push Notification Ecosystem
-安卓**推送生态**的安全风险实证。推送是典型的第三方 SDK 供应链：应用集成的是别人的 SDK，消息通道经过别人的服务器，而这条链上的每一环对应用开发者都是黑箱。
+Shilong Hu, Zikan Dong, Chao Wang, Tianming Liu, Haoyu Wang
 
 ## TAKEAWAYS|一点观察
 
