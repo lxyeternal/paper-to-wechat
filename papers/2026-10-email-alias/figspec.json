@@ -1,0 +1,72 @@
+[
+ {
+  "page": 2,
+  "bbox": [
+   45,
+   47,
+   304,
+   228
+  ],
+  "out": "assets/fig/fig1-attack-model.png"
+ },
+ {
+  "page": 4,
+  "bbox": [
+   312,
+   47,
+   563,
+   146
+  ],
+  "out": "assets/fig/fig3-variants.png"
+ },
+ {
+  "page": 6,
+  "bbox": [
+   45,
+   88,
+   568,
+   400
+  ],
+  "out": "assets/result/table3-providers.png"
+ },
+ {
+  "page": 9,
+  "bbox": [
+   52,
+   62,
+   562,
+   318
+  ],
+  "out": "assets/result/table4-platforms.png"
+ },
+ {
+  "page": 10,
+  "bbox": [
+   60,
+   74,
+   292,
+   139
+  ],
+  "out": "assets/result/table5-npm-github.png"
+ },
+ {
+  "page": 11,
+  "bbox": [
+   86,
+   262,
+   526,
+   440
+  ],
+  "out": "assets/result/table6-userstudy.png"
+ },
+ {
+  "page": 12,
+  "bbox": [
+   45,
+   44,
+   304,
+   180
+  ],
+  "out": "assets/result/fig6-susceptibility.png"
+ }
+]

@@ -1,0 +1,10 @@
+[
+ {"page":1,"bbox":[42,76,446,205],"out":"assets/header.png","dpi":240},
+ {"page":4,"bbox":[45,82,442,220],"out":"assets/result/fig1-effect-structure.png"},
+ {"page":5,"bbox":[45,82,442,204],"out":"assets/result/fig2-boundary.png"},
+ {"page":6,"bbox":[44,80,443,246],"out":"assets/fig/fig3-oscar.png"},
+ {"page":11,"bbox":[118,104,368,162],"out":"assets/result/table4-main.png"},
+ {"page":13,"bbox":[128,330,358,380],"out":"assets/result/table6-ablation.png"},
+ {"page":14,"bbox":[45,82,442,182],"out":"assets/result/fig4-representation.png"},
+ {"page":15,"bbox":[58,563,428,657],"out":"assets/result/table7-realworld.png"}
+]

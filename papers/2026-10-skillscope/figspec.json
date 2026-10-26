@@ -1,0 +1,103 @@
+[
+ {
+  "page": 1,
+  "bbox": [
+   50,
+   80,
+   562,
+   370
+  ],
+  "out": "assets/header.png",
+  "dpi": 240
+ },
+ {
+  "page": 3,
+  "bbox": [
+   315,
+   104,
+   561,
+   208
+  ],
+  "out": "assets/fig/fig2-motivation.png"
+ },
+ {
+  "page": 5,
+  "bbox": [
+   50,
+   68,
+   562,
+   238
+  ],
+  "out": "assets/fig/fig3-overview.png"
+ },
+ {
+  "page": 6,
+  "bbox": [
+   50,
+   80,
+   298,
+   258
+  ],
+  "out": "assets/fig/fig4-graph.png"
+ },
+ {
+  "page": 8,
+  "bbox": [
+   315,
+   156,
+   561,
+   290
+  ],
+  "out": "assets/fig/fig7-constrain.png"
+ },
+ {
+  "page": 10,
+  "bbox": [
+   318,
+   542,
+   560,
+   642
+  ],
+  "out": "assets/result/table5-baselines.png"
+ },
+ {
+  "page": 11,
+  "bbox": [
+   56,
+   224,
+   294,
+   295
+  ],
+  "out": "assets/result/table6-ablation.png"
+ },
+ {
+  "page": 12,
+  "bbox": [
+   56,
+   114,
+   556,
+   212
+  ],
+  "out": "assets/result/table8-wild.png"
+ },
+ {
+  "page": 13,
+  "bbox": [
+   322,
+   114,
+   560,
+   184
+  ],
+  "out": "assets/result/table12-utility.png"
+ },
+ {
+  "page": 13,
+  "bbox": [
+   54,
+   284,
+   296,
+   370
+  ],
+  "out": "assets/result/table11-agents.png"
+ }
+]

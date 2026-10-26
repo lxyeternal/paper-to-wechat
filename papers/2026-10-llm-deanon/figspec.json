@@ -1,0 +1,93 @@
+[
+ {
+  "page": 1,
+  "bbox": [
+   90,
+   108,
+   522,
+   222
+  ],
+  "out": "assets/header.png",
+  "dpi": 240
+ },
+ {
+  "page": 2,
+  "bbox": [
+   56,
+   68,
+   558,
+   206
+  ],
+  "out": "assets/fig/fig1-agent-e2e.png"
+ },
+ {
+  "page": 5,
+  "bbox": [
+   56,
+   68,
+   558,
+   230
+  ],
+  "out": "assets/fig/fig2-esrc.png"
+ },
+ {
+  "page": 7,
+  "bbox": [
+   50,
+   66,
+   560,
+   248
+  ],
+  "out": "assets/result/fig3-hn-linkedin.png"
+ },
+ {
+  "page": 7,
+  "bbox": [
+   56,
+   386,
+   292,
+   505
+  ],
+  "out": "assets/result/table1-recall.png"
+ },
+ {
+  "page": 9,
+  "bbox": [
+   60,
+   326,
+   292,
+   486
+  ],
+  "out": "assets/fig/fig5-two-stage.png"
+ },
+ {
+  "page": 9,
+  "bbox": [
+   305,
+   66,
+   560,
+   248
+  ],
+  "out": "assets/result/fig4b-shared-movies.png"
+ },
+ {
+  "page": 11,
+  "bbox": [
+   50,
+   66,
+   560,
+   248
+  ],
+  "out": "assets/result/fig6-reddit-split.png"
+ },
+ {
+  "page": 13,
+  "bbox": [
+   50,
+   66,
+   560,
+   236
+  ],
+  "out": "assets/result/fig7-scale.png"
+ }
+]

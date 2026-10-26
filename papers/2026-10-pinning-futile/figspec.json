@@ -1,0 +1,73 @@
+[
+ {
+  "page": 1,
+  "bbox": [
+   40,
+   78,
+   446,
+   166
+  ],
+  "out": "assets/header.png",
+  "dpi": 240
+ },
+ {
+  "page": 2,
+  "bbox": [
+   46,
+   106,
+   442,
+   236
+  ],
+  "out": "assets/fig/table1-tradeoffs.png"
+ },
+ {
+  "page": 3,
+  "bbox": [
+   42,
+   73,
+   444,
+   202
+  ],
+  "out": "assets/fig/fig1-trend.png"
+ },
+ {
+  "page": 13,
+  "bbox": [
+   42,
+   73,
+   444,
+   268
+  ],
+  "out": "assets/result/fig4-crossover.png"
+ },
+ {
+  "page": 17,
+  "bbox": [
+   42,
+   73,
+   444,
+   214
+  ],
+  "out": "assets/fig/fig7-mechanism.png"
+ },
+ {
+  "page": 15,
+  "bbox": [
+   42,
+   73,
+   446,
+   280
+  ],
+  "out": "assets/fig/fig5-local-transitive.png"
+ },
+ {
+  "page": 16,
+  "bbox": [
+   42,
+   73,
+   444,
+   216
+  ],
+  "out": "assets/result/fig6-ecosystem.png"
+ }
+]

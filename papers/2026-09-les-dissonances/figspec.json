@@ -1,0 +1,9 @@
+[
+  {"page": 4, "bbox": [58, 50, 292, 231], "out": "assets/fig/fig2-overview.png"},
+  {"page": 4, "bbox": [312, 134, 565, 277], "out": "assets/fig/listing1-youtube.png"},
+  {"page": 9, "bbox": [55, 50, 296, 292], "out": "assets/fig/fig3-xth.png"},
+  {"page": 11, "bbox": [310, 74, 566, 157], "out": "assets/result/table1-vuln.png"},
+  {"page": 13, "bbox": [50, 63, 290, 141], "out": "assets/result/table2-defense.png"},
+  {"page": 16, "bbox": [310, 110, 566, 305], "out": "assets/result/table3-preference.png"},
+  {"page": 22, "bbox": [48, 363, 292, 418], "out": "assets/result/table10-models.png"}
+]

@@ -1,0 +1,5 @@
+[
+ {"page": 7, "bbox": [73, 90, 505, 163],  "out": "assets/fig/fig-search.png",   "dpi": 300},
+ {"page": 9, "bbox": [73, 102.5, 512, 653], "out": "assets/fig/fig-taxonomy.png", "dpi": 300},
+ {"page": 5, "bbox": [80, 126, 495, 263], "out": "assets/result/tbl-surveys.png","dpi": 300}
+]

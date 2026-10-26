@@ -1,0 +1,72 @@
+[
+ {
+  "page": 3,
+  "bbox": [
+   50,
+   58,
+   300,
+   318
+  ],
+  "out": "assets/fig/fig1-mcp-workflow.png"
+ },
+ {
+  "page": 3,
+  "bbox": [
+   312,
+   132,
+   562,
+   374
+  ],
+  "out": "assets/fig/fig2-attack.png"
+ },
+ {
+  "page": 6,
+  "bbox": [
+   62,
+   66,
+   550,
+   258
+  ],
+  "out": "assets/fig/fig3-mcpsec.png"
+ },
+ {
+  "page": 10,
+  "bbox": [
+   50,
+   222,
+   300,
+   390
+  ],
+  "out": "assets/result/fig4-stats.png"
+ },
+ {
+  "page": 10,
+  "bbox": [
+   54,
+   116,
+   560,
+   212
+  ],
+  "out": "assets/result/table5-servers.png"
+ },
+ {
+  "page": 12,
+  "bbox": [
+   55,
+   278,
+   558,
+   380
+  ],
+  "out": "assets/result/table7-chains.png"
+ },
+ {
+  "page": 13,
+  "bbox": [
+   55,
+   95,
+   298,
+   212
+  ],
+  "out": "assets/result/table8-models.png"
+ }
+]

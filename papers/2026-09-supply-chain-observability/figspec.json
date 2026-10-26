@@ -1,0 +1,6 @@
+[
+ {"page": 6,  "bbox": [90, 86, 515, 328],  "out": "assets/fig/fig-pipeline.png",  "dpi": 300},
+ {"page": 4,  "bbox": [50, 103, 560, 288], "out": "assets/result/tbl-datasets.png","dpi": 300},
+ {"page": 11, "bbox": [115, 116, 500, 285],"out": "assets/result/tbl-budget.png", "dpi": 300},
+ {"page": 11, "bbox": [318, 292, 560, 378],"out": "assets/result/fig-sc1.png",    "dpi": 300}
+]
