@@ -29,8 +29,8 @@ def set_kind(kind: str) -> None:
     global ACCENT, ACCENT_LIGHT
     ACCENT, ACCENT_LIGHT = KIND_ACCENT.get(kind or "survey", KIND_ACCENT["survey"])
 
-P_STYLE = (f"margin:0 0 20px;font-size:15px;line-height:1.9;color:{TEXT};"
-           "letter-spacing:.5px;text-align:justify;")
+P_STYLE = (f"margin:0 0 18px;font-size:15px;line-height:1.9;color:{TEXT};"
+           "letter-spacing:.3px;text-align:left;")
 
 
 def section_header(num: int, label: str, title_zh: str) -> str:
@@ -114,6 +114,82 @@ def highlights_cards(items: list[str]) -> str:
             f'<p style="margin:0 0 12px;font-size:12px;color:{LABEL_COLOR};'
             'letter-spacing:2px;">本文看点</p>'
             f'<section style="display:flex;">{cards}</section></section>')
+
+
+def subhead(text_html: str) -> str:
+    """小节内的轻量小标题（Markdown `#### `）：一个强调色小方块 + 15px 粗体。
+
+    长小节靠它切成 2 到 4 段，读者扫一眼就知道这一段讲哪个时期或哪条线。
+    """
+    return ('<section style="margin:26px 0 12px;display:flex;align-items:center;">'
+            f'<section style="width:8px;height:8px;background:{ACCENT};border-radius:2px;'
+            'margin-right:9px;flex-shrink:0;"></section>'
+            f'<p style="margin:0;font-size:15.5px;font-weight:700;color:#1f2937;">{text_html}</p></section>')
+
+
+def timeline_block(items: list[tuple[str, str, str]]) -> str:
+    """代表作时间线（Markdown `@timeline` 块，每行 `- 年份 | 英文标题 | 一句中文`）。
+
+    趋势类文章一段里要点七八篇论文，全塞进正文加粗就是一堵墙。时间线把"哪一年、哪一篇、
+    讲了什么"拆成三层：年份胶囊、标题、灰色小字，一行一篇，可以跳着看。
+    """
+    rows = ""
+    for year, title, note in items:
+        note_html = (f'<p style="margin:3px 0 0;font-size:13px;line-height:1.7;color:#6b7785;">{note}</p>'
+                     if note else "")
+        rows += ('<section style="display:flex;align-items:flex-start;padding:9px 0;'
+                 'border-bottom:1px solid #eef1f5;">'
+                 f'<section style="flex-shrink:0;width:46px;margin-top:2px;padding:2px 0;border-radius:999px;'
+                 f'background:{ACCENT}1a;color:{ACCENT};font-size:11.5px;font-weight:700;text-align:center;'
+                 f'letter-spacing:.3px;">{year}</section>'
+                 '<section style="flex:1;margin-left:12px;">'
+                 f'<p style="margin:0;font-size:14px;line-height:1.6;color:#1f2937;font-weight:600;">{title}</p>'
+                 f'{note_html}</section></section>')
+    return f'<section style="margin:6px 0 22px;">{rows}</section>'
+
+
+def stats_strip(items: list[tuple[str, str]]) -> str:
+    """一排数据块（Markdown `@stats` 块，每行 `- 数值 | 说明`），放在小节开头当"一眼结论"。"""
+    tiles = ""
+    for value, label in items:
+        tiles += ('<section style="flex:1;background:#f7f9fb;border-radius:6px;padding:12px 10px;margin:0 4px;">'
+                  f'<p style="margin:0;font-size:19px;font-weight:800;color:{ACCENT};line-height:1.2;'
+                  f'letter-spacing:-.2px;">{value}</p>'
+                  f'<p style="margin:5px 0 0;font-size:12px;color:#6b7785;line-height:1.5;">{label}</p></section>')
+    return f'<section style="display:flex;margin:4px 0 20px;">{tiles}</section>'
+
+
+def table_block(rows: list[list[str]]) -> str:
+    """紧凑表格（Markdown `@table` 块，每行 `- a | b | c`，第一行是表头）。
+
+    "各会前三方向 / 各方向头部单位"这类多维对比用表格比一段话清楚；公众号能渲染带内联样式的 table。
+    第一列加粗当行标题，数字列靠左，字号 13 到 13.5px，避免手机上换行。
+    """
+    if not rows:
+        return ""
+    head, body = rows[0], rows[1:]
+    th = "".join(f'<th style="padding:8px 8px;font-size:12.5px;font-weight:700;color:#5b6472;text-align:left;'
+                 f'border-bottom:2px solid {ACCENT};background:#f7f9fb;white-space:nowrap;">{h}</th>' for h in head)
+    trs = ""
+    for i, r in enumerate(body):
+        tds = ""
+        for j, c in enumerate(r):
+            w = "font-weight:700;color:#1f2937;" if j == 0 else "color:#374151;"
+            tds += f'<td style="padding:8px 8px;font-size:13px;line-height:1.6;vertical-align:top;{w}border-bottom:1px solid #eef1f5;">{c}</td>'
+        trs += f'<tr>{tds}</tr>'
+    return ('<section style="margin:6px 0 20px;overflow-x:auto;"><table style="border-collapse:collapse;width:100%;">'
+            f'<thead><tr>{th}</tr></thead><tbody>{trs}</tbody></table></section>')
+
+
+def bullet_list(items: list[str]) -> str:
+    """普通项目符号列表（连续的 `- ` 行）：强调色圆点 + 悬挂缩进，比一段话里塞分号清楚。"""
+    rows = ""
+    for it in items:
+        rows += ('<section style="display:flex;align-items:flex-start;margin:0 0 8px;">'
+                 f'<section style="flex-shrink:0;width:6px;height:6px;border-radius:50%;background:{ACCENT};'
+                 'margin:11px 10px 0 2px;"></section>'
+                 f'<p style="margin:0;font-size:15px;line-height:1.85;color:{TEXT};">{it}</p></section>')
+    return f'<section style="margin:0 0 18px;">{rows}</section>'
 
 
 def document(inner_html: str) -> str:

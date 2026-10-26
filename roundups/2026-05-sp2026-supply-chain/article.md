@@ -8,7 +8,7 @@ cover_stat_label: S&P 2026 供应链相关论文
 digest: 把 IEEE S&P 2026 接收名单里和软件供应链安全相关的论文挑出来做了一期盘点：16 篇，分六组。最明显的变化是传统包生态几乎空场，攻击面整体挪到了 MCP、浏览器扩展、聊天插件这些新组件生态上。
 author: 供应链安全前沿
 venue: IEEE S&P 2026
-collection: 供应链攻击与防御
+collection: 顶会论文清单
 highlights:
   - 16篇供应链相关论文
   - 攻击面挪到MCP和扩展

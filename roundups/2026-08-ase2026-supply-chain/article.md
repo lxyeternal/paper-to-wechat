@@ -8,7 +8,7 @@ cover_stat_label: ASE 2026 供应链相关论文
 digest: ASE 2026 接收名单公布，我们把与软件供应链安全相关的论文挑出来做了一期盘点：24 篇，覆盖包与生态治理、智能体供应链、依赖与构建、漏洞与补丁传播、签名与发布防线、Industry Track 六个方向，每篇都给了标题和一句话导读。
 author: 供应链安全前沿
 venue: ASE 2026
-collection: 供应链攻击与防御
+collection: 顶会论文清单
 highlights:
   - 24篇供应链相关论文
   - 覆盖六个细分方向

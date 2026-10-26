@@ -8,7 +8,7 @@ cover_stat_label: CCS 2026 供应链相关论文
 digest: 把 ACM CCS 2026 接收名单里和供应链安全相关的论文挑出来做了一期盘点：15 篇，分模型与 AI 组件、知识与检索、插件与第三方生态、恶意代码与溯源、补丁与漏洞情报五组。被投毒的对象基本都在模型这一侧。
 author: 供应链安全前沿
 venue: ACM CCS 2026
-collection: 供应链攻击与防御
+collection: 顶会论文清单
 highlights:
   - 15篇供应链相关论文
   - 模型制品成投毒主目标

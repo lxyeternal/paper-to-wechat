@@ -1,16 +1,16 @@
 ---
-title: USENIX Security 2026 里的供应链安全：12 篇论文，四大安全会里只有这家还在认真做签名和 SBOM
-title_en: "USENIX Security 2026 Accepted Papers on Software Supply Chain Security"
+title: USENIX Security 2026 Cycle 1：15 篇供应链论文，签名、SBOM 和更新机制仍是重头
+title_en: "USENIX Security 2026 Cycle 1 Accepted Papers on Software Supply Chain Security"
 kind: roundup
-cover_title: 四大安全会里，只有 USENIX 还在认真做签名、SBOM 和更新机制
-cover_stat: "12 篇"
-cover_stat_label: USENIX Sec 2026 供应链相关论文
-digest: 把 USENIX Security 2026 Cycle 1 的 165 篇接收论文全量解析后筛出 12 篇供应链相关的，分四组。最特别的是传统信任基础设施仍占重头：SBOM 交换、Sigstore、更新机制，这在另外三家几乎看不到。
+cover_title: 模型和智能体涌进来，签名与 SBOM 这条老线仍没退场
+cover_stat: "15 篇"
+cover_stat_label: USENIX Sec 26 Cycle 1 供应链论文
+digest: 把 USENIX Security 2026 Cycle 1 的 165 篇接收论文逐篇判断后筛出 15 篇供应链相关的，分四组：包与分发、签名与 SBOM、模型制品与溯源、智能体系统。传统信任基础设施仍占重头，SBOM 交换、Sigstore 采纳、桌面与 IoT 更新机制各有一篇。
 author: 供应链安全前沿
 venue: USENIX Sec 2026
-collection: 供应链攻击与防御
+collection: 顶会论文清单
 highlights:
-  - 165篇全量解析后筛出
+  - Cycle 1 全部165篇
   - 签名与SBOM仍是重头
   - Pickle模型投毒卷土重来
 ---
@@ -18,12 +18,12 @@ highlights:
 ## LIST INFO|本期说明
 
 【会议】USENIX Security 2026，第 35 届 USENIX 安全研讨会，2026 年 8 月 12 至 14 日，美国巴尔的摩
-【来源】USENIX Security 2026 官方 Cycle 1 接收列表，共 165 篇，全量解析后逐篇判断
+【来源】USENIX Security 2026 官方 **Cycle 1** 接收列表，共 165 篇，逐篇判断相关性；不含 Cycle 2
 【口径】只收与**软件供应链安全**直接相关的：包与分发、签名与 SBOM、模型制品与溯源、智能体系统。固件模糊测试、密码学协议、隐私计算这些不收
 
-![USENIX Security 2026 供应链相关论文的主题分布](assets/overview.png)
+![USENIX Security 2026 Cycle 1 供应链相关论文的主题分布](assets/overview.png)
 
-先说数据。这一期是四期盘点里**数据质量最好的一期**：官方页面完整拿到了 165 篇的标题和作者单位，**没有截断、没有靠关键词猜，是把整份名单解析出来逐篇判断的**。作者和单位全部取自官方页原文。唯一的缺口是 USENIX Security 有两个投稿周期，**本期只覆盖 Cycle 1，Cycle 2 的名单还没公布**。顺带一提，本账号此前解读过的几篇 USENIX Sec 26 论文（恶意 Agent Skill 实测、token 长度侧信道、OpenHarmony 设计级漏洞 SoK）都不在 Cycle 1 里，应该在 Cycle 2，等公布了再补一期。
+先把范围说清楚。作者与单位全部取自官方接收页原文。USENIX Security 有两个投稿周期，==本期覆盖的是 Cycle 1 的 165 篇，不含 Cycle 2==。会议已于 8 月中旬召开，Cycle 2 的论文现在可以在官方 Technical Sessions 页面查到，本账号此前解读过的几篇 USENIX Sec 26 论文（恶意 Agent Skill 实测、token 长度侧信道、OpenHarmony 设计级漏洞 SoK）都属于 Cycle 2，会另出一期补上。
 
 ## DIST|包与分发链
 
@@ -57,7 +57,11 @@ Kelechi G. Kalu, Sofia Okorafor, Tanmay Singla, Sophie Chen, Santiago Torres-Ari
 
 ### The Art of Hide and Seek: Making Pickle-Based Model Supply Chain Poisoning Stealthy Again
 Tong Liu, Guozhu Meng, Peng Zhou, Zizhuang Deng, Shuaiyin Yao, Kai Chen | Institute of Information Engineering, Chinese Academy of Sciences, Shanghai University, Shandong University
-让基于 **pickle 的模型供应链投毒重新变得隐蔽**。pickle 反序列化能执行任意代码是老问题，模型托管平台后来都加了扫描器。标题里"重新"两个字是关键：**这篇是在已有防御的前提下重新把攻击做隐蔽**，属于攻防对抗进入下一轮的信号。CCS 那期有一篇查预训练模型 Hub 的整体风险，两篇正好是同一个生态的攻防两侧。
+让基于 **pickle 的模型供应链投毒重新变得隐蔽**。pickle 反序列化能执行任意代码是老问题，模型托管平台后来都加了扫描器。标题里"重新"两个字是关键：**这篇是在已有防御的前提下重新把攻击做隐蔽**，属于攻防对抗进入下一轮的信号。CCS 2026 有一篇查预训练模型 Hub 整体风险的论文，和这篇正好是同一个生态的攻防两侧。
+
+### Lethe: Purifying Backdoored Large Language Models with Knowledge Dilution
+Chen Chen, Yuchen Sun, Jiaxin Gao, Xueluan Gong, Qian Wang, Ziyao Liu, Yongsen Zheng, Kwok-Yan Lam | Nanyang Technological University, Wuhan University
+用**知识稀释**净化被植入后门的大模型。这是模型供应链下游最缺的一种能力：你从公开仓库拉下来一份权重，既不知道它训练时喂过什么，也没有算力重训一遍，**能做的只有"改不了它的来源，就改它本身"**。ISSTA 2026 有一篇 CID 给神经代码模型做无干净种子的后门防御，和这篇是同一个问题在不同模型类型上的两种解法。
 
 ### Attesting Model Lineage by Consisted Knowledge Evolution with Fine-Tuning Trajectory
 Zhuoyi Shang, Jiasen Li, Pengzhen Chen, Yanwei Liu, Xiaoyan Gu, Weiping Wang | Institute of Information Engineering, Chinese Academy of Sciences
@@ -71,7 +75,7 @@ Anna Yoo Jeong Ha, Wenxin Ding, Stanley Wu, Shawn Shan, Haitao Zheng, Ben Y. Zha
 
 ### SoK: Attack and Defense Landscape of Agentic AI Systems
 Juhee Kim, Wenbo Guo, Dawn Song | UC Berkeley, Seoul National University, UC Santa Barbara
-Agentic AI 攻防版图的系统化梳理。**本账号已解读过**，不过又是一个标题对不上的例子：**它的预印本叫《The Attack and Defense Landscape of Agentic AI: A Comprehensive Survey》，和 USENIX 正式版标题差得挺远**，同一批核心作者。这已经是这几期盘点里第三次遇到 camera-ready 换标题了，查重只匹配标题一定会出事。
+Agentic AI 攻防版图的系统化梳理。**本账号已解读过**，不过又是一个标题对不上的例子：**它的预印本叫《The Attack and Defense Landscape of Agentic AI: A Comprehensive Survey》，和 USENIX 正式版标题差得挺远**，同一批核心作者。**只按标题去检索的人，很容易把它当成两篇不同的工作**。
 
 ### MASLeak: Investigating and Exposing Intellectual Property Leakage Vulnerabilities in Multi-Agent Systems
 Liwen Wang, Wenxuan Wang, Shuai Wang, Zongjie Li, Zhenlan Ji, Zongyi Lyu, Daoyuan Wu, Shing-Chi Cheung | The Hong Kong University of Science and Technology, Renmin University of China, Lingnan University
@@ -81,12 +85,20 @@ Liwen Wang, Wenxuan Wang, Shuai Wang, Zongjie Li, Zhenlan Ji, Zongyi Lyu, Daoyua
 Hyejun Jeong, Mohammadreza Teymoorianfard, Abhinav Kumar, Amir Houmansadr, Eugene Bagdasarian | University of Massachusetts Amherst
 本地研究型智能体在**网络层泄露提示词和用户特征**。哪怕智能体跑在本地，它检索网页、调用 API 的流量模式仍然会把用户在问什么泄露出去。本账号解读过从 token 长度侧信道重建对话那篇，这篇是同一类思路在智能体场景的延伸：加密保住了内容，保不住行为。
 
+### Overcoming the Retrieval Barrier: Indirect Prompt Injection in the Wild for LLM Systems
+Hongyan Chang, Ergute Bao, Xinjian Luo, Ting Yu | Mohamed bin Zayed University of Artificial Intelligence
+研究真实环境下的**间接提示注入**。间接注入的载体是模型自己检索回来的外部内容：网页、文档、工具输出。标题里的"检索屏障"点出了真正的难点，**攻击者写下的恶意内容得先被检索系统选中，才谈得上注入**，所以这不只是提示词构造问题，还是一个"怎么让自己的毒排到前面"的排序问题。NDSS 2026 有一篇讲工具池里的跨工具窃取与污染，和这篇是同一条摄入路径上的两种打法。
+
+### Autonomy Comes with Costs: Detecting Denial-of-Service Vulnerabilities Caused by Resource Abusing in LLM-based Agents
+Jiaqi Luo, Jiarun Dai, Fengyu Liu, Songyang Peng, Youkun Shi, Tong Bu, Geng Hong, Xudong Pan, Yuan Zhang | Fudan University, Shanghai Innovation Institute
+挖智能体里因**资源滥用**导致的拒绝服务漏洞。智能体的自主性意味着它自己决定循环几轮、调几次工具、拉多长的上下文，**而这三件事每一件都直接烧钱和占算力**。攻击者不需要诱导它做坏事，只要让它停不下来。这类风险很少被讨论，却对所有按 token 计费的部署都成立。
+
 ## TAKEAWAYS|一点观察
 
-**四大安全会里，只有 USENIX 还在认真做传统信任基础设施。** SBOM 交换、Sigstore 的采纳可用性、桌面更新机制、iOS 分发灰产、IoT 更新信息披露，这五篇是标准的供应链基础工程，==而这类论文在 S&P、CCS、NDSS 的今年名单里几乎找不到==。做这个方向的人需要知道该往哪投。
+**传统信任基础设施在这份名单里占了三分之一。** SBOM 交换、Sigstore 的采纳可用性、桌面更新机制、iOS 分发灰产、IoT 更新信息披露，这五篇都是标准的供应链基础工程，不追热点，啃的是分发与验证这条老线上的硬骨头。**在模型和智能体几乎吸走全部注意力的当下，这类工作还能占到这个比例，本身就说明它们要解决的问题远没有过去**。
 
-**Purdue 那个组在两个会议上同时推进签名这条线。** USENIX 这边是 SBOM 交换和 Sigstore 采纳可用性，ASE 那期还有一篇《Context-Aware Trust Verification for Identity-Based Software Signing》，作者里 Chinenye Okafor、James C. Davis、Santiago Torres-Arias 都是同一批人。三篇连起来看是一条完整的路线：先研究开发者为什么愿意签，再研究签名之上怎么做信任判定，再研究签出来的成分清单怎么安全地交换。**这种成体系的推进，比零散的单点论文更值得跟。**
+**Purdue 那个组在两个会议上同时推进签名这条线。** USENIX 这边是 SBOM 交换和 Sigstore 采纳可用性，ASE 2026 还有一篇《Context-Aware Trust Verification for Identity-Based Software Signing》，作者里 Chinenye Okafor、James C. Davis、Santiago Torres-Arias 都是同一批人。三篇连起来看是一条完整的路线：先研究开发者为什么愿意签，再研究签名之上怎么做信任判定，再研究签出来的成分清单怎么安全地交换。**这种成体系的推进，比零散的单点论文更值得跟。**
 
 **pickle 投毒"重新"变隐蔽，是一个值得警惕的信号。** 模型托管平台加了扫描器之后，这类攻击一度被认为收敛了，而这篇把它重新做隐蔽。安全史上这个模式反复出现：防御上线、攻击沉寂、然后以更隐蔽的形态回来。==扫描器的存在会筛选出更强的攻击，而不是消灭攻击==，这一条对所有依赖扫描的治理方案都适用。
 
-**溯源今年集中爆发。** 模型血缘、生成图像来源、编译器溯源（CCS）、溯源日志防篡改（S&P），四个会议不约而同地在做"这个东西到底从哪来"。这背后是同一个变化：当制品可以被大量二次加工和再分发，来源就从一个元数据问题变成了责任归属问题。**包生态用了十几年才把来源验证做成基础设施，模型这条链现在才刚开始。**
+**溯源今年集中爆发。** 模型血缘、生成图像来源，加上 CCS 2026 的编译器溯源、S&P 2026 的溯源日志防篡改，今年几家顶级安全会议不约而同地在追问"这个东西到底从哪来"。这背后是同一个变化：当制品可以被大量二次加工和再分发，来源就从一个元数据问题变成了责任归属问题。**包生态用了十几年才把来源验证做成基础设施，模型这条链现在才刚开始。**

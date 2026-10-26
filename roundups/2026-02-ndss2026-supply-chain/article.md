@@ -8,7 +8,7 @@ cover_stat_label: NDSS 2026 供应链相关论文
 digest: 把 NDSS 2026 接收名单里和供应链安全相关的论文挑出来做了一期盘点：8 篇，分包生态与依赖、CI 与开发流程、LLM 应用与工具生态、分发与应用生态、研究方法论五组。抓取受限，本期确定覆盖到字母 L。
 author: 供应链安全前沿
 venue: NDSS 2026
-collection: 供应链攻击与防御
+collection: 顶会论文清单
 highlights:
   - 8篇供应链相关论文
   - npm老问题仍在被硬啃

@@ -20,3 +20,8 @@ venv/
 
 # Playwright
 .playwright/
+
+# 会议全量数据（几千篇的标题/摘要/原始页面），只留分类标签、统计和核对记录
+roundups/*/data/raw/
+roundups/*/data/*.jsonl
+roundups/*/data/teams.txt

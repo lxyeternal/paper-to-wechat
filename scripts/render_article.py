@@ -50,6 +50,16 @@ def _inline(text: str) -> str:
 
 
 def render_body(body: str) -> str:
+    # 结构自检：## / ### / ![] 必须自成一块，前面漏了空行就会被并进上一块，
+    # 渲染出来是一坨裸 markdown。这类错误在草稿里才看得出来，所以在这里拦掉。
+    for m in re.finditer(r"^(?!\s*$)(?P<prev>[^\n]+)\n(?P<head>#{2,4} |!\[|@timeline|@stats|@table)", body, re.M):
+        if m.group("prev").lstrip().startswith(("#", ">", "-", "|", "@")):
+            continue
+        raise SystemExit(
+            f"排版结构错误：'{m.group('head').strip()}' 前面缺一个空行\n"
+            f"  上一行: {m.group('prev')[:60]}\n"
+            "  ## 小节标题、### 论文卡片、图片行都必须前后各留一个空行。"
+        )
     blocks = re.split(r"\n\s*\n", body.strip())
     parts, section_num, card_num = [], 0, 0
     for block in blocks:
@@ -64,6 +74,29 @@ def render_body(body: str) -> str:
                 section_num, m_h.group(1).strip(), m_h.group(2).strip()))
         elif m_img:
             parts.append(theme.image_block(m_img.group(2), _inline(m_img.group(1))))
+        elif block.startswith("#### "):
+            parts.append(theme.subhead(_inline(block[5:].strip())))
+        elif block.startswith("@timeline"):
+            items = []
+            for ln in block.splitlines()[1:]:
+                f = [x.strip() for x in ln.lstrip("- ").split("|")]
+                if len(f) >= 2:
+                    items.append((f[0], _inline(f[1]), _inline(f[2]) if len(f) > 2 else ""))
+            parts.append(theme.timeline_block(items))
+        elif block.startswith("@table"):
+            rows = []
+            for ln in block.splitlines()[1:]:
+                rows.append([_inline(x.strip()) for x in ln.lstrip("- ").split("|")])
+            parts.append(theme.table_block(rows))
+        elif block.startswith("@stats"):
+            items = []
+            for ln in block.splitlines()[1:]:
+                f = [x.strip() for x in ln.lstrip("- ").split("|")]
+                if len(f) >= 2:
+                    items.append((_inline(f[0]), _inline(f[1])))
+            parts.append(theme.stats_strip(items))
+        elif all(ln.startswith("- ") for ln in block.splitlines()):
+            parts.append(theme.bullet_list([_inline(ln[2:].strip()) for ln in block.splitlines()]))
         elif block.startswith("### "):
             # 论文卡片：首行标题，次行作者单位，其余为导读正文
             lines = block.splitlines()
