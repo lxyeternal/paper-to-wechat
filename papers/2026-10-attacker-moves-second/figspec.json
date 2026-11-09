@@ -1,0 +1,53 @@
+[
+ {
+  "page": 1,
+  "bbox": [
+   96,
+   80,
+   516,
+   262
+  ],
+  "out": "assets/header.png",
+  "dpi": 240
+ },
+ {
+  "page": 1,
+  "bbox": [
+   92,
+   503,
+   520,
+   646
+  ],
+  "out": "assets/result/fig1-asr-overview.png"
+ },
+ {
+  "page": 4,
+  "bbox": [
+   104,
+   426,
+   508,
+   550
+  ],
+  "out": "assets/fig/fig2-pssu-loop.png"
+ },
+ {
+  "page": 18,
+  "bbox": [
+   106,
+   80,
+   506,
+   362
+  ],
+  "out": "assets/fig/fig3-competition-ui.png"
+ },
+ {
+  "page": 24,
+  "bbox": [
+   200,
+   255,
+   395,
+   446
+  ],
+  "out": "assets/result/fig6-human-vs-search.png"
+ }
+]

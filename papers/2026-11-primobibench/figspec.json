@@ -1,0 +1,12 @@
+[
+ {"page":1,"bbox":[60,78,552,246],"out":"assets/header.png","dpi":240},
+ {"page":1,"bbox":[316,246,560,378],"out":"assets/fig/fig1-threat.png"},
+ {"page":4,"bbox":[52,82,560,287],"out":"assets/fig/fig2-construction.png"},
+ {"page":7,"bbox":[316,82,560,234],"out":"assets/result/fig3-recognition.png"},
+ {"page":9,"bbox":[52,82,296,387],"out":"assets/result/fig6-profile-heatmap.png"},
+ {"page":10,"bbox":[106,130,506,203],"out":"assets/result/table4-pii-vs-inf.png"},
+ {"page":10,"bbox":[86,215,262,357],"out":"assets/result/fig7-rounds.png"},
+ {"page":11,"bbox":[52,82,560,288],"out":"assets/fig/fig8-mitigation.png"},
+ {"page":12,"bbox":[83,119,529,221],"out":"assets/result/table5-mitigation.png"},
+ {"page":13,"bbox":[122,119,490,177],"out":"assets/result/table6-utility.png"}
+]

@@ -1,0 +1,9 @@
+[
+ {"page":1,"bbox":[76,90,536,196],"out":"assets/header.png","dpi":240},
+ {"page":2,"bbox":[313,108,558,274],"out":"assets/result/table1-clients.png"},
+ {"page":6,"bbox":[318,119,552,249],"out":"assets/result/table3-network.png"},
+ {"page":6,"bbox":[331,276,539,359],"out":"assets/result/table4-captcha.png"},
+ {"page":8,"bbox":[52,68,560,177],"out":"assets/result/fig1-behavior.png"},
+ {"page":8,"bbox":[313,208,562,297],"out":"assets/result/fig2-score.png"},
+ {"page":9,"bbox":[51,69,560,164],"out":"assets/result/fig3-hidden-prompt.png"}
+]

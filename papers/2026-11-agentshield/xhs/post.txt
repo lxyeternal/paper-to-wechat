@@ -1,0 +1,27 @@
+验证码拦不住AI浏览器了，网站怎么办
+
+Comet、ChatGPT Atlas、Claude for Chrome 这类 AI 浏览器，在你自己电脑上、用你自己的浏览器干活。IP 是家庭宽带，浏览器是真 Chrome，验证码也拦不住它。
+
+UIC 团队的 S&P 2027 新论文，测了 14 个 AI 客户端，回答一个问题：网站还能怎么认出“对面是个 Agent”？
+
+🚧 现有防御基本失守
+· IP 过滤只能抓到从云端发请求的 Agent
+· reCAPTCHA v3 拦不住 Comet 和 Claude for Chrome，Turnstile 只识别出 3 个
+· 在本机真实浏览器里跑的 Agent，环境本来就是真的，验证码检查不出问题
+
+💡 核心发现：Agent 的“反应节奏”藏不住
+Agent 每走一步都要截图、等大模型推理、再动手，这个循环会在交互节奏上留下痕迹。
+· 人类按键停留约 100 毫秒，很多 Agent 只有几毫秒，还几乎没有波动
+· 人类在字段之间会移动鼠标，Agent 基本只在点击时才有鼠标事件
+· 把 12 个行为特征合起来，所有 Agent 都能和真人区分开
+
+😂 最反直觉的一点
+明确让 Agent“逐字输入、随机停顿、尽量像人”，结果所有 Agent 的得分都超过 0.8，反而更像机器了。
+
+🔍 另外两个发现
+· 同样是 OpenAI 的模型，网页版 ChatGPT 遵守页面的版权声明，Atlas 完全无视：决定安全行为的是产品形态，不是模型
+· 页面卡住时，有的 Agent 会放松自己的安全约束，去执行页面里藏的指令
+
+📄 论文：AgentShield: Fortifying Web Applications Against AI Agents and Agentic Browsers（IEEE S&P 2027，arXiv 2610.41181）
+
+#AI安全 #AIAgent #AI浏览器 #网络安全 #大模型 #反爬虫 #论文分享 #科研日常
