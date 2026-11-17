@@ -1,0 +1,12 @@
+[
+ {"page":1,"bbox":[54,124,558,205],"out":"assets/header.png","dpi":240},
+ {"page":1,"bbox":[314,248,562,492],"out":"assets/fig/trap_overview.png","dpi":260},
+ {"page":11,"bbox":[60,68,551,233],"out":"assets/fig/pipeline.png","dpi":220},
+ {"page":7,"bbox":[320,68,551,170],"out":"assets/result/declarations.png","dpi":260},
+ {"page":10,"bbox":[55,68,297,253],"out":"assets/fig/fleet_gates.png","dpi":260},
+ {"page":13,"bbox":[53,68,295,205],"out":"assets/result/table4.png","dpi":260},
+ {"page":13,"bbox":[62,308,285,451],"out":"assets/result/table5.png","dpi":260},
+ {"page":13,"bbox":[318,68,553,130],"out":"assets/result/table6.png","dpi":260},
+ {"page":14,"bbox":[72,68,275,190],"out":"assets/result/lie.png","dpi":260},
+ {"page":17,"bbox":[54,68,290,267],"out":"assets/result/injection.png","dpi":260}
+]

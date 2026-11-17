@@ -1,0 +1,54 @@
+{
+  "title": "AI黑客打上门，能认出它是哪个模型吗",
+  "body": "攻击你的 AI Agent 不会自报家门，但一个设计巧妙的蜜罐，能让它为了拿到密钥主动交出身份。\n\n新论文（第一作者是 LLMmap 的作者）提出 Shibboleth 陷阱：只看自己服务器收到的请求，推断攻击 Agent 背后是哪个模型、跑在哪个框架里。15 个模型平均认对约九成，4 个框架认对 92%。\n\n🧩 怎么做到的\n不骗它说，而是把“报身份”写进协议。蜜罐伪装成存着部署密钥的 MCP 服务，握手时要求必填“你用的是哪个模型”。Agent 为了拿到密钥，会自己把名字交出来。\n后面再要求它写几段运维记录。不同模型写东西的“口音”不一样，就算名字是假的，文风也会出卖它。\n认框架连问都不用问：看它怎么给日志里的密钥打码、一个请求挂起多久会断开、几个工具调用是并发还是排队。\n\n📌 最值得记住的三个数\n· 0/30：用公开的提示注入去问身份，一次真名都没问到，而且每个 Agent 都当场识破，还提醒操作者这是蜜罐\n· 13/15：被问身份时，13 个模型都报过早已下线的 claude-3.5-sonnet。Agent 自称是谁，不能直接信\n· 77%：系统提示里命令它冒名，只看声明的准确率跌到 8%，只看文风仍有 77%\n\n💡 一句话\nAgent 能被命令说谎，却很难被命令换一种写法。\n\n🛡️ 给做 Agent 和安全的人\n· 框架的实现细节本身就是指纹：密钥怎么打码、默认超时多少，都会暴露你用的是哪个框架\n· 日志和审计里，Agent 自报的模型名不能当证据\n· 想从 Agent 身上拿信息，与其写更狡猾的提示词，不如把环境设计得更合理\n\n📄 论文：Say Shibboleth: Fingerprinting the LLMs and Harnesses Behind Agentic Attacks（arXiv 2611.12386）",
+  "tags": [
+    "AI安全",
+    "AIAgent",
+    "网络安全",
+    "大模型",
+    "蜜罐",
+    "论文分享",
+    "科研日常"
+  ],
+  "pages": [
+    [
+      {
+        "fig": "assets/header.png"
+      },
+      {
+        "fig": "assets/fig/trap_overview.png",
+        "caption": "一个陷阱三道关：握手报模型名、按要求写运维文字、等一个故意不回的请求，过完才给密钥"
+      }
+    ],
+    [
+      {
+        "fig": "assets/result/injection.png",
+        "caption": "对照：用提示注入问身份，一次没拿到真名，还被 100% 当场识破；协议里的必填字段 93% 拿到真名"
+      },
+      {
+        "fig": "assets/result/declarations.png",
+        "caption": "Claude-Sonnet-5 前 6 次都报老模型名，第 7 次才是真名"
+      }
+    ],
+    [
+      {
+        "fig": "assets/fig/fleet_gates.png",
+        "caption": "不问一句话认框架：(a) 谁给哪种密钥打码 (b) 挂起 150 秒谁先断 (c) 并发还是排队"
+      },
+      {
+        "fig": "assets/result/table6.png",
+        "caption": "4 个框架整体认对 92%，Claude Code 96%"
+      }
+    ],
+    [
+      {
+        "fig": "assets/result/lie.png",
+        "caption": "命令 Agent 冒名：只看声明从 95% 跌到 8%，只看文风 81% → 77% 几乎不变"
+      },
+      {
+        "fig": "assets/result/table5.png",
+        "caption": "15 个模型各自的识别准确率，最右列为声明 + 文风联合结果"
+      }
+    ]
+  ]
+}

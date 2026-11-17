@@ -6,7 +6,7 @@
 
 软件供应链安全 × AI Agent 安全｜S&P · CCS · USENIX Security · NDSS · ICSE · FSE
 
-![single papers](https://img.shields.io/badge/单篇解读-51-2B4EFF)
+![single papers](https://img.shields.io/badge/单篇解读-52-2B4EFF)
 ![roundups](https://img.shields.io/badge/会议盘点-18-E5383B)
 ![platforms](https://img.shields.io/badge/同步发布-公众号%20%7C%20小红书-07C160)
 ![driven by](https://img.shields.io/badge/driven%20by-Claude%20Code-D97706)
@@ -51,10 +51,11 @@
 <!-- PAPER-INDEX:START -->
 
 <details open>
-<summary><b>🤖 AI Agent 安全</b>（34 篇）</summary>
+<summary><b>🤖 AI Agent 安全</b>（35 篇）</summary>
 
 | 时间 | 会议 | 论文 | 看点 | 解读 |
 |---|---|---|---|---|
+| 2026-11 | arXiv 2026 | [Say Shibboleth: Fingerprinting the LLMs and Harnesses Behind Agentic Attacks](https://arxiv.org/abs/2611.12386) | 15个模型识别准确率九成 · 提示注入问身份0次成功 · 让它撒谎仍77%能认出 | [原稿](papers/2026-11-shibboleth/article.md) |
 | 2026-11 | ACM CCS 2026 | [PriMobiBench: Characterizing Visual Privacy Leakage in VLM-Driven Mobile GUI Agents](https://arxiv.org/abs/2609.13873) | 屏幕隐私被读出82.5% · 画像还原率近七成 · 遮挡后泄露降一半 | [原稿](papers/2026-11-primobibench/article.md) |
 | 2026-11 | arXiv 2026 | [Characterizing LLM Agent Behaviors in Module Shadowing Environments](https://arxiv.org/abs/2610.40716) | 间接遮蔽触发率86.7% · 识破机制仍有三成中招 · 79%中招后报告未提 | [原稿](papers/2026-11-module-shadowing/article.md) |
 | 2026-11 | IEEE S&P 2027 | [AgentShield: Fortifying Web Applications Against AI Agents and Agentic Browsers](https://arxiv.org/abs/2610.41181) | 本地Agent绕过多数反爬 · 反应节奏暴露Agent身份 · 让Agent装人反而更像机器 | [原稿](papers/2026-11-agentshield/article.md) |
