@@ -19,6 +19,9 @@ AI编程助手打开仓库就中招，还不告诉你
 · 陌生仓库里运行 Python 加 -I 参数，或者换到仓库外运行
 · 来路不明的仓库，先看有没有和常用库同名的文件
 
+🔗 其实早有人量化过
+ICSE 2024 的 ModuleGuard（浙大与南洋理工）扫了 PyPI 全部 420 万个包，约 34.5 万个和标准库模块同名。当年这是让程序导入出错的工程问题，现在到了 Agent 手里，成了不需要任何提示词的攻击路径。
+
 📄 论文：Characterizing LLM Agent Behaviors in Module Shadowing Environments（arXiv 2610.40716）
 
 #AI安全 #AIAgent #大模型 #网络安全 #Python #程序员 #论文分享 #科研日常

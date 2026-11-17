@@ -165,6 +165,7 @@ front matter 里和封面相关的字段：
 - `.venv/bin/python scripts/render_article.py papers/<slug>`
 - `.venv/bin/python scripts/wechat_publish.py papers/<slug>`
 - 成功后告知用户去 公众号后台 → 内容管理 → 草稿箱 查看。
+- `.venv/bin/python scripts/gen_readme_index.py` 更新 README 里的论文清单（按合集分组，读 front matter 的 title_en / venue / collection / highlights / 【论文链接】）。
 
 ### 6.5 小红书（2026-11-09 起每篇必做，和公众号同步发）
 
@@ -184,7 +185,7 @@ front matter 里和封面相关的字段：
   **停在「发布」前**，截图给用户确认，由用户点发布。
 - 坑：草稿箱存在浏览器本地，**重新打开草稿时图片会变成裂图**。处理：用 `+` 区域的 file input 先补传 4 张新图，
   再悬停每张裂图点右上角 × 删掉（编辑器至少保留 1 张，所以要先加后删）。不要点"重新上传"（会弹系统文件框）。
-- 坑：话题要一个一个加，每个 `#xx` 输入后等 3 秒再回车；连发太快会有的变成普通文本。修文字时别用 shift+Home（会选中全文），用 Backspace 从行尾删。
+- 坑：话题要一个一个加，每个 `#xx` 输入后等 3 秒再回车；连发太快会有的变成普通文本。修文字时别用 shift+Home（会选中全文），用 Backspace 从行尾删。正文中间插入时换行（输入 \n、回车、shift+回车）都不生效，只在正文末尾输入才有换行；要在中间加段落，就把光标放到插入点所在行尾，cmd+shift+↓ 选到末尾删掉，再在末尾重打新段落加后面的内容，话题重新逐个加。
 - 已发布的笔记可以在「笔记管理」进编辑页（URL 为 publish/update）改图改字，换图同样先加新图再删旧图，改完点「发布」生效。
 - 目录：小红书的东西都放在 `papers/<slug>/xhs/`，根目录是公众号和两边共用的素材（paper.pdf、figspec、assets/），不再另拆 wechat/ 目录。
 
