@@ -1,0 +1,19 @@
+{
+  "title": "CCS 2026杰出论文奖23篇全名单",
+  "body": "CCS 2026 于 11 月 17 日晚在海牙颁奖，杰出论文奖（Distinguished Paper）共 23 篇，图为现场幻灯片👇\n\n🔐 应用密码学（4）\n· 现实哈希可预计算，攻破\"证明亲自存储数据\"的协议\n· 4 款邮件加密网关找出 29 种攻击，EFAIL 重现\n· BFV/BGV 同态加密新攻击，数小时恢复私钥\n· 大域混淆电路低成本转成逐比特编码\n\n⛓️ 区块链与分布式（2）\n· BABE：比特币验证 SNARK，链下成本降三个数量级\n· Prefix Consensus：无 leader、抗审查的 BFT 共识\n\n🔧 硬件与侧信道（2）\n· GPUThor：GPU Rowhammer 翻转多 500 倍，打穿 ECC\n· Hello Again：回滚 TPM 计数器，暴力破解 Windows Hello PIN\n\n📐 形式化方法（1）\n· 从二进制提取协议模型查侧信道，发现 WhatsApp 泄露\n\n🤖 机器学习与安全（3）\n· DP-SGD 无法同时做到强隐私与高效用\n· MetaMancer：篡改工具描述，诱导 Agent 选中恶意工具，加防御仍超九成（港理工）\n· Azkaban：零知识认证模型鲁棒性，补上舍入误差漏洞\n\n🌐 网络安全（2）\n· DNSSEC 验证失败的记录仍被缓存复用，可投毒（清华）\n· VUPER：形式化验证的 ASN.1 解析器，查出 20 类不一致\n\n🕶️ 隐私与匿名（1）\n· 真实 Tor 流量上，极低误报率下仍能关联 88% 连接\n\n📊 可用性与测量（4）\n· 赎金付不付主要看备份，谈判技巧作用有限（荷兰警方）\n· iMessage 可被静默探测设备型号、在线状态和位置\n· 1000 万网站中找到 1748 个暴露的 API 凭据\n· 安卓\"仅此一次\"定位权限可被无限延长\n\n💻 软件安全（3）\n· 对虚拟化混淆保护的恶意软件做强制执行（人大）\n· MTEscape：利用异步检查竞态窗口绕过内核 MTE\n· 审计 OpenBSD 权限分离程序，找出 81 个接口漏洞\n\n🕸️ Web 安全（1）\n· 从 JS 注入追溯到被利用的 WordPress 插件\n\n💡 内地团队 2 篇（清华、人大），香港 1 篇；Agent 安全仅 MetaMancer 1 篇",
+  "tags": [
+    "CCS2026",
+    "网络安全",
+    "信息安全",
+    "顶会论文",
+    "论文分享",
+    "科研日常",
+    "AI安全"
+  ],
+  "images": [
+    "xhs/images/01.png",
+    "xhs/images/02.png",
+    "xhs/images/03.png"
+  ],
+  "source": "现场颁奖幻灯片照片（用户拍摄）；单位信息来自 CCS 2026 accepted papers 页"
+}

@@ -1,0 +1,6 @@
+CCS 2026 杰出论文奖（Distinguished Paper）名单，2026-11-17 晚海牙颁奖晚宴现场幻灯片，用户拍摄 6 张。
+原图当时在会话 scratchpad images/8.jpg–13.jpg（不入库），裁剪后在 assets/slides/。
+单位信息来自 https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html
+小红书：xhs/xhs.json + xhs/body.txt，图 xhs/images/01–03.png（两张幻灯片拼一页 3:4），合集「顶会论文清单」。
+公众号：封面是现场照片 13.jpg 手工合成（不要跑 render_cover.py，会覆盖成品牌卡片）；正文「颁奖现场」一节放了全部 6 张幻灯片。
+论文题头取自 ACM 论文集正式版 PDF（data/raw/acm/，不入库），DOI 见 data/dois.txt。
