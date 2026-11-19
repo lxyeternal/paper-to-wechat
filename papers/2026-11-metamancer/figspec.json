@@ -1,0 +1,9 @@
+[
+ {"page":1,"bbox":[50,74,562,240],"out":"assets/header.png","dpi":240},
+ {"page":2,"bbox":[54,208,296,410],"out":"assets/fig/tradeoff.png","dpi":260},
+ {"page":6,"bbox":[54,80,558,280],"out":"assets/fig/overview.png","dpi":260},
+ {"page":12,"bbox":[318,84,558,316],"out":"assets/result/table9.png","dpi":260},
+ {"page":13,"bbox":[54,84,296,234],"out":"assets/result/table10.png","dpi":260},
+ {"page":13,"bbox":[318,84,558,192],"out":"assets/result/table11.png","dpi":260},
+ {"page":13,"bbox":[318,206,558,334],"out":"assets/result/table12.png","dpi":260}
+]
