@@ -193,7 +193,19 @@
  },
  "2026-08-malskillbench": {
   "topic": "skills",
-  "exclude": true
+  "benchmark": {
+   "name": "MalSkillBench"
+  },
+  "authors": [
+   "Wenbo Guo",
+   "Wei Zeng",
+   "Chengwei Liu",
+   "Xiaojun Jia",
+   "Yijia Xu",
+   "Lei Tang",
+   "Yong Fang",
+   "Yang Liu"
+  ]
  },
  "2026-08-malskills-neurosymbolic": {
   "topic": "skills",
