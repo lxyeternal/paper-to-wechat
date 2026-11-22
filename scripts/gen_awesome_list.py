@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """从 papers/*/article.md 和 awesome/meta.json 生成 Awesome-Agent-Security-Research 仓库。
 
-只输出英文的论文清单（题目、作者、会议、链接），不含中文解读。
+只输出一个英文 README：按主题分节，Benchmarks 在最前，一行一篇（题目、作者、会议），
+行尾 [Analysis] 链到本仓库里对应的解读；清单本身不含中文解读正文。
 每篇论文在 awesome/meta.json 里有一条记录：
   topic      主分类，取值见 TOPICS
   authors    作者列表；缺失且论文链接是 arXiv 时自动抓取并写回
-  benchmark  可选，{"name": ..., "focus": ...}，有则同时进 benchmarks.md
+  benchmark  可选，{"name": ...}，有则归入最前面的 Benchmarks 一节
   venue/link 可选，覆盖 article.md 里的值
   exclude    可选，true 则不输出
 没有记录的论文不会输出，脚本结尾会列出来提醒补 topic。
@@ -48,7 +49,12 @@ VENUE_FIX = [
 
 def field(fm, key):
     m = re.search(rf"^{key}:\s*(.*)$", fm, re.M)
-    return m.group(1).strip().strip('"').strip("'") if m else ""
+    if not m:
+        return ""
+    v = m.group(1).strip()
+    if len(v) >= 2 and v[0] == v[-1] and v[0] in "\"'":  # 只剥最外层一对引号，保留题目自带的引号
+        v = v[1:-1].replace('\\"', '"')
+    return v
 
 
 def paper_link(text):
@@ -121,69 +127,65 @@ def load():
     return rows, missing
 
 
-def paper_table(rows, with_topic=False):
-    names = {k: (t, fn) for k, t, fn, _ in TOPICS}
-    head = "| Paper | Authors | Venue |" + (" Topic |" if with_topic else "")
-    out = [head, "|---|---|---|" + ("---|" if with_topic else "")]
-    for r in rows:
-        tag = " `Benchmark`" if r["benchmark"] else ""
-        title = f"[{cell(r['title'])}]({r['link']})" if r["link"] else cell(r["title"])
-        line = f"| {title}{tag} | {cell(r['authors'])} | {r['venue']} |"
-        if with_topic:
-            t, fn = names[r["topic"]]
-            line += f" [{t}](papers/{fn}) |"
-        out.append(line)
-    return "\n".join(out)
+ANALYSIS = "https://github.com/lxyeternal/paper-to-wechat/blob/main/papers/{slug}/article.md"
+
+
+def anchor(title):
+    return re.sub(r"[^a-z0-9 -]", "", title.lower()).replace(" ", "-")
+
+
+def entry(r):
+    """一行一篇：题目（链到论文）. 作者. 会议. [解读]"""
+    title = f"[{r['title']}]({r['link']})" if r["link"] else r["title"]
+    if r["benchmark"]:
+        title = f"**{r['benchmark']['name']}**: {title}"
+    parts = [title]
+    if r["authors"]:
+        parts.append(r["authors"].rstrip("."))
+    parts.append(f"*{r['venue']}*")
+    return "- " + ". ".join(parts) + f". [[Analysis]]({ANALYSIS.format(slug=r['slug'])})"
 
 
 def main():
     rows, missing = load()
     rows.sort(key=lambda r: r["slug"], reverse=True)
-    (OUT / "papers").mkdir(parents=True, exist_ok=True)
+    OUT.mkdir(parents=True, exist_ok=True)
 
-    toc = []
-    for key, title, fn, desc in TOPICS:
-        sub = [r for r in rows if r["topic"] == key]
-        toc.append(f"| [{title}](papers/{fn}) | {len(sub)} | {desc} |")
-        page = f"# {title}\n\n{desc}\n\n{len(sub)} papers, newest additions first. [Back to index](../README.md)\n\n{paper_table(sub)}\n"
-        (OUT / "papers" / fn).write_text(page, encoding="utf-8")
-
+    # benchmark 只出现在最前面的 Benchmarks 一节，不在主题里重复
     bench = [r for r in rows if r["benchmark"]]
-    lines = ["| Benchmark | What it evaluates | Paper | Authors | Venue |", "|---|---|---|---|---|"]
-    for r in bench:
-        b = r["benchmark"]
-        lines.append(f"| **{b['name']}** | {cell(b['focus'])} | [{cell(r['title'])}]({r['link']}) | {cell(r['authors'])} | {r['venue']} |")
-    (OUT / "benchmarks.md").write_text(
-        "# Benchmarks and Datasets\n\nBenchmarks for evaluating agent security. Each one also appears on its topic page, "
-        f"marked `Benchmark`.\n\n{len(bench)} benchmarks. [Back to index](README.md)\n\n" + "\n".join(lines) + "\n",
-        encoding="utf-8")
-    toc.append(f"| [Benchmarks and Datasets](benchmarks.md) | {len(bench)} | Benchmarks, listed separately for quick lookup. |")
+    sections = [("Benchmarks", "Benchmarks and datasets for evaluating agent security.", bench)]
+    for key, title, _, desc in TOPICS:
+        sections.append((title, desc, [r for r in rows if r["topic"] == key and not r["benchmark"]]))
+    sections = [s for s in sections if s[2]]
 
+    toc = "\n".join(f"- [{t}](#{anchor(t)}) ({len(rs)})" for t, _, rs in sections)
+    body = "\n\n".join(f"## {t}\n\n{d}\n\n" + "\n".join(entry(r) for r in rs) for t, d, rs in sections)
     readme = f"""# Awesome Agent Security Research
 
-![Papers](https://img.shields.io/badge/papers-{len(rows)}-blue) ![Benchmarks](https://img.shields.io/badge/benchmarks-{len(bench)}-green)
+A curated, daily-updated list of research papers on AI agent security, grouped by topic. Each entry links to the paper, and `[Analysis]` links to our write-up of it (in Chinese).
 
-A curated, daily-updated list of research papers on AI agent security. Each entry gives the title, authors, and venue, and links to the paper. Benchmarks are also listed on their own page.
+{len(rows)} papers so far.
 
 ## Contents
 
-| Topic | Papers | Scope |
-|---|---|---|
-{chr(10).join(toc)}
+{toc}
 
-## Recently Added
-
-{paper_table(rows[:RECENT], with_topic=True)}
+{body}
 
 ## Contributing
 
 Missing a paper? Open an issue or a pull request with the title, authors, venue, and link.
 """
     (OUT / "README.md").write_text(readme, encoding="utf-8")
+    # 旧版的分页文件不再使用
+    for old in [OUT / "benchmarks.md", *(OUT / "papers").glob("*.md")]:
+        old.unlink(missing_ok=True)
+    if (OUT / "papers").is_dir() and not any((OUT / "papers").iterdir()):
+        (OUT / "papers").rmdir()
 
-    print(f"输出到 {OUT}：{len(rows)} 篇论文，{len(bench)} 个 benchmark")
-    for key, title, _, _ in TOPICS:
-        print(f"  {title}: {sum(r['topic'] == key for r in rows)}")
+    print(f"输出到 {OUT}：{len(rows)} 篇论文，其中 {len(bench)} 个 benchmark")
+    for t, _, rs in sections:
+        print(f"  {t}: {len(rs)}")
     noauth = [r["slug"] for r in rows if not r["authors"]]
     if noauth:
         print("缺作者，请在 awesome/meta.json 里补 authors：", ", ".join(noauth))

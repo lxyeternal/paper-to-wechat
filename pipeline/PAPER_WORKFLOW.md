@@ -205,12 +205,12 @@ front matter 里和封面相关的字段：
 
 ### 6.6 同步英文论文清单并推送（2026-11-22 用户定）
 
-公开仓库 `lxyeternal/Awesome-Agent-Security-Research`（本地在与本仓库同级的 `Awesome-Agent-Security-Research/`）是「AI Agent 安全」合集的英文论文清单：只有题目、作者、会议和链接，不放中文解读，benchmark 单列一页。它由脚本生成，不要手改。
+公开仓库 `lxyeternal/Awesome-Agent-Security-Research`（本地在与本仓库同级的 `Awesome-Agent-Security-Research/`）是「AI Agent 安全」合集的英文论文清单：一个 README，按主题分节，Benchmarks 在最前，一行一篇（题目、作者、会议），行尾 `[Analysis]` 链回本仓库的 `article.md`；不用表格，不要「最近新增」。它由脚本生成，不要手改。
 
-- 新论文属于「AI Agent 安全」合集时，在 `awesome/meta.json` 加一条 `"<slug>": {"topic": "..."}`，topic 取 `skills / tools / defenses / web / surveys` 之一；是 benchmark 再加 `"benchmark": {"name": ..., "focus": 一句英文}`。作者不用填，脚本会从 arXiv 抓；非 arXiv 的论文从 PDF 首页抄进 `authors`。
+- 新论文属于「AI Agent 安全」合集时，在 `awesome/meta.json` 加一条 `"<slug>": {"topic": "..."}`，topic 取 `skills / tools / defenses / web / surveys` 之一；是 benchmark 再加 `"benchmark": {"name": ...}`。作者不用填，脚本会从 arXiv 抓；非 arXiv 的论文从 PDF 首页抄进 `authors`。
 - `python3 -I scripts/gen_awesome_list.py`，看结尾有没有「未分类」或「缺作者」的提醒。
 - **每次更新后两个仓库都提交并推送**（本仓库和 Awesome 仓库）。本仓库只暂存这次更新涉及的文件，`pages/` 不提交。
-- **提交信息里不要出现 Claude 或任何 AI 署名**（不加 Co-Authored-By）。
+- **任何时候提交信息里都不要出现 Claude 或任何 AI 署名**（不加 Co-Authored-By）。两个仓库都装了 `commit-msg` 钩子，带这类字样的提交会被拒绝；换机器后要重新装。
 
 ### 7. 修改重发
 
