@@ -205,7 +205,7 @@ front matter 里和封面相关的字段：
 
 ### 6.6 同步英文论文清单并推送（2026-11-22 用户定）
 
-公开仓库 `lxyeternal/Awesome-Agent-Security-Research`（本地在与本仓库同级的 `Awesome-Agent-Security-Research/`）是「AI Agent 安全」合集的英文论文清单：一个 README，按主题分节，Benchmarks 在最前，一行一篇，格式 `[会议] [年份] 题目. 作者.`，有解读的行尾加 `[Analysis]` 链回本仓库的 `article.md`；不用表格，不要「最近新增」。没有解读的论文（如从顶会十年数据里筛出的）放在 `awesome/extra.json`，**必须逐篇读摘要确认确属 Agent 安全才加，宁缺毋滥**（用户 2026-11-22 定）；「用 Agent 做安全工具」、RAG 投毒、纯 LLM 越狱不算。它由脚本生成，不要手改。
+公开仓库 `lxyeternal/Awesome-Agent-Security-Research`（本地在与本仓库同级的 `Awesome-Agent-Security-Research/`）是「AI Agent 安全」合集的英文论文清单：一个 README，按主题分节，Benchmarks 在最前，节内按年份分小标题，一条一篇：开头是「会议 年份」彩色徽章（安全四大红、软工蓝、预印本灰、其余紫），然后加粗题目，第二行小字作者，有解读的加 `Analysis` 链回本仓库的 `article.md`；不用表格，不要「最近新增」。没有解读的论文（如从顶会十年数据里筛出的）放在 `awesome/extra.json`，**必须逐篇读摘要确认确属 Agent 安全才加，宁缺毋滥**（用户 2026-11-22 定）；「用 Agent 做安全工具」、RAG 投毒、纯 LLM 越狱不算。它由脚本生成，不要手改。
 
 - 新论文属于「AI Agent 安全」合集时，在 `awesome/meta.json` 加一条 `"<slug>": {"topic": "..."}`，topic 取 `skills / tools / defenses / web / surveys` 之一；是 benchmark 再加 `"benchmark": {"name": ...}`。作者不用填，脚本会从 arXiv 抓；非 arXiv 的论文从 PDF 首页抄进 `authors`。
 - `python3 -I scripts/gen_awesome_list.py`，看结尾有没有「未分类」或「缺作者」的提醒。

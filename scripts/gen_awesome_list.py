@@ -18,6 +18,7 @@ awesome/extra.json 里是没有解读、手工核对过确属 Agent 安全的论
 import json
 import re
 import sys
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
@@ -158,18 +159,40 @@ def anchor(title):
     return re.sub(r"[^a-z0-9 -]", "", title.lower()).replace(" ", "-")
 
 
+SEC = {"CCS", "S&P", "USENIX Security", "NDSS"}
+SE = {"ICSE", "FSE", "ASE", "ISSTA", "TOSEM"}
+PRE = {"arXiv", "Preprint"}
+
+
+def badge(name, year):
+    """会议+年份的彩色徽章：安全四大红色，软工蓝色，预印本灰色，其余紫色"""
+    color = "d1242f" if name in SEC else "0969da" if name in SE else "8b949e" if name in PRE else "8250df"
+    esc = lambda t: urllib.parse.quote(t.replace("-", "--").replace("_", "__"), safe="")
+    return f"![{name} {year}](https://img.shields.io/badge/{esc(name)}-{year}-{color})"
+
+
 def entry(r):
-    """一行一篇：[会议] [年份] 题目（链到论文）. 作者. [解读]"""
+    """一条一篇：徽章 + 加粗题目（链到论文），第二行小字作者，有解读的加 Analysis"""
     name, year = split_venue(r["venue"])
     title = f"[{r['title']}]({r['link']})" if r["link"] else r["title"]
-    if r["benchmark"]:
-        title = f"**{r['benchmark']['name']}**: {title}"
-    line = f"- [{name}] [{year}] {title}."
-    if r["authors"]:
-        line += f" {r['authors'].rstrip('.')}."
+    if r["benchmark"] and not r["title"].startswith(r["benchmark"]["name"]):
+        title = f"{r['benchmark']['name']}: {title}"  # 题目里没带名字的才补上
+    tail = r["authors"]
     if r["slug"]:
-        line += f" [[Analysis]]({ANALYSIS.format(slug=r['slug'])})"
-    return line
+        tail += f" &nbsp;·&nbsp; [Analysis]({ANALYSIS.format(slug=r['slug'])})"
+    return f"- {badge(name, year)} **{title}**<br><sub>{tail}</sub>"
+
+
+def block(rs):
+    """节内按年份分小标题"""
+    out, cur = [], None
+    for r in rs:
+        y = split_venue(r["venue"])[1]
+        if y != cur:
+            out.append(f"\n### {y}\n")
+            cur = y
+        out.append(entry(r))
+    return "\n".join(out).strip()
 
 
 def order(r):
@@ -191,15 +214,38 @@ def main():
     sections = [s for s in sections if s[2]]
 
     toc = "\n".join(f"- [{t}](#{anchor(t)}) ({len(rs)})" for t, _, rs in sections)
-    body = "\n\n".join(f"## {t}\n\n{d}\n\n" + "\n".join(entry(r) for r in rs) for t, d, rs in sections)
-    readme = f"""# Awesome Agent Security Research
+    body = "\n\n".join(f"## {t}\n\n> {d}\n\n{block(rs)}\n\n<p align=\"right\"><a href=\"#contents\">back to top</a></p>" for t, d, rs in sections)
+    years = sorted({split_venue(r["venue"])[1] for r in rows})
+    nconf = sum(split_venue(r["venue"])[0] not in PRE for r in rows)
+    toc = "\n".join(f"| [{t}](#{anchor(t)}) | {len(rs)} | {d} |" for t, d, rs in sections)
+    readme = f"""<h1 align="center">Awesome Agent Security Research</h1>
 
-A curated, daily-updated list of research papers on AI agent security, grouped by topic. Each entry gives the venue and year, the title (linked to the paper), and the authors. `[Analysis]` links to our write-up of the paper (in Chinese), where we have one.
+<p align="center">A curated, daily-updated list of research papers on the security of AI agents.</p>
 
-{len(rows)} papers so far.
+<p align="center">
+<img src="https://img.shields.io/badge/papers-{len(rows)}-2da44e" alt="papers">
+<img src="https://img.shields.io/badge/peer--reviewed-{nconf}-d1242f" alt="peer-reviewed">
+<img src="https://img.shields.io/badge/benchmarks-{len(bench)}-8250df" alt="benchmarks">
+<img src="https://img.shields.io/badge/years-{years[0]}--{years[-1]}-0969da" alt="years">
+</p>
+
+## How to read
+
+Every entry starts with a badge that shows **where and when** the paper appeared, followed by the title (linked to the paper) and the authors. Within each topic, papers are grouped by year, newest first.
+
+| Badge | Meaning |
+|---|---|
+| {badge("S&P", "2026")} | Security venues: S&P, USENIX Security, CCS, NDSS |
+| {badge("ICSE", "2026")} | Software engineering venues: ICSE, FSE, ASE, ISSTA, TOSEM |
+| {badge("ICLR Workshop", "2026")} | Other venues |
+| {badge("arXiv", "2026")} | Preprints |
+
+`Analysis` after the authors links to our write-up of the paper (in Chinese).
 
 ## Contents
 
+| Topic | Papers | Scope |
+|---|---|---|
 {toc}
 
 {body}
