@@ -168,7 +168,8 @@ def badge(name, year):
     """会议+年份的彩色徽章：安全四大红色，软工蓝色，预印本灰色，其余紫色"""
     color = "d1242f" if name in SEC else "0969da" if name in SE else "8b949e" if name in PRE else "8250df"
     esc = lambda t: urllib.parse.quote(t.replace("-", "--").replace("_", "__"), safe="")
-    return f"![{name} {year}](https://img.shields.io/badge/{esc(name)}-{year}-{color})"
+    # 会议名用彩色底，年份用深色底，一眼能分清是哪个会、哪一年
+    return f"![{name} {year}](https://img.shields.io/badge/{esc(name)}-{year}-24292f?labelColor={color}&style=flat-square)"
 
 
 def entry(r):
