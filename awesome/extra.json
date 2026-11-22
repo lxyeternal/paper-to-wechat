@@ -428,5 +428,231 @@
   "venue": "USENIX Security 2025",
   "link": "https://www.usenix.org/conference/usenixsecurity25/presentation/vekaria",
   "topic": "web"
+ },
+ {
+  "title": "Mind the Gap: Action Rebinding Attacks against Android GUI Agents",
+  "authors": [
+   "Yi Qian",
+   "Kunwei Qian",
+   "Xingbang He",
+   "Ligeng Chen",
+   "Jikang Zhang",
+   "Tiantai Zhang",
+   "Haiyang Wei",
+   "Linzhang Wang",
+   "Hao Wu",
+   "Bing Mao"
+  ],
+  "venue": "CCS 2026",
+  "link": "https://arxiv.org/abs/2601.12349",
+  "topic": "web"
+ },
+ {
+  "title": "MirrorGuard: Toward Secure Computer-Use Agents via Simulation-to-Real Reasoning Correction",
+  "authors": [
+   "Wenqi Zhang",
+   "Yulin Shen",
+   "Changyue Jiang",
+   "Jiarun Dai",
+   "Geng Hong",
+   "Xudong Pan"
+  ],
+  "venue": "CCS 2026",
+  "link": "https://arxiv.org/abs/2601.12822",
+  "topic": "defenses"
+ },
+ {
+  "title": "Safeguarding LLM Agents against Long-Horizon Threats via Shadow Memory",
+  "authors": [
+   "Yuhui Wang",
+   "Tanqiu Jiang",
+   "Jiacheng Liang",
+   "Charles Fleming",
+   "Ting Wang"
+  ],
+  "venue": "CCS 2026",
+  "link": "https://arxiv.org/abs/2605.03228",
+  "topic": "defenses"
+ },
+ {
+  "title": "Governing AI Agent with Capability and Delegation Chain",
+  "authors": [
+   "Jiaqin Yan",
+   "Guoxing Chen",
+   "Yan Meng",
+   "Haojin Zhu"
+  ],
+  "venue": "CCS 2026",
+  "link": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
+  "topic": "defenses"
+ },
+ {
+  "title": "A Large-scale Measurement of In-Page Prompt Injections Against LLM Web Agents",
+  "authors": [
+   "Soheil Khodayari",
+   "Xuenan Zhang",
+   "Bhupendra Acharya",
+   "Giancarlo Pellegrino"
+  ],
+  "venue": "CCS 2026",
+  "link": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
+  "topic": "web"
+ },
+ {
+  "title": "MemPoison: Bypassing Selective Memory Mechanisms to Plant Backdoors in LLM Agents",
+  "authors": [
+   "Hongtao Wang",
+   "Se Yang",
+   "Yu Chen",
+   "Puzhuo Liu"
+  ],
+  "venue": "CCS 2026",
+  "link": "https://arxiv.org/abs/2605.29960",
+  "topic": "apps"
+ },
+ {
+  "title": "Janus: Characterizing Bidirectional Privacy and Security Risks in LLM-Integrated Android Apps",
+  "authors": [
+   "Jiawei Guo",
+   "Zongze Li",
+   "Haipeng Cai"
+  ],
+  "venue": "CCS 2026",
+  "link": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
+  "topic": "apps"
+ },
+ {
+  "title": "Comment and Control: Hijacking Agentic Workflows via Context-Grounded Evolution",
+  "authors": [
+   "Neil Fendley",
+   "Zhengyu Liu",
+   "Aonan Guan",
+   "Jiacheng Zhong",
+   "Yinzhi Cao"
+  ],
+  "venue": "CCS 2026",
+  "link": "https://arxiv.org/abs/2605.11229",
+  "topic": "apps"
+ },
+ {
+  "title": "ContractGuard: Auditing Semantic Contracts of MCP Tools for Security Violations",
+  "authors": [
+   "Hengkai Ye",
+   "Zhechang Zhang",
+   "Ruibo Lu",
+   "Jinyuan Jia",
+   "Hong Hu"
+  ],
+  "venue": "CCS 2026",
+  "link": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
+  "topic": "tools"
+ },
+ {
+  "title": "MetaMancer: Practical Tool Selection Attacks against LLM Agents",
+  "authors": [
+   "Wenbin Zhai",
+   "Yihao Liu",
+   "Dong Wang",
+   "Hao Chen",
+   "Bin Xiao"
+  ],
+  "venue": "CCS 2026",
+  "link": "https://doi.org/10.1145/3830454.3846793",
+  "topic": "tools"
+ },
+ {
+  "title": "DRIP: Defending Prompt Injection via Token-wise Representation Editing and Residual Fusion",
+  "authors": [
+   "Ruofan Liu",
+   "Yun Lin",
+   "Zhiyong Huang",
+   "Jin Song Dong"
+  ],
+  "venue": "CCS 2026",
+  "link": "https://www.sigsac.org/ccs/CCS2026/program/accepted-papers.html",
+  "topic": "defenses"
+ },
+ {
+  "title": "LocalAlign: Enabling Generalizable Prompt Injection Defense via Generation of Near-Target Adversarial Examples for Alignment Training",
+  "authors": [
+   "Yuyang Gong",
+   "Zihao Wang",
+   "Jiawei Liu",
+   "XiaoFeng Wang"
+  ],
+  "venue": "CCS 2026",
+  "link": "https://arxiv.org/abs/2605.01462",
+  "topic": "defenses"
+ },
+ {
+  "title": "AgentSpec: Customizable Runtime Enforcement for Safe and Reliable LLM Agents",
+  "authors": [
+   "Haoyu Wang",
+   "Chris Poskitt",
+   "Jun Sun"
+  ],
+  "venue": "ICSE 2026",
+  "link": "https://arxiv.org/abs/2503.18666",
+  "topic": "defenses"
+ },
+ {
+  "title": "TaintP2X: Detecting Taint-Style Prompt-to-Anything Injection Vulnerabilities in LLM-Integrated Applications",
+  "authors": [
+   "Junjie He",
+   "Shenao Wang",
+   "Yanjie Zhao",
+   "Xinyi Hou",
+   "Zhao Liu",
+   "Quanchen Zou",
+   "Haoyu Wang"
+  ],
+  "venue": "ICSE 2026",
+  "link": "https://conf.researchr.org/track/icse-2026/icse-2026-research-track#event-overview",
+  "topic": "apps"
+ },
+ {
+  "title": "ProbGuard: Proactive Runtime Monitoring for LLM Agent Safety via Probabilistic Prediction",
+  "authors": [
+   "Haoyu Wang",
+   "Chris Poskitt",
+   "Jiali Wei",
+   "Jun Sun"
+  ],
+  "venue": "ASE 2026",
+  "link": "https://arxiv.org/abs/2508.00500",
+  "topic": "defenses"
+ },
+ {
+  "title": "Safeguarding LLM Agents from Misalignment through Provenance Analysis",
+  "authors": [
+   "Yining She",
+   "Yiliang Liang",
+   "Eunsuk Kang"
+  ],
+  "venue": "ASE 2026",
+  "link": "https://arxiv.org/abs/2607.01236",
+  "topic": "defenses"
+ },
+ {
+  "title": "When Compression Becomes an Attack Surface: Black-Box Attacks on Prompt-Compressed LLM Agents",
+  "authors": [
+   "Zesen Liu",
+   "Zhixiang Zhang",
+   "Yuchong Xie",
+   "Dongdong She"
+  ],
+  "venue": "ASE 2026",
+  "link": "https://arxiv.org/abs/2510.22963",
+  "topic": "apps"
+ },
+ {
+  "title": "What Breaks When LLMs Code? Characterizing Operational Safety Failures of Agentic Code Assistants",
+  "authors": [
+   "Alif Al Hasan",
+   "Sumon Biswas"
+  ],
+  "venue": "ASE 2026",
+  "link": "https://arxiv.org/abs/2605.30777",
+  "topic": "apps"
  }
 ]
