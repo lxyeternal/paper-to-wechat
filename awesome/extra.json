@@ -1,0 +1,269 @@
+[
+ {
+  "title": "Security Debt in LLM Agent Applications: A Measurement Study of Vulnerabilities and Mitigation Trade-offs",
+  "authors": [
+   "Zhuoxiang Shen",
+   "Jiarun Dai",
+   "Yuan Zhang",
+   "Min Yang"
+  ],
+  "venue": "ASE 2025",
+  "link": "https://doi.org/10.1109/ase63991.2025.00053",
+  "topic": "apps"
+ },
+ {
+  "title": "AirGapAgent: Protecting Privacy-Conscious Conversational Agents",
+  "authors": [
+   "Eugene Bagdasarian",
+   "Ren Yi",
+   "Sahra Ghalebikesabi",
+   "Peter Kairouz",
+   "Marco Gruteser",
+   "Sewoong Oh",
+   "Borja Balle",
+   "Daniel Ramage"
+  ],
+  "venue": "CCS 2024",
+  "link": "https://doi.org/10.1145/3658644.3690350",
+  "topic": "defenses"
+ },
+ {
+  "title": "Demystifying RCE Vulnerabilities in LLM-Integrated Apps",
+  "authors": [
+   "Tong Liu",
+   "Zizhuang Deng",
+   "Guozhu Meng",
+   "Yuekang Li",
+   "Kai Chen"
+  ],
+  "venue": "CCS 2024",
+  "link": "https://doi.org/10.1145/3658644.3690338",
+  "topic": "apps"
+ },
+ {
+  "title": "AgentSentinel: An End-to-End and Real-Time Security Defense Framework for Computer-Use Agents",
+  "authors": [
+   "Hu Haitao",
+   "Peng Chen",
+   "Yanpeng Zhao",
+   "Yuqi Chen"
+  ],
+  "venue": "CCS 2025",
+  "link": "https://doi.org/10.1145/3719027.3765064",
+  "topic": "defenses"
+ },
+ {
+  "title": "AgentBound: Securing Execution Boundaries of AI Agents",
+  "authors": [
+   "Christoph Bühler",
+   "Matteo Biagiola",
+   "Luca Di Grazia",
+   "Guido Salvaneschi"
+  ],
+  "venue": "FSE 2026",
+  "link": "https://doi.org/10.1145/3808103",
+  "topic": "tools"
+ },
+ {
+  "title": "Prompt Injection Attack to Tool Selection in LLM Agents",
+  "authors": [
+   "Jiawen Shi",
+   "Zenghui Yuan",
+   "Guiyao Tie",
+   "Pan Zhou",
+   "Neil Gong",
+   "Lichao Sun"
+  ],
+  "venue": "NDSS 2026",
+  "link": "https://doi.org/10.14722/ndss.2026.230675",
+  "topic": "tools"
+ },
+ {
+  "title": "ObliInjection: Order-Oblivious Prompt Injection Attack to LLM Agents with Multi-source Data",
+  "authors": [
+   "Reachal Wang",
+   "Yuqi Jia",
+   "Neil Zhenqiang Gong"
+  ],
+  "venue": "NDSS 2026",
+  "link": "https://doi.org/10.14722/ndss.2026.240702",
+  "topic": "defenses"
+ },
+ {
+  "title": "Attention is All You Need to Defend Against Indirect Prompt Injection Attacks in LLMs",
+  "authors": [
+   "Yinan Zhong",
+   "Qianhao Miao",
+   "Yanjiao Chen",
+   "Jiangyi Deng",
+   "Yushi Cheng",
+   "Wenyuan Xu",
+   "Yanjiao Chen"
+  ],
+  "venue": "NDSS 2026",
+  "link": "https://doi.org/10.14722/ndss.2026.240394",
+  "topic": "defenses"
+ },
+ {
+  "title": "SAGA: A Security Architecture for Governing AI Agentic Systems",
+  "authors": [
+   "Georgios Syros",
+   "Anshuman Suri",
+   "Jacob Ginesin",
+   "Cristina Nita-Rotaru",
+   "Alina Oprea"
+  ],
+  "venue": "NDSS 2026",
+  "link": "https://doi.org/10.14722/ndss.2026.230869",
+  "topic": "defenses"
+ },
+ {
+  "title": "ACE: A Security Architecture for LLM-Integrated App Systems",
+  "authors": [
+   "Enlai Li",
+   "Tushin Mallick",
+   "Evan Rose",
+   "William Robertson",
+   "Alina Oprea",
+   "Cristina Nita-Rotaru"
+  ],
+  "venue": "NDSS 2026",
+  "link": "https://doi.org/10.14722/ndss.2026.230352",
+  "topic": "defenses"
+ },
+ {
+  "title": "DataSentinel: A Game-Theoretic Detection of Prompt Injection Attacks",
+  "authors": [
+   "Yupei Liu",
+   "Yuqi Jia",
+   "Jinyuan Jia",
+   "Dawn Song",
+   "Neil Zhenqiang Gong"
+  ],
+  "venue": "S&P 2025",
+  "link": "https://doi.org/10.1109/sp61157.2025.00250",
+  "topic": "defenses"
+ },
+ {
+  "title": "Investigating the Impact of Dark Patterns on LLM-Based Web Agents",
+  "authors": [
+   "Devin Ersoy",
+   "Brandon Lee",
+   "Ananth Shreekumar",
+   "Arjun Arunasalam",
+   "Muhammad Ibrahim",
+   "Antonio Bianchi",
+   "Z. Berkay Celik"
+  ],
+  "venue": "S&P 2026",
+  "link": "https://doi.org/10.1109/sp63933.2026.00042",
+  "topic": "web"
+ },
+ {
+  "title": "WebCloak: Characterizing and Mitigating Threats From LLM-Driven Web Agents as Intelligent Scrapers",
+  "authors": [
+   "Xinfeng Li",
+   "Tianze Qiu",
+   "Yingbin Jin",
+   "Lixu Wang",
+   "Hanqing Guo",
+   "Xiaojun Jia",
+   "XiaoFeng Wang",
+   "Wei Dong"
+  ],
+  "venue": "S&P 2026",
+  "link": "https://doi.org/10.1109/sp63933.2026.00025",
+  "topic": "web"
+ },
+ {
+  "title": "Make Agent Defeat Agent: Automatic Detection of Taint-Style Vulnerabilities in LLM-based Agents",
+  "authors": [
+   "Fengyu Liu",
+   "Yuan Zhang",
+   "Jiaqi Luo",
+   "Jiarun Dai",
+   "Tian Chen",
+   "Letian Yuan",
+   "Zhengmin Yu",
+   "Youkun Shi",
+   "Ke Li",
+   "Chengyuan Zhou",
+   "Hao Chen",
+   "Min Yang"
+  ],
+  "venue": "USENIX Security 2025",
+  "link": "https://www.usenix.org/conference/usenixsecurity25/presentation/liu-fengyu",
+  "topic": "apps"
+ },
+ {
+  "title": "Cloak, Honey, Trap: Proactive Defenses Against LLM Agents",
+  "authors": [
+   "Daniel Ayzenshteyn",
+   "Roy Weiss",
+   "Yisroel Mirsky"
+  ],
+  "venue": "USENIX Security 2025",
+  "link": "https://www.usenix.org/conference/usenixsecurity25/presentation/ayzenshteyn",
+  "topic": "web"
+ },
+ {
+  "title": "MASLeak: Investigating and Exposing Intellectual Property Leakage Vulnerabilities in Multi-Agent Systems",
+  "authors": [
+   "Liwen Wang",
+   "Wenxuan Wang",
+   "Shuai Wang",
+   "Zongjie Li",
+   "Zhenlan Ji",
+   "Zongyi Lyu",
+   "Daoyuan Wu",
+   "Shing-Chi Cheung"
+  ],
+  "venue": "USENIX Security 2026",
+  "link": "https://www.usenix.org/conference/usenixsecurity26/presentation/wang-liwen",
+  "topic": "apps"
+ },
+ {
+  "title": "Autonomy Comes with Costs: Detecting Denial-of-Service Vulnerabilities Caused by Resource Abusing in LLM-based Agents",
+  "authors": [
+   "Jiaqi Luo",
+   "Jiarun Dai",
+   "Fengyu Liu",
+   "Songyang Peng",
+   "Youkun Shi",
+   "Tong Bu",
+   "Geng Hong",
+   "Xudong Pan",
+   "Yuan Zhang"
+  ],
+  "venue": "USENIX Security 2026",
+  "link": "https://www.usenix.org/conference/usenixsecurity26/presentation/luo",
+  "topic": "apps"
+ },
+ {
+  "title": "IsolateGPT: An Execution Isolation Architecture for LLM-Based Systems",
+  "authors": [
+   "Yuhao Wu",
+   "Franziska Roesner",
+   "Tadayoshi Kohno",
+   "Ning Zhang",
+   "Umar Iqbal"
+  ],
+  "venue": "NDSS 2025",
+  "link": "https://doi.org/10.14722/ndss.2025.241131",
+  "topic": "defenses"
+ },
+ {
+  "title": "When AIOps Become \"AI Oops\": Subverting LLM-driven IT Operations via Telemetry Manipulation",
+  "authors": [
+   "Dario Pasquini",
+   "Evgenios M. Kornaropoulos",
+   "Giuseppe Ateniese",
+   "Omer Akgul",
+   "Athanasios Theocharis",
+   "Petros Efstathopoulos"
+  ],
+  "venue": "USENIX Security 2026",
+  "link": "https://www.usenix.org/conference/usenixsecurity26/presentation/pasquini",
+  "topic": "apps"
+ }
+]

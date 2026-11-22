@@ -2,7 +2,8 @@
 """从 papers/*/article.md 和 awesome/meta.json 生成 Awesome-Agent-Security-Research 仓库。
 
 只输出一个英文 README：按主题分节，Benchmarks 在最前，一行一篇（题目、作者、会议），
-行尾 [Analysis] 链到本仓库里对应的解读；清单本身不含中文解读正文。
+每行以 [会议] [年份] 开头，有解读的行尾 [Analysis] 链到本仓库里对应的解读；
+awesome/extra.json 里是没有解读、手工核对过确属 Agent 安全的论文；清单本身不含中文解读正文。
 每篇论文在 awesome/meta.json 里有一条记录：
   topic      主分类，取值见 TOPICS
   authors    作者列表；缺失且论文链接是 arXiv 时自动抓取并写回
@@ -22,6 +23,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 META = ROOT / "awesome" / "meta.json"
+EXTRA = ROOT / "awesome" / "extra.json"  # 没有解读的论文（如顶会十年数据里筛出的），手工核对后加入
 OUT = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT.parent / "Awesome-Agent-Security-Research"
 SCOPE = "AI Agent 安全"
 RECENT = 10
@@ -32,10 +34,12 @@ TOPICS = [
      "Malicious, vulnerable, and harmful agent skills; skill marketplaces; skill vetting and least privilege."),
     ("tools", "MCP and Tool Chains", "mcp-and-tools.md",
      "Attacks and analyses on MCP servers, tool pools, third-party plugins, and agent dependencies."),
+    ("apps", "Agent Applications and Frameworks", "apps.md",
+     "Vulnerabilities in agent applications, agent frameworks, and multi-agent systems."),
     ("defenses", "Prompt Injection, Guardrails, and Permissions", "defenses.md",
-     "Prompt injection and jailbreak defenses, runtime guardrails, and permission models."),
+     "Prompt injection attacks and defenses, runtime guardrails, isolation architectures, and permission models."),
     ("web", "Agents on the Web and Privacy", "web-and-privacy.md",
-     "Web and mobile agents, agent detection and fingerprinting, content manipulation, and privacy leakage."),
+     "Web and mobile agents, detecting and deterring agents, content manipulation, and privacy leakage."),
     ("surveys", "Surveys and SoKs", "surveys.md",
      "Surveys, systematizations, and literature reviews of agent security."),
 ]
@@ -77,6 +81,18 @@ def fetch_arxiv_authors(arxiv_id):
         print(f"  arXiv 抓取失败 {arxiv_id}: {e}")
         return []
     return [" ".join(a.split()) for a in re.findall(r"<name>(.*?)</name>", xml)]
+
+
+def norm(title):
+    return re.sub(r"[^a-z0-9]", "", title.lower())
+
+
+def split_venue(venue):
+    """'ACM CCS 2026' -> ('CCS', '2026')；'ICLR 2026 Workshop' -> ('ICLR Workshop', '2026')"""
+    m = re.search(r"\b(20\d\d)\b", venue)
+    year = m.group(1) if m else ""
+    name = re.sub(r"\s+", " ", venue.replace(year, "")).strip()
+    return re.sub(r"^(ACM|IEEE) ", "", name), year
 
 
 def fmt_authors(authors):
@@ -122,6 +138,14 @@ def load():
             "topic": m["topic"],
             "benchmark": m.get("benchmark"),
         })
+    seen = {norm(r["title"]) for r in rows}
+    if EXTRA.exists():
+        for e in json.loads(EXTRA.read_text(encoding="utf-8")):
+            if norm(e["title"]) in seen:  # 已有解读的不重复
+                continue
+            rows.append({"slug": "", "title": e["title"], "authors": fmt_authors(e.get("authors", [])),
+                         "venue": e["venue"], "link": e.get("link", ""), "topic": e["topic"],
+                         "benchmark": e.get("benchmark")})
     if changed:
         META.write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
     return rows, missing
@@ -135,20 +159,28 @@ def anchor(title):
 
 
 def entry(r):
-    """一行一篇：题目（链到论文）. 作者. 会议. [解读]"""
+    """一行一篇：[会议] [年份] 题目（链到论文）. 作者. [解读]"""
+    name, year = split_venue(r["venue"])
     title = f"[{r['title']}]({r['link']})" if r["link"] else r["title"]
     if r["benchmark"]:
         title = f"**{r['benchmark']['name']}**: {title}"
-    parts = [title]
+    line = f"- [{name}] [{year}] {title}."
     if r["authors"]:
-        parts.append(r["authors"].rstrip("."))
-    parts.append(f"*{r['venue']}*")
-    return "- " + ". ".join(parts) + f". [[Analysis]]({ANALYSIS.format(slug=r['slug'])})"
+        line += f" {r['authors'].rstrip('.')}."
+    if r["slug"]:
+        line += f" [[Analysis]]({ANALYSIS.format(slug=r['slug'])})"
+    return line
+
+
+def order(r):
+    """年份新的在前；同年正式发表的排在 arXiv/预印本前面"""
+    name, year = split_venue(r["venue"])
+    return (-int(year or 0), name in ("arXiv", "Preprint"), name, r["title"])
 
 
 def main():
     rows, missing = load()
-    rows.sort(key=lambda r: r["slug"], reverse=True)
+    rows.sort(key=order)
     OUT.mkdir(parents=True, exist_ok=True)
 
     # benchmark 只出现在最前面的 Benchmarks 一节，不在主题里重复
@@ -162,7 +194,7 @@ def main():
     body = "\n\n".join(f"## {t}\n\n{d}\n\n" + "\n".join(entry(r) for r in rs) for t, d, rs in sections)
     readme = f"""# Awesome Agent Security Research
 
-A curated, daily-updated list of research papers on AI agent security, grouped by topic. Each entry links to the paper, and `[Analysis]` links to our write-up of it (in Chinese).
+A curated, daily-updated list of research papers on AI agent security, grouped by topic. Each entry gives the venue and year, the title (linked to the paper), and the authors. `[Analysis]` links to our write-up of the paper (in Chinese), where we have one.
 
 {len(rows)} papers so far.
 
