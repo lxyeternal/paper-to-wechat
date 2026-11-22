@@ -1,0 +1,13 @@
+[
+ {"page": 1, "bbox": [70, 72, 542, 172], "out": "assets/header.png", "dpi": 240},
+ {"page": 2, "bbox": [54, 80, 560, 151], "out": "assets/fig/fig1-supply-chain.png"},
+ {"page": 3, "bbox": [318, 80, 560, 195], "out": "assets/fig/fig2-pipeline.png"},
+ {"page": 6, "bbox": [50, 76, 560, 235], "out": "assets/result/fig5-content-shift.png"},
+ {"page": 8, "bbox": [50, 78, 560, 236], "out": "assets/result/fig8-accounts.png"},
+ {"page": 9, "bbox": [50, 78, 562, 237], "out": "assets/result/fig9-coordination.png"},
+ {"page": 10, "bbox": [50, 80, 298, 239], "out": "assets/result/fig11-exposure.png"},
+ {"page": 10, "bbox": [318, 80, 560, 252], "out": "assets/result/fig12-reference-share.png"},
+ {"page": 11, "bbox": [54, 133, 560, 264], "out": "assets/result/table3-assistants.png"},
+ {"page": 11, "bbox": [54, 270, 298, 469], "out": "assets/result/fig13-naming.png"},
+ {"page": 13, "bbox": [54, 80, 560, 204], "out": "assets/fig/fig14-traces.png"}
+]

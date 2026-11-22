@@ -1,5 +1,16 @@
 [
  {
+  "page": 1,
+  "bbox": [
+   100,
+   90,
+   512,
+   246
+  ],
+  "out": "assets/header.png",
+  "dpi": 240
+ },
+ {
   "page": 3,
   "bbox": [
    50,

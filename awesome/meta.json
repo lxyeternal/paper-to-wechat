@@ -1,0 +1,439 @@
+{
+ "2026-05-llm-agent-threat-survey": {
+  "topic": "surveys",
+  "authors": [
+   "Yuyou Gan",
+   "Yong Yang",
+   "Zhe Ma",
+   "Ping He",
+   "Rui Zeng",
+   "Yiming Wang",
+   "Qingming Li",
+   "Chunyi Zhou",
+   "Songze Li",
+   "Ting Wang",
+   "Yunjun Gao",
+   "Yingcai Wu",
+   "Shouling Ji"
+  ]
+ },
+ "2026-08-agent-behavior-safety-survey": {
+  "topic": "surveys",
+  "authors": [
+   "Xinjie Lai",
+   "Weihao Zuo",
+   "Zheng Wu",
+   "Tianjie Ju",
+   "Haodong Zhao",
+   "Xiaofeng Zhang",
+   "Zhuosheng Zhang",
+   "Gongshen Liu",
+   "Xinpeng Zhang",
+   "Pengzhou Cheng"
+  ],
+  "venue": "Preprint 2026",
+  "link": "https://github.com/zuo-dot/Behavior-Safety-of-Autonomous-Interactive-Agents"
+ },
+ "2026-08-agent-permissions": {
+  "topic": "defenses",
+  "authors": [
+   "Alexandra E. Michael",
+   "Franziska Roesner"
+  ]
+ },
+ "2026-08-agent-skill-security-tmade": {
+  "topic": "skills",
+  "authors": [
+   "Sanket Badhe",
+   "Priyanka Tiwari"
+  ]
+ },
+ "2026-08-agent-skills-survey": {
+  "topic": "skills",
+  "authors": [
+   "Yingli Zhou",
+   "Wang Shu",
+   "Yaodong Su",
+   "Wenchuan Du",
+   "Yixiang Fang",
+   "Xuemin Lin"
+  ]
+ },
+ "2026-08-agentflow-adg": {
+  "topic": "tools",
+  "authors": [
+   "Shenao Wang",
+   "Xinyi Hou",
+   "Yanjie Zhao",
+   "Xiao Cheng",
+   "Haoyu Wang"
+  ]
+ },
+ "2026-08-agentic-ai-survey": {
+  "topic": "surveys",
+  "authors": [
+   "Juhee Kim",
+   "Xiaoyuan Liu",
+   "Zhun Wang",
+   "Shi Qiu",
+   "Bo Li",
+   "Wenbo Guo",
+   "Dawn Song"
+  ]
+ },
+ "2026-08-agentic-security-survey": {
+  "topic": "surveys",
+  "authors": [
+   "Asif Shahriar",
+   "Md Nafiu Rahman",
+   "Sadif Ahmed",
+   "Farig Sadeque",
+   "Md Rizwan Parvez"
+  ]
+ },
+ "2026-08-colluskill": {
+  "topic": "skills",
+  "authors": [
+   "Puyu Zeng",
+   "Simeng Qin",
+   "Jingzhi Li",
+   "Ju Jia",
+   "Zheli Liu",
+   "Xiaojun Jia"
+  ]
+ },
+ "2026-08-dreamguard": {
+  "topic": "defenses",
+  "authors": [
+   "Wenhao Lin",
+   "Chenyu Yu",
+   "Xingwei Lin",
+   "Sicong Cao",
+   "Xiang Chen",
+   "Lei Xue",
+   "Le Yu",
+   "Letian Sha",
+   "Chunming Wu"
+  ]
+ },
+ "2026-08-hallucinated-skills": {
+  "topic": "skills",
+  "authors": [
+   "Weifeng Yuan",
+   "Wenbo Guo",
+   "Feng Dong",
+   "Haoyu Wang",
+   "Yang Liu"
+  ]
+ },
+ "2026-08-harmfulskillbench": {
+  "topic": "skills",
+  "authors": [
+   "Yukun Jiang",
+   "Yage Zhang",
+   "Michael Backes",
+   "Xinyue Shen",
+   "Yang Zhang"
+  ],
+  "benchmark": {
+   "name": "HarmfulSkillBench",
+   "focus": "Whether harmful (not malicious) skills placed in the tool context turn agent refusals into compliance."
+  }
+ },
+ "2026-08-jailbreakskill": {
+  "topic": "skills",
+  "authors": [
+   "Xiaoyu Wen",
+   "Jiajia Li",
+   "Zhida He",
+   "Peng Yu",
+   "Chenxu Wang",
+   "Han Qi",
+   "Ziyuan Zhou",
+   "Cheng Jin",
+   "Ying Wen",
+   "Xingcheng Xu",
+   "Shuyue Hu",
+   "Tianhang Zheng",
+   "Chaochao Lu",
+   "Qiaosheng Zhang"
+  ]
+ },
+ "2026-08-lasm-survey": {
+  "topic": "surveys",
+  "authors": [
+   "Kexin Chu"
+  ]
+ },
+ "2026-08-llm-pentest-survey": {
+  "topic": "surveys",
+  "authors": [
+   "Zheyuan He",
+   "Jiaxun Dong",
+   "Zihao Li",
+   "Ting Chen",
+   "Gelei Deng",
+   "Feng Luo",
+   "Jinkun Ji",
+   "Yuanlong Cao",
+   "Xiapu Luo"
+  ]
+ },
+ "2026-08-malicious-skills-wild": {
+  "topic": "skills",
+  "authors": [
+   "Yi Liu",
+   "Zhihao Chen",
+   "Yanjun Zhang",
+   "Gelei Deng",
+   "Yuekang Li",
+   "Jianting Ning",
+   "Leo Yu Zhang"
+  ]
+ },
+ "2026-08-malskillbench": {
+  "topic": "skills",
+  "exclude": true
+ },
+ "2026-08-malskills-neurosymbolic": {
+  "topic": "skills",
+  "authors": [
+   "Shenao Wang",
+   "Junjie He",
+   "Yanjie Zhao",
+   "Yayi Wang",
+   "Kan Yu",
+   "Haoyu Wang"
+  ]
+ },
+ "2026-08-secure-agent-skills-sok": {
+  "topic": "skills",
+  "authors": [
+   "Zhiyuan Li",
+   "Jingzheng Wu",
+   "Xiang Ling",
+   "Xing Cui",
+   "Tianyue Luo"
+  ]
+ },
+ "2026-08-skill-credential-leak": {
+  "topic": "skills",
+  "authors": [
+   "Zhihao Chen",
+   "Ying Zhang",
+   "Yi Liu",
+   "Gelei Deng",
+   "Yuekang Li",
+   "Yanjun Zhang",
+   "Jianting Ning",
+   "Leo Yu Zhang",
+   "Lei Ma",
+   "Zhiqiang Li"
+  ]
+ },
+ "2026-08-skills-wild-vulns": {
+  "topic": "skills",
+  "authors": [
+   "Yi Liu",
+   "Weizhe Wang",
+   "Ruitao Feng",
+   "Yao Zhang",
+   "Guangquan Xu",
+   "Gelei Deng",
+   "Yuekang Li",
+   "Leo Zhang"
+  ]
+ },
+ "2026-08-skillsafetybench": {
+  "topic": "skills",
+  "authors": [
+   "Chang Jin",
+   "An Wang",
+   "Zeming Wei",
+   "Kai Wang",
+   "Biaojie Zeng",
+   "Qiaosheng Zhang",
+   "Chao Yang",
+   "Jingjing Qu",
+   "Xia Hu",
+   "Xingcheng Xu"
+  ],
+  "benchmark": {
+   "name": "SkillSafetyBench",
+   "focus": "Agent safety when the request and the skill are benign but the attack sits in the skill's surroundings (helper scripts, memory, corpus, Docker config)."
+  }
+ },
+ "2026-08-skillvetbench": {
+  "topic": "skills",
+  "authors": [
+   "Ismail Hossain",
+   "Sai Puppala",
+   "Zhuoran Lu",
+   "Sajedul Talukder",
+   "Nan Jiang"
+  ],
+  "benchmark": {
+   "name": "SkillVetBench",
+   "focus": "Detection and sandbox verification of security risks in open agent skills, on real malicious and benign skills."
+  }
+ },
+ "2026-09-les-dissonances": {
+  "topic": "tools",
+  "authors": [
+   "Zichuan Li",
+   "Jian Cui",
+   "Xiaojing Liao",
+   "Luyi Xing"
+  ]
+ },
+ "2026-09-security-agents-slr": {
+  "topic": "surveys",
+  "authors": [
+   "Jingjing Nie",
+   "Jiawei Guo",
+   "Krishna Meda",
+   "Haipeng Cai"
+  ]
+ },
+ "2026-10-attacker-moves-second": {
+  "topic": "defenses",
+  "authors": [
+   "Milad Nasr",
+   "Nicholas Carlini",
+   "Chawin Sitawarin",
+   "Sander V. Schulhoff",
+   "Jamie Hayes",
+   "Michael Ilie",
+   "Juliette Pluto",
+   "Shuang Song",
+   "Harsh Chaudhari",
+   "Ilia Shumailov",
+   "Abhradeep Thakurta",
+   "Kai Yuanqing Xiao",
+   "Andreas Terzis",
+   "Florian Tramèr"
+  ]
+ },
+ "2026-10-chatbot-plugins": {
+  "topic": "tools",
+  "authors": [
+   "Yigitcan Kaya",
+   "Anton Landerer",
+   "Stijn Pletinckx",
+   "Michelle Zimmermann",
+   "Christopher Kruegel",
+   "Giovanni Vigna"
+  ]
+ },
+ "2026-10-llm-deanon": {
+  "topic": "web",
+  "authors": [
+   "Simon Lermen",
+   "Daniel Paleka",
+   "Joshua Swanson",
+   "Michael Aerni",
+   "Nicholas Carlini",
+   "Florian Tramèr"
+  ]
+ },
+ "2026-10-mcp-parasites": {
+  "topic": "tools",
+  "authors": [
+   "Shuli Zhao",
+   "Qinsheng Hou",
+   "Zihan Zhan",
+   "Yanhao Wang",
+   "Yuchong Xie",
+   "Yu Guo",
+   "Libo Chen",
+   "Shenghong Li",
+   "Zhi Xue"
+  ]
+ },
+ "2026-10-oss-vuln-agent": {
+  "topic": "tools",
+  "authors": [
+   "Yu Ji",
+   "Yang Wei",
+   "Yutao Hu",
+   "Haojun Zhao",
+   "Yueming Wu",
+   "Deqing Zou"
+  ]
+ },
+ "2026-10-skillscope": {
+  "topic": "skills",
+  "authors": [
+   "Jiangrong Wu",
+   "Yuhong Nan",
+   "Yixi Lin",
+   "Huaijin Wang",
+   "Yuming Xiao",
+   "Shuai Wang",
+   "Zibin Zheng"
+  ]
+ },
+ "2026-11-agentshield": {
+  "topic": "web",
+  "authors": [
+   "Moiz Ali",
+   "Nafis Karim",
+   "Rownak Islam",
+   "Jyotirmay Chauhan",
+   "Dhruv Kuchhal",
+   "Jason Polakis"
+  ]
+ },
+ "2026-11-geohunter": {
+  "topic": "web",
+  "authors": [
+   "Sean Tang",
+   "Peiran Wang",
+   "Ying Li",
+   "Esha Shivakumar",
+   "Tao Meng",
+   "Yuan Tian"
+  ]
+ },
+ "2026-11-module-shadowing": {
+  "topic": "tools",
+  "authors": [
+   "Shuai Yang",
+   "Enmeng Lu",
+   "Jinyu Fan",
+   "Gongce Cao",
+   "Yu Chen",
+   "Jiawei Xie",
+   "Feifei Zhao",
+   "Zhangsheng Wang",
+   "Yongyu Jiang",
+   "Yi Zeng"
+  ]
+ },
+ "2026-11-primobibench": {
+  "topic": "web",
+  "authors": [
+   "Qihang Cen",
+   "Tianshuo Cong",
+   "Da Song",
+   "Xinlei He",
+   "Jiaxing Song",
+   "Ke Xu",
+   "Qi Li"
+  ],
+  "benchmark": {
+   "name": "PriMobiBench",
+   "focus": "Visual privacy leakage from the screenshots that mobile GUI agents send to VLMs."
+  }
+ },
+ "2026-11-shibboleth": {
+  "topic": "web",
+  "authors": [
+   "Dario Pasquini",
+   "Reworr",
+   "Giuseppe Ateniese",
+   "Manish Bhatt",
+   "Sergej Epp"
+  ]
+ }
+}

@@ -1,0 +1,45 @@
+{
+  "title": "三个正常MCP工具，拼出一条窃密链",
+  "body": "你没装任何恶意 MCP server，只是让 Agent 帮你看一眼某个帖子，本地的 API Key 就被发到了别人邮箱。\n\n这篇 IEEE S&P 2026 来自上海交大、港科大和长亭科技，把这种攻击叫作寄生工具链。\n\n🧩 攻击怎么拼\n以前的 MCP 攻击都要先让用户装上恶意 server。这篇不需要，所有 server 都是正常的，攻击者只在公开内容里藏一段话。然后三类正常工具被模型串成一条链：\n· 外部摄取工具：抓网页、读帖子，把恶意文字引进上下文\n· 隐私访问工具：读本地文件，比如存着密钥的 mcp.json\n· 网络访问工具：发邮件、发帖，把读到的内容送出去\n三个工具可以来自三个互不相干的 server，单独审查哪一个都没有问题。\n\n📌 三个数\n· 27.2%：1360 个公开 server 里，370 个至少有一个工具能当这条链的零件\n· 9/10：用热门工具随机拼 10 条链，9 条得手。fetch 加 FileSystem 加 Gmail 这套常见办公配置，10 次中 8 次\n· 0/5 对几乎全中：同一条链，GPT-5 和 Claude 4.5 Sonnet 一次没中，DeepSeek-R1 和 Gemini 2.5 Flash 几乎每次都中\n\n🔍 两个细节\n· 有 2 个工具一个顶三个，比如执行命令的工具，能抓网页、能读文件、也能把数据发出去\n· 工具之间功能越相关越容易被串起来。唯一失败的那条链，三个工具毫不相干\n\n💡 一句话\n每个 server 都可信，不等于它们拼在一起还安全。\n\n🛡️ 给用 MCP 的人\n· 别开全自动执行，读文件、发邮件、执行命令保留人工确认\n· 不需要的 server 不要连，警惕同时能读外部、读本地、发网络的\n· 给出网目标设白名单\n· 换便宜模型前想一下，安全对齐也是选型指标\n\n📄 论文：Parasites in the Toolchain: A Large-Scale Analysis of Attacks on the MCP Ecosystem",
+  "tags": [
+    "AI安全",
+    "MCP",
+    "AIAgent",
+    "大模型安全",
+    "提示词注入",
+    "网络安全",
+    "论文分享"
+  ],
+  "collection": "AI Agent 安全",
+  "pages": [
+    [
+      {
+        "fig": "assets/header.png"
+      },
+      {
+        "fig": "assets/fig/fig2-attack.png",
+        "caption": "攻击三步：读到带恶意提示的帖子，读出本地配置文件，再用发邮件工具把内容发走。三个工具都是正常的"
+      }
+    ],
+    [
+      {
+        "fig": "assets/fig/fig3-mcpsec.png",
+        "caption": "普查三步：爬取工具描述，大模型判断工具能力，再到真实客户端里跑一遍确认"
+      },
+      {
+        "fig": "assets/result/fig4-stats.png",
+        "caption": "1062 个工具能当攻击链的零件：487 个能引入外部内容，406 个能读隐私，190 个能往外发"
+      }
+    ],
+    [
+      {
+        "fig": "assets/result/table7-chains.png",
+        "caption": "随机拼出的 10 条工具链有 9 条得手，失败的第 8 条三个工具毫不相干"
+      },
+      {
+        "fig": "assets/result/table8-models.png",
+        "caption": "同一条链换不同模型：GPT-5 和 Claude 4.5 Sonnet 全是 0/5，DeepSeek-R1 和 Gemini 2.5 Flash 几乎全中"
+      }
+    ]
+  ]
+}
