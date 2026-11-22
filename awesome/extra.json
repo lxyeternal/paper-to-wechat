@@ -265,5 +265,168 @@
   "venue": "USENIX Security 2026",
   "link": "https://www.usenix.org/conference/usenixsecurity26/presentation/pasquini",
   "topic": "apps"
+ },
+ {
+  "title": "Formalizing and Benchmarking Prompt Injection Attacks and Defenses",
+  "authors": [
+   "Yupei Liu",
+   "Yuqi Jia",
+   "Runpeng Geng",
+   "Jinyuan Jia",
+   "Neil Zhenqiang Gong"
+  ],
+  "venue": "USENIX Security 2024",
+  "link": "https://www.usenix.org/conference/usenixsecurity24/presentation/liu-yupei",
+  "topic": "defenses"
+ },
+ {
+  "title": "StruQ: Defending Against Prompt Injection with Structured Queries",
+  "authors": [
+   "Sizhe Chen",
+   "Julien Piet",
+   "Chawin Sitawarin",
+   "David Wagner"
+  ],
+  "venue": "USENIX Security 2025",
+  "link": "https://www.usenix.org/conference/usenixsecurity25/presentation/chen-sizhe",
+  "topic": "defenses"
+ },
+ {
+  "title": "PromptLocate: Localizing Prompt Injection Attacks",
+  "authors": [
+   "Yuqi Jia",
+   "Yupei Liu",
+   "Zhujun Shao",
+   "Jinyuan Jia",
+   "Neil Zhenqiang Gong"
+  ],
+  "venue": "S&P 2026",
+  "link": "https://doi.org/10.1109/sp63933.2026.00105",
+  "topic": "defenses"
+ },
+ {
+  "title": "Fun-tuning: Characterizing the Vulnerability of Proprietary LLMs to Optimization-Based Prompt Injection Attacks via the Fine-Tuning Interface",
+  "authors": [
+   "Andrey Labunets",
+   "Nishit V. Pandya",
+   "Ashish Hooda",
+   "Xiaohan Fu",
+   "Earlence Fernandes"
+  ],
+  "venue": "S&P 2025",
+  "link": "https://doi.org/10.1109/sp61157.2025.00121",
+  "topic": "defenses"
+ },
+ {
+  "title": "Overcoming the Retrieval Barrier: Indirect Prompt Injection in the Wild for LLM Systems",
+  "authors": [
+   "Hongyan Chang",
+   "Ergute Bao",
+   "Xinjian Luo",
+   "Ting Yu"
+  ],
+  "venue": "USENIX Security 2026",
+  "link": "https://www.usenix.org/conference/usenixsecurity26/presentation/chang-hongyan",
+  "topic": "defenses"
+ },
+ {
+  "title": "GPTracker: A Large-Scale Measurement of Misused GPTs",
+  "authors": [
+   "Xinyue Shen",
+   "Shen Yun",
+   "Michael Backes",
+   "Yang Zhang"
+  ],
+  "venue": "S&P 2025",
+  "link": "https://doi.org/10.1109/sp61157.2025.00118",
+  "topic": "apps"
+ },
+ {
+  "title": "LLMThief: Evaluating Configuration Leaking Risks in Commercial LLM App Stores",
+  "authors": [
+   "Pinji Chen",
+   "Jinlong Jiang",
+   "Jianjun Chen",
+   "Feiran Qin",
+   "Minghao Zhang",
+   "Jiahe Zhang",
+   "Haixin Duan",
+   "Kaiwen Shen",
+   "Hui Jiang"
+  ],
+  "venue": "S&P 2026",
+  "link": "https://doi.org/10.1109/sp63933.2026.00195",
+  "topic": "apps"
+ },
+ {
+  "title": "Beyond Jailbreak: Unveiling Risks in LLM Applications Arising from Blurred Capability Boundaries",
+  "authors": [
+   "Yunyi Zhang",
+   "Shibo Cui",
+   "Baojun Liu",
+   "Jingkai Yu",
+   "Min Zhang",
+   "Fan Shi",
+   "Han Zheng"
+  ],
+  "venue": "NDSS 2026",
+  "link": "https://doi.org/10.14722/ndss.2026.242941",
+  "topic": "apps"
+ },
+ {
+  "title": "Prompt-to-SQL Injections in LLM-Integrated Web Applications: Risks and Defenses",
+  "authors": [
+   "Rodrigo Pedro",
+   "Miguel E. Coimbra",
+   "Daniel Castro",
+   "Paulo Carreira",
+   "Nuno Rebelo dos Santos"
+  ],
+  "venue": "ICSE 2025",
+  "link": "https://doi.org/10.1109/icse55347.2025.00007",
+  "topic": "apps"
+ },
+ {
+  "title": "When LLMs Go Online: The Emerging Threat of Web-Enabled LLMs",
+  "authors": [
+   "Hanna Kim",
+   "Minkyoo Song",
+   "Seung Ho Na",
+   "Seungwon Shin",
+   "Kimin Lee"
+  ],
+  "venue": "USENIX Security 2025",
+  "link": "https://www.usenix.org/conference/usenixsecurity25/presentation/kim-hanna",
+  "topic": "web"
+ },
+ {
+  "title": "Are CAPTCHAs Still Bot-hard? Generalized Visual CAPTCHA Solving with Agentic Vision Language Model",
+  "authors": [
+   "Xiwen Teoh",
+   "Yun Lin",
+   "Siqi Li",
+   "Ruofan Liu",
+   "Avi Sollomoni",
+   "Yaniv Harel",
+   "Jin Song Dong"
+  ],
+  "venue": "USENIX Security 2025",
+  "link": "https://www.usenix.org/conference/usenixsecurity25/presentation/teoh",
+  "topic": "web"
+ },
+ {
+  "title": "Big Help or Big Brother? Auditing Tracking, Profiling, and Personalization in Generative AI Assistants",
+  "authors": [
+   "Yash Vekaria",
+   "Aurelio Loris Canino",
+   "Jonathan Levitsky",
+   "Alex Ciechonski",
+   "Patricia Callejo",
+   "Anna Maria Mandalari",
+   "Zubair Shafiq"
+  ],
+  "venue": "USENIX Security 2025",
+  "link": "https://www.usenix.org/conference/usenixsecurity25/presentation/vekaria",
+  "topic": "web"
  }
 ]

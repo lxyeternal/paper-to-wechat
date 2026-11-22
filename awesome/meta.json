@@ -178,7 +178,8 @@
    "Jinkun Ji",
    "Yuanlong Cao",
    "Xiapu Luo"
-  ]
+  ],
+  "exclude": true
  },
  "2026-08-malicious-skills-wild": {
   "topic": "skills",
@@ -306,7 +307,8 @@
    "Jiawei Guo",
    "Krishna Meda",
    "Haipeng Cai"
-  ]
+  ],
+  "exclude": true
  },
  "2026-10-attacker-moves-second": {
   "topic": "defenses",
@@ -347,7 +349,8 @@
    "Michael Aerni",
    "Nicholas Carlini",
    "Florian Tramèr"
-  ]
+  ],
+  "exclude": true
  },
  "2026-10-mcp-parasites": {
   "topic": "tools",
@@ -448,5 +451,15 @@
    "Manish Bhatt",
    "Sergej Epp"
   ]
+ },
+ "2025-08-llm-app-store-insecurity": {
+  "topic": "apps",
+  "authors": [
+   "Xinyi Hou",
+   "Yanjie Zhao",
+   "Haoyu Wang"
+  ],
+  "venue": "S&P 2025",
+  "link": "https://doi.org/10.1109/sp61157.2025.00117"
  }
 }

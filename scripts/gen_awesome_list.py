@@ -36,11 +36,11 @@ TOPICS = [
     ("tools", "MCP and Tool Chains", "mcp-and-tools.md",
      "Attacks and analyses on MCP servers, tool pools, third-party plugins, and agent dependencies."),
     ("apps", "Agent Applications and Frameworks", "apps.md",
-     "Vulnerabilities in agent applications, agent frameworks, and multi-agent systems."),
+     "Vulnerabilities in agent and LLM-integrated applications, agent frameworks, LLM app stores, and multi-agent systems."),
     ("defenses", "Prompt Injection, Guardrails, and Permissions", "defenses.md",
      "Prompt injection attacks and defenses, runtime guardrails, isolation architectures, and permission models."),
     ("web", "Agents on the Web and Privacy", "web-and-privacy.md",
-     "Web and mobile agents, detecting and deterring agents, content manipulation, and privacy leakage."),
+     "Web and mobile agents, agents misused as attackers, detecting and deterring agents, content manipulation, and privacy leakage."),
     ("surveys", "Surveys and SoKs", "surveys.md",
      "Surveys, systematizations, and literature reviews of agent security."),
 ]
@@ -112,10 +112,10 @@ def load():
     for f in sorted((ROOT / "papers").glob("*/article.md")):
         text = f.read_text(encoding="utf-8")
         fm = text.split("---")[1]
-        if field(fm, "collection") != SCOPE:
-            continue
         slug = f.parent.name
         m = meta.get(slug)
+        if field(fm, "collection") != SCOPE and not m:  # 其它合集的论文只有在 meta.json 里点名才收
+            continue
         if not m or not m.get("topic"):
             missing.append(slug)
             continue
