@@ -1,0 +1,10 @@
+[
+ {"page":1,"bbox":[100,48,512,190],"out":"assets/header.png","dpi":240},
+ {"page":1,"bbox":[328,203,547,439],"out":"assets/result/fig1-gap.png","dpi":260},
+ {"page":3,"bbox":[49,51,563,267],"out":"assets/fig/fig2-setup.png","dpi":260},
+ {"page":6,"bbox":[49,50,563,274],"out":"assets/fig/fig3-opensc.png","dpi":260},
+ {"page":8,"bbox":[46,48,565,179],"out":"assets/result/fig4-propagation.png","dpi":260},
+ {"page":9,"bbox":[70,80,540,230],"out":"assets/result/table3-prompts.png","dpi":260},
+ {"page":10,"bbox":[71,213,540,492],"out":"assets/result/fig8-prompting.png","dpi":260},
+ {"page":12,"bbox":[316,88,559,148],"out":"assets/result/table4-recognize.png","dpi":260}
+]

@@ -462,5 +462,14 @@
   ],
   "venue": "S&P 2025",
   "link": "https://doi.org/10.1109/sp61157.2025.00117"
+ },
+ "2026-11-agents-propagate-vulns": {
+  "topic": "apps",
+  "authors": [
+   "Chenhao Sun",
+   "Niels Mündler-Sasahara",
+   "Mark Vero",
+   "Martin Vechev"
+  ]
  }
 }
