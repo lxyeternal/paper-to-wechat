@@ -6,7 +6,7 @@
 
 软件供应链安全 × AI Agent 安全｜S&P · CCS · USENIX Security · NDSS · ICSE · FSE
 
-![single papers](https://img.shields.io/badge/单篇解读-54-2B4EFF)
+![single papers](https://img.shields.io/badge/单篇解读-55-2B4EFF)
 ![roundups](https://img.shields.io/badge/会议盘点-18-E5383B)
 ![platforms](https://img.shields.io/badge/同步发布-公众号%20%7C%20小红书-07C160)
 ![driven by](https://img.shields.io/badge/driven%20by-Claude%20Code-D97706)
@@ -51,7 +51,7 @@
 <!-- PAPER-INDEX:START -->
 
 <details open>
-<summary><b>🤖 AI Agent 安全</b>（37 篇）</summary>
+<summary><b>🤖 AI Agent 安全</b>（38 篇）</summary>
 
 | 时间 | 会议 | 论文 | 看点 | 解读 |
 |---|---|---|---|---|
@@ -59,6 +59,7 @@
 | 2026-11 | ACM CCS 2026 | [PriMobiBench: Characterizing Visual Privacy Leakage in VLM-Driven Mobile GUI Agents](https://arxiv.org/abs/2609.13873) | 屏幕隐私被读出82.5% · 画像还原率近七成 · 遮挡后泄露降一半 | [原稿](papers/2026-11-primobibench/article.md) |
 | 2026-11 | arXiv 2026 | [Characterizing LLM Agent Behaviors in Module Shadowing Environments](https://arxiv.org/abs/2610.40716) | 间接遮蔽触发率86.7% · 识破机制仍有三成中招 · 79%中招后报告未提 | [原稿](papers/2026-11-module-shadowing/article.md) |
 | 2026-11 | arXiv 2026 | [GEOHunter: Mapping a Generative Engine Optimization Network in the Wild](https://arxiv.org/abs/2611.26564) | 46万篇软文喂给AI · 9个AI助手全部引用 · 账号中位数仅9个粉丝 | [原稿](papers/2026-11-geohunter/article.md) |
+| 2026-11 | ICSE 2027 | [Automated Safety Analysis for Agentic Workflows](https://arxiv.org/abs/2611.28469) | 框架原生校验0检出 · 大模型审查误报五到七成 · 21个真实仓库36个新bug | [原稿](papers/2026-11-apsis/article.md) |
 | 2026-11 | IEEE S&P 2027 | [AgentShield: Fortifying Web Applications Against AI Agents and Agentic Browsers](https://arxiv.org/abs/2610.41181) | 本地Agent绕过多数反爬 · 反应节奏暴露Agent身份 · 让Agent装人反而更像机器 | [原稿](papers/2026-11-agentshield/article.md) |
 | 2026-11 | arXiv 2026 | [Coding Agents Propagate Vulnerabilities in Code Bases](https://arxiv.org/abs/2611.11455) | 安全实现率平均掉35点 · 七成能认出自己写的漏洞 · 76%说是照着旧代码写的 | [原稿](papers/2026-11-agents-propagate-vulns/article.md) |
 | 2026-10 | ACM CCS 2026 | [SkillScope: Toward Fine-Grained Least-Privilege Enforcement for Agent Skills](https://arxiv.org/abs/2605.05868) | 6590个真实技能存在越权 · 越权行为减少88.56% · 按任务放行不删功能 | [原稿](papers/2026-10-skillscope/article.md) |

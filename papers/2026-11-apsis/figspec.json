@@ -1,0 +1,9 @@
+[{"page":1,"bbox":[50,48,562,158],"out":"assets/header.png","dpi":240},
+ {"page":2,"bbox":[311,155,566,228],"out":"assets/fig/fig2-loop-code.png","dpi":280},
+ {"page":3,"bbox":[47,47,303,90],"out":"assets/fig/fig3-ir.png","dpi":300},
+ {"page":3,"bbox":[47,147,303,187],"out":"assets/fig/fig4-pipeline.png","dpi":300},
+ {"page":3,"bbox":[321,76,554,183],"out":"assets/result/table1-reports.png","dpi":280},
+ {"page":4,"bbox":[55,58,548,184],"out":"assets/fig/table2-categories.png","dpi":260},
+ {"page":9,"bbox":[321,76,554,249],"out":"assets/result/table5-baselines.png","dpi":280},
+ {"page":10,"bbox":[54,232,290,314],"out":"assets/result/fig8-ablation.png","dpi":300},
+ {"page":10,"bbox":[53,59,559,209],"out":"assets/result/table6-newbugs.png","dpi":260}]

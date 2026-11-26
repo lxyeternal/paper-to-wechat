@@ -1,0 +1,70 @@
+{
+  "title": "Agent工作流连错线，框架查不出",
+  "body": "Agent 死循环烧掉 4.7 万美元、并发写入静默丢数据、审批节点被绕过……这些事故里没有提示注入，也不是模型犯傻，问题出在工作流本身怎么连。一篇 ICSE 2027 论文做了个静态分析器，部署前就能查出来。\n\n🧩 问题在哪\n现在的 Agent 应用大多用 LangGraph、AutoGen、Flowise 这类框架搭：模型、工具、路由、共享状态、人工审批连成一张图。图连错了照样能编译能跑，跑到某个分支才炸。比如 verify 永远跳回 analyze、没有边通往终点，六行代码每行都对，合起来就是死循环。\n\n🔍 怎么做的\n· 翻了 13 个框架的 861 份 issue，整理出 783 个工作流 bug，分成六类\n· 关键发现：只有约四分之一光看图的形状就能发现，四分之三要看语义，比如某个输入是不是必填、并发写同一字段时是合并还是覆盖、某个角色能不能调工具\n· 所以 APSIS 把各框架代码统一翻译成带语义标注的图，每类 bug 写成一条规则去匹配，直接指出是哪一步、哪条边\n\n📌 三个数\n· 0：框架自带的校验器，135 个真实 bug 一个都没报\n· 49%~67%：让 GPT-5.5、Opus-4.8、DeepSeek-V4 直接读代码找 bug，修好的版本也被误报的比例\n· 36：拿去扫 40 多个开源 Agent 项目，在 NVIDIA NeMo、LangChain 等 21 个仓库挖出的新 bug，33 个已修复\n\nAPSIS 整体精确率 0.91、召回率 0.84，单个工作流 0.7 秒。去掉语义标注只看图形状，召回率掉到 0.50。\n\n💡 一句话\n能编译不代表能停下来，Agent 的安全边界有一半画在编排图上。\n\n🛡️ 给搭 Agent 的人\n· 每个循环设一个不依赖模型输出的上界，别只靠模型说“做完了”\n· 并行写的状态字段检查有没有声明合并方式，LangGraph 默认覆盖\n· 记忆库、存储、客户端会话别在构建时就绑死，容易被所有租户共用\n· 官方示例也有 bug，照抄前过一遍\n\n📄 论文：Automated Safety Analysis for Agentic Workflows（ICSE 2027）",
+  "tags": [
+    "AI安全",
+    "AIAgent",
+    "智能体",
+    "大模型应用",
+    "网络安全",
+    "论文分享"
+  ],
+  "collection": "AI Agent 安全",
+  "pages": [
+    [
+      {
+        "fig": "assets/header.png"
+      },
+      {
+        "fig": "assets/fig/fig2-loop-code.png",
+        "caption": "verify 永远跳回 analyze，没有边通往终点，一次运行烧掉 4.7 万美元"
+      },
+      {
+        "fig": "assets/fig/fig3-ir.png",
+        "caption": "翻译成图后，红色虚线就是缺的那条出口边"
+      }
+    ],
+    [
+      {
+        "fig": "assets/result/table5-baselines.png",
+        "caption": "框架自带校验召回 0，CodeQL 0.07，大模型误报率五到七成"
+      },
+      {
+        "fig": "assets/result/fig8-ablation.png",
+        "caption": "浅色只看图形状，深色加上语义：卡死类和状态类召回涨得最多"
+      }
+    ],
+    [
+      {
+        "fig": "assets/result/table1-reports.png",
+        "caption": "13 个框架 861 份 issue，约四分之三是语义层面的 bug"
+      },
+      {
+        "fig": "assets/fig/fig4-pipeline.png",
+        "caption": "做法：各框架代码翻译成统一的图，再用规则库匹配"
+      }
+    ],
+    [
+      {
+        "fig": "assets/result/table6-newbugs.png",
+        "clip": [
+          0,
+          0,
+          0.455,
+          1
+        ],
+        "caption": "在真实项目挖出的新 bug（节选 15 个）"
+      },
+      {
+        "fig": "assets/result/table6-newbugs.png",
+        "clip": [
+          0.455,
+          0,
+          1,
+          1
+        ],
+        "caption": "对应类别、框架和 issue，全部已修复"
+      }
+    ]
+  ]
+}
