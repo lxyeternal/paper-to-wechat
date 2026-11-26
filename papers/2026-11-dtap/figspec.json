@@ -1,0 +1,10 @@
+[{"page":1,"bbox":[92,50,520,226],"out":"assets/header.png","dpi":240},
+ {"page":1,"bbox":[108,536,504,668],"out":"assets/result/fig1-overview.png","dpi":280},
+ {"page":2,"bbox":[87,46,507,249],"out":"assets/fig/fig2-platform.png","dpi":260},
+ {"page":8,"bbox":[100,54,508,272],"out":"assets/fig/fig3-redagent.png","dpi":260},
+ {"page":4,"bbox":[108,88,506,430],"out":"assets/fig/table1-cases.png","dpi":260},
+ {"page":6,"bbox":[108,70,506,128],"out":"assets/fig/table2-compare.png","dpi":280},
+ {"page":9,"bbox":[104,52,508,174],"out":"assets/fig/fig4-stats.png","dpi":280},
+ {"page":11,"bbox":[108,112,506,277],"out":"assets/result/table3-asr.png","dpi":280},
+ {"page":12,"bbox":[286,321,506,417.5],"out":"assets/result/table5-vectors.png","dpi":300},
+ {"page":12,"bbox":[107,56,506,185],"out":"assets/result/fig6-crm.png","dpi":280}]

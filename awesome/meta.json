@@ -484,5 +484,31 @@
    "Yuan Tian",
    "Yu Feng"
   ]
+ },
+ "2026-11-dtap": {
+  "topic": "defenses",
+  "benchmark": {
+   "name": "DTap-Bench",
+   "focus": "Red-teaming agents in 50+ simulated real-world apps with prompt, tool, skill, and environment injections, judged by checking environment state."
+  },
+  "authors": [
+   "Zhaorun Chen",
+   "Xun Liu",
+   "Haibo Tong",
+   "Chengquan Guo",
+   "Yuzhou Nie",
+   "Jiawei Zhang",
+   "Mintong Kang",
+   "Chejian Xu",
+   "Qichang Liu",
+   "Xiaogeng Liu",
+   "Tianneng Shi",
+   "Chaowei Xiao",
+   "Sanmi Koyejo",
+   "Percy Liang",
+   "Wenbo Guo",
+   "Dawn Song",
+   "Bo Li"
+  ]
  }
 }
