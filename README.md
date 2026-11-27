@@ -6,7 +6,7 @@
 
 软件供应链安全 × AI Agent 安全｜S&P · CCS · USENIX Security · NDSS · ICSE · FSE
 
-![single papers](https://img.shields.io/badge/单篇解读-56-2B4EFF)
+![single papers](https://img.shields.io/badge/单篇解读-57-2B4EFF)
 ![roundups](https://img.shields.io/badge/会议盘点-18-E5383B)
 ![platforms](https://img.shields.io/badge/同步发布-公众号%20%7C%20小红书-07C160)
 ![driven by](https://img.shields.io/badge/driven%20by-Claude%20Code-D97706)
@@ -122,10 +122,11 @@
 </details>
 
 <details>
-<summary><b>📊 开源与安全测量</b>（9 篇）</summary>
+<summary><b>📊 开源与安全测量</b>（10 篇）</summary>
 
 | 时间 | 会议 | 论文 | 看点 | 解读 |
 |---|---|---|---|---|
+| 2026-11 | IEEE TIFS 2026 | [CyberSploit: A Large-Scale Multi-Source Vulnerability PoC Dataset](https://dangwenjing.github.io/Cybersploit) | 六成PoC没有CVE编号 · 跨源补全可复现翻三倍 · 重放PoC查出122个漏修 | [原稿](papers/2026-11-cybersploit/article.md) |
 | 2026-10 | NDSS 2026 🏆 | [One Email, Many Faces: A Deep Dive into Identity Confusion in Email Aliases](https://dx.doi.org/10.14722/ndss.2026.230148) | 获当年最佳论文奖 · 没有平台能挡住全部别名 · 一个邮箱刷出139个账号 | [原稿](papers/2026-10-email-alias/article.md) |
 | 2026-08 | ASE 2026 | [Benchmarking Automated Security Patch Backporting: How Far Are We?](https://arxiv.org/abs/2608.17671) | 1234例补丁回移基准 · 跨调用链改动是死穴 · 难补丁成功率跌到24% | [原稿](papers/2026-08-porting-benchmark/article.md) |
 | 2026-08 | USENIX Security 2026 | [SoK: History Doesn't Repeat Itself, but Android Design-Level Vulnerabilities Rhyme in OpenHarmony](https://doi.org/10.5281/zenodo.20655878) | 116篇论文提炼56设计漏洞 · 鸿蒙从零重写仍中招24个 · 设计漏洞会跨系统押韵 | [原稿](papers/2026-08-openharmony-dlv-sok/article.md) |

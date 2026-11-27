@@ -1,0 +1,55 @@
+{
+ "title": "38万份漏洞PoC数据集，开放检索申请",
+ "body": "漏洞 PoC 数据集 CyberSploit 正式开放：网站可直接检索，完整数据面向研究者申请。天津大学、南开大学、南洋理工大学团队整理，持续更新，当前 v2026.11 版。\n\n📦 数据集里有什么\n· 38 万份 PoC 报告，来自 Exploit-DB、Packet Storm、缺陷追踪、厂商公告、邮件列表、代码仓库等 13 个来源\n· 覆盖 8.9 万个 CVE，3917 个厂商、569 类 CWE\n· 23.9 万份没标 CVE 编号的 PoC 也收了，按 CVE 索引的资源里查不到它们\n· 15.7 万份代码型 PoC，15 种语言；其余是复现步骤、请求报文等文本型\n· CISA 已知被利用漏洞（KEV）71.4% 能找到 PoC\n\n🧱 每份 PoC 都整理过\n· 拆成 8 个要素：触发步骤、验证条件、测试平台、软件版本、标题、作者、时间、参考链接\n· 没标 CVE 的尽量找回编号\n· 缺的信息用同一漏洞的其他来源补上，已补全 8.6 万份；80 份人工复现，能跑通的从 14 份增到 43 份\n\n🔍 怎么查\n· 关键词、CVE、组件名都能搜，可叠加版本、平台、PoC 形式、漏洞类型、作者、时间\n· 一键筛 KEV、完整 PoC、多源佐证、无 CVE；还能筛有无触发步骤、payload、崩溃栈、附件\n· 点开报告：要素齐不齐、对应 CVE 和 CWE、这个漏洞共有几份 PoC 来自几个来源\n\n📮 怎么拿完整数据\n检索页只展示元数据。完整 PoC 代码、复现步骤、验证条件和附件面向研究者申请：\n① 在检索页把记录加入申请清单，一键提交\n② 或发邮件到 dangwenjing@tju.edu.cn，写明姓名、单位、用途和关心的 CVE 范围\n仅限研究与防御用途，不得再分发\n\n🤝 合作与贡献\n· 欢迎在 PoC 关联、补全、验证、迁移、可信度等方向合作\n· 新 PoC 可邮件提交，审核后收录并署名；未修复漏洞请先走协调披露\n· 问题反馈可在 GitHub 仓库提 issue\n\n📚 附带一份 PoC 研究综述：64 篇顶会顶刊论文，2026 年就有 23 篇\n\n🌐 网站：dangwenjing.github.io/Cybersploit\n📄 相关论文：IEEE TIFS 2026、FSE 2025",
+ "tags": [
+  "网络安全",
+  "漏洞",
+  "数据集",
+  "开源数据集",
+  "CVE",
+  "软件供应链安全",
+  "科研"
+ ],
+ "collection": "开源与安全测量",
+ "pages": [
+  [
+   {
+    "fig": "assets/header.png"
+   },
+   {
+    "fig": "assets/fig/fig9-search.png",
+    "caption": "检索页：按组件、版本、平台等要素组合筛选"
+   }
+  ],
+  [
+   {
+    "fig": "assets/fig/fig11-detail.png",
+    "caption": "报告详情：要素、对应 CVE、多源佐证，一键加入申请"
+   },
+   {
+    "fig": "assets/fig/fig10-insights.png",
+    "caption": "检索结果的年份、漏洞类型、PoC 形式分布"
+   }
+  ],
+  [
+   {
+    "fig": "assets/result/fig5-coverage.png",
+    "caption": "覆盖面：KEV 71.4%，1999 年至今持续覆盖"
+   },
+   {
+    "fig": "assets/fig/fig3-compare.png",
+    "caption": "与 Exploit-DB、PoC-in-GitHub 等 10 个资源对比"
+   }
+  ],
+  [
+   {
+    "fig": "assets/fig/fig4-pipeline.png",
+    "caption": "每份 PoC 的整理流程与 8 个关键要素"
+   },
+   {
+    "fig": "assets/fig/fig12-survey.png",
+    "caption": "附带的 PoC 研究综述：64 篇论文"
+   }
+  ]
+ ]
+}

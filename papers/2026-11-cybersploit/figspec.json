@@ -1,0 +1,13 @@
+[{"page":1,"bbox":[88,140,1192,770],"out":"assets/header.png","dpi":200},
+ {"page":2,"bbox":[92,80,1188,940],"out":"assets/fig/fig2-contrib.png","dpi":200},
+ {"page":3,"bbox":[92,280,1188,1080],"out":"assets/fig/fig3-compare.png","dpi":200},
+ {"page":4,"bbox":[92,80,1188,700],"out":"assets/fig/fig4-pipeline.png","dpi":200},
+ {"page":5,"bbox":[96,235,1185,900],"out":"assets/result/fig5-coverage.png","dpi":200},
+ {"page":5,"bbox":[96,940,1185,1418],"out":"assets/result/fig6-quality.png","dpi":200},
+ {"page":5,"bbox":[96,1452,1185,1915],"out":"assets/result/fig7-usable.png","dpi":200},
+ {"page":6,"bbox":[92,80,1188,585],"out":"assets/result/fig8-impact.png","dpi":200},
+ {"page":7,"bbox":[92,40,1188,792],"out":"assets/fig/fig9-search.png","dpi":200},
+ {"page":7,"bbox":[92,800,1188,1302],"out":"assets/fig/fig10-insights.png","dpi":200},
+ {"page":8,"bbox":[0,0,1078,653],"out":"assets/fig/fig11-detail.png","dpi":200},
+ {"page":9,"bbox":[100,855,1182,1315],"out":"assets/fig/fig12-survey.png","dpi":200},
+ {"page":9,"bbox":[100,290,1182,832],"out":"assets/fig/fig13-pubs.png","dpi":200}]
